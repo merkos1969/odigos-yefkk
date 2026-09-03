@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#07111f">
-<title>ΕΞΩΤΕΡΙΚΗ ΦΡΟΥΡΗΣΗ — V3.7</title>
+<title>ΕΞΩΤΕΡΙΚΗ ΦΡΟΥΡΗΣΗ — V4.45</title>
 <style>
 :root{
   --bg:#050a12; --panel:#0b1422; --panel2:#101d2e; --text:#f3f7fb;
@@ -38,7 +38,7 @@ input,select{width:100%;background:#081321;border:1px solid var(--line);color:#f
 .calNoteBadge{position:absolute;left:7px;bottom:7px;font-size:11px;font-weight:900;color:#37415a;background:#c8c8f2;padding:5px 7px;border-radius:9px;max-width:calc(100% - 55px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hasNote{box-shadow:inset 0 0 0 2px rgba(168,117,255,.5)}
 @media(max-width:650px){.calMonthTitle{font-size:25px}.calGrid{gap:7px;padding:8px}.calCell{min-height:92px;padding:7px;border-radius:15px}.calNum{font-size:15px}.calShiftBadge{right:5px;bottom:5px;min-width:36px;padding:7px 4px}.shiftPalette{gap:8px;border-width:9px}.shiftPalette button{height:50px;font-size:15px}.calTotals{grid-template-columns:1fr;gap:5px}.calWeek div{font-size:10px}}
 
-/* V3.7 — Premium left sidebar / mobile drawer */
+/* V4.45 — Premium left sidebar / mobile drawer */
 .side{width:258px;padding:18px 14px 16px;background:linear-gradient(180deg,rgba(2,10,19,.98),rgba(4,15,25,.98));border-right:1px solid rgba(72,255,154,.20);box-shadow:10px 0 45px rgba(0,0,0,.24);overflow-y:auto}
 .sideBrand{padding:6px 4px 18px;border-bottom:1px solid rgba(56,217,255,.12);margin-bottom:12px}.brandMark{width:86px;height:86px;margin:0 auto 12px;border:2px solid var(--green);border-radius:24px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--green);font-weight:950;font-size:16px;letter-spacing:1px;background:radial-gradient(circle,rgba(72,255,154,.14),rgba(56,217,255,.03) 65%,transparent);box-shadow:0 0 28px rgba(72,255,154,.15),inset 0 0 20px rgba(56,217,255,.06)}
 .logo{padding:0;text-align:center}.logo b{font-size:17px;letter-spacing:.6px}.logo small{display:block;margin-top:5px;font-size:11px}.nav button{position:relative;min-height:48px;padding:11px 13px;font-size:14px;font-weight:750;border:1px solid transparent;transition:.18s ease}.nav button:hover{transform:translateX(2px);background:rgba(56,217,255,.06)}.nav button.active{background:linear-gradient(90deg,rgba(72,255,154,.17),rgba(56,217,255,.07));border-color:rgba(72,255,154,.20);box-shadow:inset 3px 0 var(--green),0 8px 25px rgba(0,0,0,.14);color:#fff}.sideClose{display:none}.menuToggle{display:none;width:46px;height:46px;border:1px solid rgba(72,255,154,.22);background:rgba(8,20,32,.9);color:var(--green);border-radius:13px;font-size:23px;box-shadow:0 0 18px rgba(72,255,154,.08)}
@@ -223,7 +223,7 @@ html[data-theme="light"] .yefkkSignature:before{
 
 
 <style id="v437-main-net-prominence">
-/* V4.38: Ο κύριος καθαρός μισθός έχει ίδιο οπτικό βάρος με τα καθαρά πρόσθετα. */
+/* V4.40: Ο κύριος καθαρός μισθός έχει ίδιο οπτικό βάρος με τα καθαρά πρόσθετα. */
 .section.card .grid2 > div > .value { font-size: 42px !important; font-weight: 950 !important; line-height: 1.05 !important; }
 .section.card .grid2 > div:nth-child(3) > .value { font-size: 42px !important; font-weight: 950 !important; line-height: 1.05 !important; }
 @media (max-width: 520px) {
@@ -241,8 +241,112 @@ html[data-theme="light"] .yefkkSignature:before{
 .monthly-total-label{font-size:clamp(1rem,3.8vw,1.35rem);font-weight:800;color:#aebed0;line-height:1.3}.monthly-total-label b{color:#65ff39}
 .monthly-total-value{font-size:clamp(3.4rem,12vw,5.5rem);line-height:1.02;font-weight:950;color:#fff;letter-spacing:-.04em;text-shadow:0 0 22px rgba(50,255,130,.35);margin-top:7px}
 </style>
+
+<style id="v439-full-print-report">
+@media print{
+  @page{size:A4 portrait;margin:12mm 10mm}
+  html,body{background:#fff!important;color:#111!important;min-height:auto!important}
+  body{font-size:10.5pt!important;line-height:1.35!important}
+  body::before{content:"ΕΞΩΤΕΡΙΚΗ ΦΡΟΥΡΗΣΗ — ΠΛΗΡΗΣ ΕΚΤΥΠΩΣΗ";display:block;text-align:center;font-size:18pt;font-weight:900;letter-spacing:.3px;color:#111;margin:0 0 8mm;padding-bottom:4mm;border-bottom:2px solid #1aa875}
+  /* Εκτυπώνονται μόνο Προφίλ, Μισθολόγιο και Σύνταξη. */
+  .page{display:none!important;visibility:hidden!important}
+  #profile,#salary,#pension{display:block!important;visibility:visible!important}
+  #profile{break-after:page;page-break-after:always}
+  #salary{break-after:page;page-break-after:always}
+  #pension{break-after:auto;page-break-after:auto}
+  /* Κρύβουμε πλοήγηση και στοιχεία χειρισμού, όχι τα δεδομένα. */
+  .side,.mobileTop,.calTools,.shiftPalette,.calNav,.noteModal,.copyRangeModal,
+  #installCard,.pwaInstallCard,button,.noPrint,.menuToggle,.sideClose{display:none!important}
+  .card,.panel,.section,.calendarShell{background:#fff!important;background-image:none!important;color:#111!important;box-shadow:none!important;text-shadow:none!important}
+  .card,.panel,.section{border-color:#c8c8c8!important}
+  h1,h2,h3,h4,strong,b,th,.value,.label{color:#111!important;text-shadow:none!important}
+  .muted,small,.muted *{color:#555!important}
+  input,select,textarea,.readonlyBox{border:1px solid #bbb!important;background:#fff!important;color:#111!important;box-shadow:none!important}
+  input:disabled,select:disabled{color:#111!important;background:#fff!important;opacity:1!important}
+  .page .card{break-inside:avoid}
+  #salaryResult,#pensionBreakdown,#pensionTable{break-inside:auto}
+  /* Ήπιες πράσινες επικεφαλίδες χωρίς σκούρο φόντο. */
+  #profile h2,#salary h2,#pension h2{color:#168a5b!important}
+  #salaryResult .value,#salaryResult .big,.salary-net-value,.main-net-value{color:#111!important;text-shadow:none!important}
+  table{width:100%!important;border-collapse:collapse!important;color:#111!important;background:#fff!important}
+  th,td{border-bottom:1px solid #ddd!important;padding:5px!important;background:#fff!important;color:#111!important}
+  a{color:#174ea6!important;text-decoration:underline!important}
+  .lawGroup,.lawItem{break-inside:avoid}
+}
+</style>
+
+<style id="v440-two-page-print">
+@media print{
+  @page{size:A4 portrait;margin:8mm 8mm}
+  html,body{background:#fff!important;color:#111!important}
+  body{font-size:8.5pt!important;line-height:1.18!important}
+  body::before{font-size:14pt!important;margin:0 0 3mm!important;padding-bottom:2mm!important}
+  /* Ακριβώς 2 εκτυπώσιμες σελίδες: 1) Προφίλ + Μισθολόγιο, 2) Σύνταξη. */
+  #profile,#salary,#pension{display:block!important;visibility:visible!important}
+  #profile,#salary{zoom:.66!important}
+  #profile{break-after:auto!important;page-break-after:auto!important;margin-bottom:3mm!important}
+  #salary{break-after:page!important;page-break-after:always!important}
+  #pension{zoom:.61!important;break-after:auto!important;page-break-after:auto!important}
+  #profile .card,#salary .card,#pension .card{padding:10px!important;margin-bottom:7px!important}
+  #profile h2,#salary h2,#pension h2{font-size:15pt!important;margin:0 0 7px!important}
+  #profile h3,#salary h3,#pension h3{font-size:10.5pt!important;margin:5px 0!important}
+  #profile .formgrid,#salary .formgrid,#pension .formgrid{gap:6px!important}
+  #profile .section,#salary .section,#pension .section{margin-top:7px!important}
+  #profile .value,#salary .value,#pension .value{font-size:18pt!important}
+  #profile button,#salary button,#pension button{display:none!important}
+  #profile .section:has(#profileStatus){display:none!important}
+  #salary .notice{padding:6px!important}
+  #pension .notice{padding:6px!important}
+  #pension .rateItem span{font-size:16pt!important}
+  #pension table{font-size:8pt!important}
+  #pension th,#pension td{padding:3px!important}
+  #pension .tableWrap{overflow:visible!important}
+  #pension .section.card{padding:8px!important}
+}
+</style>
+
+
+<style id="v442-print-payslip">
+@media print{
+  @page{size:A4 portrait;margin:9mm 10mm}
+  html,body{background:#fff!important;color:#111!important}
+  body{font-family:Arial,Helvetica,sans-serif!important;font-size:9pt!important;line-height:1.18!important}
+  .app{display:none!important}
+  body::before{display:none!important}
+  #printStatement{display:block!important;visibility:visible!important;width:100%!important}
+  #printStatement .psPage{display:none!important}
+  #printStatement #psSalaryPage{display:block!important;height:auto!important;min-height:0!important;overflow:visible!important;break-after:auto!important;page-break-after:auto!important}
+  #printStatement #psPensionPage{display:none!important}
+  .psHead{border-bottom:2px solid #222;padding-bottom:3mm;margin-bottom:3mm}
+  .psTitle{font-size:16pt;font-weight:900;letter-spacing:.2px}
+  .psSub{font-size:8pt;color:#555;margin-top:1mm}
+  .psMeta{display:grid;grid-template-columns:1.8fr 1fr 1fr;gap:1.5mm;border:1px solid #999;padding:2.5mm;margin-bottom:2.5mm}
+  .psMeta b,.psLabel{font-size:7pt;color:#555;text-transform:uppercase}
+  .psMeta strong{display:block;font-size:8.7pt;margin-top:.7mm}
+  .psSection{border:1px solid #aaa;margin-bottom:2.2mm}
+  .psSectionTitle{background:#eee;border-bottom:1px solid #aaa;padding:1.7mm 2.2mm;font-weight:900;font-size:8.3pt}
+  .psRow{display:grid;grid-template-columns:1fr 32mm;gap:2mm;padding:1.25mm 2.2mm;border-bottom:1px solid #ddd;align-items:center}
+  .psRow:last-child{border-bottom:0}
+  .psAmount{text-align:right;font-weight:800;white-space:nowrap}
+  .psTotal{display:grid;grid-template-columns:1fr 38mm;padding:2.2mm;border-top:2px solid #222;font-size:9.5pt;font-weight:900}
+  .psTwo{display:grid;grid-template-columns:1fr 1fr;gap:2.5mm}
+  .psNet{background:#f1f1f1;border:1.5px solid #222;padding:2.7mm;margin-top:2mm;display:grid;grid-template-columns:1fr 45mm;align-items:center;font-weight:900}
+  .psNet .amount{font-size:18pt;text-align:right}
+  .psFinal{border:2px solid #111;background:#e8f4ed;padding:3mm;margin-top:2.5mm;display:grid;grid-template-columns:1fr 50mm;align-items:center;font-weight:900}
+  .psFinal .amount{font-size:22pt;text-align:right}
+  .psSmall{font-size:6.8pt;color:#555;margin-top:2mm}
+  .psFooter{margin-top:3mm;padding-top:1.5mm;border-top:1px solid #aaa;font-size:6.8pt;color:#666;display:flex;justify-content:space-between}
+}
+@media screen{#printStatement{display:none}}
+</style>
+
 </head>
 <body>
+<div id="printStatement" aria-hidden="true">
+  <div class="psPage" id="psSalaryPage"></div>
+  <div class="psPage" id="psPensionPage"></div>
+</div>
+
 <div class="app">
 <aside class="side" id="sidebar">
   <div class="sideBrand">
@@ -264,7 +368,7 @@ html[data-theme="light"] .yefkkSignature:before{
 </aside>
 
 <main class="main">
-<header class="top"><button class="menuToggle" id="menuToggle" aria-label="Άνοιγμα μενού" aria-expanded="false">☰</button><div class="title"><h1 id="pageTitle">ΕΞΩΤΕΡΙΚΗ ΦΡΟΥΡΗΣΗ</h1><p id="pageSub">V4.38 • Ενιαία εφαρμογή ΥΕΦΚΚ</p></div><div class="badge">V4.38 • 2026</div></header>
+<header class="top"><button class="menuToggle" id="menuToggle" aria-label="Άνοιγμα μενού" aria-expanded="false">☰</button><div class="title"><h1 id="pageTitle">ΕΞΩΤΕΡΙΚΗ ΦΡΟΥΡΗΣΗ</h1><p id="pageSub">V4.44 • Ενιαία εφαρμογή ΥΕΦΚΚ</p></div><div class="badge">V4.40 • 2026</div></header>
 
 <section id="home" class="page">
   <div class="section homeProfileFirst">
@@ -851,7 +955,7 @@ html[data-theme="light"] .yefkkSignature:before{
 </div>
 <div class="sideOverlay" id="sideOverlay"></div>
 <script>
-const pages={home:['ΕΞΩΤΕΡΙΚΗ ΦΡΟΥΡΗΣΗ','V4.38 • Ενιαία εφαρμογή ΥΕΦΚΚ'],salary:['ΜΙΣΘΟΛΟΓΙΟ','ΥΕΦΚΚ • 2026'],pension:['ΣΥΝΤΑΞΙΟΔΟΤΙΚΟΣ ΟΔΗΓΟΣ','Σενάρια ΥΕΦΚΚ'],calendar:['ΗΜΕΡΟΛΟΓΙΟ ΥΠΗΡΕΣΙΑΣ','Βάρδιες • Νύχτες • Πενθήμερα'],stats:['ΣΤΑΤΙΣΤΙΚΑ','Από το ημερολόγιο υπηρεσίας'],laws:['ΝΟΜΟΘΕΤΗΜΑΤΑ','Νομοθεσία και υπηρεσιακό πλαίσιο'],guide:['ΟΔΗΓΟΣ ΕΦΑΡΜΟΓΗΣ','Βήμα-βήμα χρήση της εφαρμογής'],profile:['ΠΡΟΦΙΛ','Τα στοιχεία μου'],settings:['ΡΥΘΜΙΣΕΙΣ','Προσαρμογή εφαρμογής']};
+const pages={home:['ΕΞΩΤΕΡΙΚΗ ΦΡΟΥΡΗΣΗ','V4.44 • Ενιαία εφαρμογή ΥΕΦΚΚ'],salary:['ΜΙΣΘΟΛΟΓΙΟ','ΥΕΦΚΚ • 2026'],pension:['ΣΥΝΤΑΞΙΟΔΟΤΙΚΟΣ ΟΔΗΓΟΣ','Σενάρια ΥΕΦΚΚ'],calendar:['ΗΜΕΡΟΛΟΓΙΟ ΥΠΗΡΕΣΙΑΣ','Βάρδιες • Νύχτες • Πενθήμερα'],stats:['ΣΤΑΤΙΣΤΙΚΑ','Από το ημερολόγιο υπηρεσίας'],laws:['ΝΟΜΟΘΕΤΗΜΑΤΑ','Νομοθεσία και υπηρεσιακό πλαίσιο'],guide:['ΟΔΗΓΟΣ ΕΦΑΡΜΟΓΗΣ','Βήμα-βήμα χρήση της εφαρμογής'],profile:['ΠΡΟΦΙΛ','Τα στοιχεία μου'],settings:['ΡΥΘΜΙΣΕΙΣ','Προσαρμογή εφαρμογής']};
 function closeSidebar(){document.body.classList.remove('menu-open');const t=document.getElementById('menuToggle');if(t)t.setAttribute('aria-expanded','false')}
 function show(page){document.querySelectorAll('.page').forEach(x=>x.classList.add('hide'));document.getElementById(page).classList.remove('hide');document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===page));document.getElementById('pageTitle').textContent=pages[page][0];document.getElementById('pageSub').textContent=pages[page][1];location.hash=page;closeSidebar()}
 document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>show(b.dataset.page)));
@@ -1949,7 +2053,57 @@ function lawJump(id){ const e=document.getElementById(id); if(e){ e.scrollIntoVi
     if(installHelp) installHelp.textContent = 'Η εφαρμογή είναι εγκατεστημένη στη συσκευή.';
   });
 
+  function psText(id, fallback='—'){ const e=document.getElementById(id); return e?.value || e?.textContent?.trim() || fallback; }
+  function psMoneyFromText(t){ return (t||'').replace(/[^0-9,.-]/g,'').trim() || '0,00 €'; }
+  function buildPrintStatement(){
+    const name=psText('profName','—');
+    const dob=psText('profDob','—');
+    const appt=psText('profAppointment','—');
+    const rank=psText('autoRank','—');
+    const children=psText('profChildren','0');
+    const famRaw=psText('profFamily','—');
+    const fam={single:'Άγαμος/η',married:'Έγγαμος/η'}[famRaw] || famRaw;
+    const month=psText('salaryMonth','—');
+    const sr=document.getElementById('salaryResult');
+    const cards=[...document.querySelectorAll('#salaryResult > .grid:first-child > .card')];
+    const getVal=(label)=>{const c=cards.find(x=>(x.querySelector('.muted')?.textContent||'').includes(label));return c?.querySelector('.value')?.textContent.trim()||'0,00 €'};
+    const mainNet=sr?.querySelector('.main-salary-net')?.textContent.trim()||'0,00 €';
+    const extraNet=sr?.querySelector('.extras-net-small')?.textContent.trim()||'0,00 €';
+    const totalNet=sr?.querySelector('.monthly-total-value')?.textContent.trim()||'0,00 €';
+    const extraCards=[...document.querySelectorAll('#salaryResult .section.card')];
+    // V4.44: βρίσκουμε το ακριβές υπο-card από τον τίτλο του (h3), ώστε
+    // τα Πενθήμερα και τα Νυχτερινά να μην παίρνουν κατά λάθος τις τιμές
+    // του γονικού card «Αναλυτική εκκαθάριση μισθού».
+    const val=(needle,lab)=>{
+      const el=extraCards.find(x=>{
+        const h=x.querySelector(':scope > h3');
+        return h && (h.textContent||'').includes(needle);
+      });
+      const item=el?[...el.querySelectorAll('.grid2 > div')].find(x=>(x.querySelector('.muted')?.textContent||'').includes(lab)):null;
+      return item?.querySelector('.value')?.textContent.trim() || '0,00 €';
+    };
+    const fiveCount=val('🟡 Πενθήμερα','Πλήθος'), fiveGross=val('🟡 Πενθήμερα','Μικτά'), fiveDed=val('🟡 Πενθήμερα','Κρατήσεις 2%'), fiveTax=val('🟡 Πενθήμερα','Φόρος 20%');
+    const nightCount=val('⚫ Νυχτερινά','Πλήθος'), nightGross=val('⚫ Νυχτερινά','Μικτά'), nightDed=val('⚫ Νυχτερινά','Κρατήσεις 4%'), nightTax=val('⚫ Νυχτερινά','Φόρος 20%');
+    const dedSection=extraCards.find(x=>{const h=x.querySelector(':scope > h3'); return h && (h.textContent||'').trim().includes('Κύριος μισθός — αναλυτικές κρατήσεις');});
+    const dedRows=dedSection?[...dedSection.querySelectorAll('.grid2 > div')].map(x=>{const l=x.querySelector('.muted')?.textContent.trim();const a=x.querySelector('.value')?.textContent.trim();const clean=(a||'').replace(/^[\s−-]+/,'');return l&&a?`<div class="psRow"><span>${l}</span><span class="psAmount">− ${clean}</span></div>`:''}).join(''):' ';
+    const minus=(v)=>'− '+(v||'0,00 €').replace(/^[\s−-]+/,'');
+    document.getElementById('psSalaryPage').innerHTML=`
+      <div class="psHead"><div class="psTitle">ΕΚΚΑΘΑΡΙΣΤΙΚΟ ΜΙΣΘΟΔΟΣΙΑΣ</div><div class="psSub">ΕΞΩΤΕΡΙΚΗ ΦΡΟΥΡΗΣΗ — Μηνιαία εκκαθάριση αποδοχών</div></div>
+      <div class="psMeta"><div><span class="psLabel">Ονοματεπώνυμο</span><strong>${name}</strong></div><div><span class="psLabel">Μήνας μισθοδοσίας</span><strong>${month}</strong></div><div><span class="psLabel">Βαθμός</span><strong>${rank}</strong></div><div><span class="psLabel">Ημ. διορισμού</span><strong>${appt}</strong></div><div><span class="psLabel">Τέκνα</span><strong>${children}</strong></div><div><span class="psLabel">Οικογενειακή κατάσταση</span><strong>${fam}</strong></div></div>
+      <div class="psTwo"><div class="psSection"><div class="psSectionTitle">ΑΠΟΔΟΧΕΣ</div><div class="psRow"><span>Βασικός μισθός</span><span class="psAmount">${getVal('Βασικός μισθός')}</span></div><div class="psRow"><span>Επίδομα ειδικών συνθηκών</span><span class="psAmount">${getVal('Ειδικών συνθηκών')}</span></div><div class="psRow"><span>Επίδομα τέκνων</span><span class="psAmount">${getVal('Επίδομα τέκνων')}</span></div><div class="psTotal"><span>ΣΤΑΘΕΡΕΣ ΜΙΚΤΕΣ</span><span class="psAmount">${getVal('Σταθερά μικτά')}</span></div></div>
+      <div class="psSection"><div class="psSectionTitle">ΠΡΟΣΘΕΤΕΣ ΑΠΟΔΟΧΕΣ</div><div class="psRow"><span>Πενθήμερα (${fiveCount})</span><span class="psAmount">${fiveGross}</span></div><div class="psRow"><span>Νυχτερινά (${nightCount})</span><span class="psAmount">${nightGross}</span></div><div class="psRow"><span>Κρατήσεις πενθημέρων</span><span class="psAmount">${minus(fiveDed)}</span></div><div class="psRow"><span>Φόρος πενθημέρων</span><span class="psAmount">${minus(fiveTax)}</span></div><div class="psRow"><span>Κρατήσεις νυχτερινών</span><span class="psAmount">${minus(nightDed)}</span></div><div class="psRow"><span>Φόρος νυχτερινών</span><span class="psAmount">${minus(nightTax)}</span></div></div></div>
+      <div class="psSection"><div class="psSectionTitle">ΚΡΑΤΗΣΕΙΣ ΚΥΡΙΟΥ ΜΙΣΘΟΥ</div>${dedRows}</div>
+      <div class="psNet"><span>ΚΑΘΑΡΟΣ ΜΙΣΘΟΣ</span><span class="amount">${mainNet}</span></div>
+      <div class="psRow" style="border:1px solid #aaa;margin-top:2mm"><span><b>ΚΑΘΑΡΑ ΠΡΟΣΘΕΤΑ</b></span><span class="psAmount">${extraNet}</span></div>
+      <div class="psFinal"><span>ΣΥΝΟΛΙΚΟ ΠΛΗΡΩΤΕΟ ΠΟΣΟ ΜΗΝΟΣ ${month}</span><span class="amount">${totalNet}</span></div>
+      <div class="psSmall">Χωρίς υπερωρίες • χωρίς παραμεθόριο • χωρίς προσωπική διαφορά. Τα πρόσθετα υπολογίζονται ξεχωριστά και δεν ξαναμπαίνουν στον κύριο φόρο.</div>
+      <div class="psFooter"><span>ΕΞΩΤΕΡΙΚΗ ΦΡΟΥΡΗΣΗ • BY KERMANIDIS</span><span>Εκκαθαριστικό μισθοδοσίας</span></div>`;
+  }
+  window.addEventListener('beforeprint',buildPrintStatement);
+
   printBtn?.addEventListener('click', function(){
+    try{ renderSalary(); }catch(e){}
+    try{ buildPrintStatement(); }catch(e){}
     window.print();
   });
 
