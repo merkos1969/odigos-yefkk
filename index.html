@@ -50,6 +50,7 @@ input,select{width:100%;background:#081321;border:1px solid var(--line);color:#f
 .lawGroup{margin-top:18px}.lawGroup>h3{margin:0 0 10px}.lawCard{background:#081321;border:1px solid rgba(56,217,255,.16);border-radius:18px;padding:16px;margin:10px 0}.lawCard p{line-height:1.55}.lawCard ul{padding-left:22px;line-height:1.65}.highlightLaw{border-color:rgba(168,103,255,.42);background:linear-gradient(135deg,rgba(42,28,78,.45),rgba(8,19,33,.92))}.lawLink{display:inline-block;text-decoration:none;text-align:center}
 
 .lawSearchBox{margin:14px 0}.lawSearchBox input{width:100%;box-sizing:border-box;padding:14px 16px;border-radius:14px;border:1px solid rgba(56,217,255,.22);background:#07111e;color:#fff;font-size:16px}.lawDetails{margin-top:12px;padding:14px;border-radius:14px;background:rgba(5,12,24,.72);border:1px solid rgba(168,103,255,.22)}.disciplineGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.disciplineGrid>div{padding:12px;border-radius:12px;background:#0b1725;border:1px solid rgba(56,217,255,.12)}.disciplineGrid p{margin:6px 0 0}.lawLink{margin-top:9px}.lawToggle{margin-top:5px}@media(max-width:700px){.disciplineGrid{grid-template-columns:1fr}}
+.homeProfileFirst{margin-bottom:16px}.homeProfileCard{position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(8,24,39,.98),rgba(8,18,31,.94));box-shadow:0 14px 40px rgba(0,0,0,.20),inset 0 0 28px rgba(56,217,255,.035)}.homeProfileCard:before{content:"";position:absolute;inset:-70px auto auto -60px;width:190px;height:190px;border-radius:50%;background:radial-gradient(circle,rgba(56,217,255,.13),transparent 68%);pointer-events:none}.homeProfileTop{display:flex;align-items:center;gap:15px;position:relative;z-index:1}.homeProfileIcon{width:58px;height:58px;flex:0 0 58px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:30px;background:linear-gradient(135deg,rgba(56,217,255,.18),rgba(72,255,154,.12));border:1px solid rgba(56,217,255,.25);box-shadow:0 0 24px rgba(56,217,255,.08)}.homeProfileCard h3{margin:0 0 5px;font-size:22px}.homeProfileCard p{margin:0;line-height:1.45}.homeProfileCard .action{margin-top:16px;position:relative;z-index:1}@media(max-width:480px){.homeProfileCard{padding:18px}.homeProfileIcon{width:54px;height:54px;flex-basis:54px;font-size:28px}.homeProfileCard h3{font-size:20px}}
 .extraNetTotal{font-size:42px!important;font-weight:950!important;line-height:1.05;margin-top:8px}.extraNetBox{padding:16px 18px!important;border-radius:16px!important;background:rgba(101,255,57,.06);border:1px solid rgba(101,255,57,.28);text-align:center}.extraNetBox .muted{font-size:15px}.extraNetBox .extraNetTotal{display:block}</style>
 
 <style>
@@ -243,9 +244,21 @@ html[data-theme="light"] .yefkkSignature:before{
 </aside>
 
 <main class="main">
-<header class="top"><button class="menuToggle" id="menuToggle" aria-label="Άνοιγμα μενού" aria-expanded="false">☰</button><div class="title"><h1 id="pageTitle">ΕΞΩΤΕΡΙΚΗ ΦΡΟΥΡΗΣΗ</h1><p id="pageSub">V4.35 • Ενιαία εφαρμογή ΥΕΦΚΚ</p></div><div class="badge">V4.21 • 2026</div></header>
+<header class="top"><button class="menuToggle" id="menuToggle" aria-label="Άνοιγμα μενού" aria-expanded="false">☰</button><div class="title"><h1 id="pageTitle">ΕΞΩΤΕΡΙΚΗ ΦΡΟΥΡΗΣΗ</h1><p id="pageSub">V4.36 • Ενιαία εφαρμογή ΥΕΦΚΚ</p></div><div class="badge">V4.36 • 2026</div></header>
 
 <section id="home" class="page">
+  <div class="section homeProfileFirst">
+    <div class="card homeProfileCard" style="border-color:rgba(56,217,255,.30)">
+      <div class="homeProfileTop">
+        <div class="homeProfileIcon">👤</div>
+        <div>
+          <h3>Το προφίλ μου</h3>
+          <p class="muted" id="homeProfileSummary">Δεν έχουν αποθηκευτεί στοιχεία προφίλ.</p>
+        </div>
+      </div>
+      <button class="primary action" data-go="profile">Άνοιγμα προφίλ</button>
+    </div>
+  </div>
   <div class="grid">
     <div class="card"><span class="muted">💶 Σταθερές μικτές αποδοχές</span><div class="value green" id="homeSalary">— €</div><small class="muted" id="homeSalaryMeta">Μισθολόγιο • —</small></div>
     <div class="card"><span class="muted">📅 Υπηρεσία μήνα</span><div class="value cyan" id="homeDays">0</div><small class="muted" id="homeMonth">Μήνας: —</small></div>
@@ -253,13 +266,6 @@ html[data-theme="light"] .yefkkSignature:before{
     <div class="card"><span class="muted">🌙 Νύχτες</span><div class="value purple" id="homeNights">0</div><small class="muted" id="homeNightGross">Μικτά: 0,00 €</small></div>
     <div class="card"><span class="muted">➕ Πρόσθετα</span><div class="value" style="color:#c57cff" id="homeExtrasGross">0,00 €</div><small class="muted" id="homeExtrasNet">Καθαρά: 0,00 €</small></div>
     <div class="card" style="border-color:rgba(50,255,130,.35)"><span class="muted">💚 Τελικό πληρωτέο</span><div class="value green" id="homeNet">— €</div><small class="muted" id="homeNetMeta">Κύριος + πρόσθετα</small></div>
-  </div>
-  <div class="section">
-    <div class="card" style="border-color:rgba(56,217,255,.25)">
-      <h3>👤 Το προφίλ μου</h3>
-      <p class="muted" id="homeProfileSummary">Δεν έχουν αποθηκευτεί στοιχεία προφίλ.</p>
-      <button class="primary action" data-go="profile">Άνοιγμα προφίλ</button>
-    </div>
   </div>
   <div class="section grid2">
     <div class="card"><h3>Γρήγορη πρόσβαση</h3><div style="display:grid;gap:9px"><button class="action" data-go="salary">💶 Υπολογισμός μισθού</button><button class="action" data-go="pension">🧓 Συνταξιοδοτικά σενάρια</button><button class="action" data-go="calendar">📅 Καταχώριση βάρδιας</button><button class="action" data-go="laws">⚖️ Αναζήτηση νομοθεσίας</button></div></div>
@@ -825,7 +831,7 @@ html[data-theme="light"] .yefkkSignature:before{
 </div>
 <div class="sideOverlay" id="sideOverlay"></div>
 <script>
-const pages={home:['ΕΞΩΤΕΡΙΚΗ ΦΡΟΥΡΗΣΗ','V4.35 • Ενιαία εφαρμογή ΥΕΦΚΚ'],salary:['ΜΙΣΘΟΛΟΓΙΟ','ΥΕΦΚΚ • 2026'],pension:['ΣΥΝΤΑΞΙΟΔΟΤΙΚΟΣ ΟΔΗΓΟΣ','Σενάρια ΥΕΦΚΚ'],calendar:['ΗΜΕΡΟΛΟΓΙΟ ΥΠΗΡΕΣΙΑΣ','Βάρδιες • Νύχτες • Πενθήμερα'],stats:['ΣΤΑΤΙΣΤΙΚΑ','Από το ημερολόγιο υπηρεσίας'],laws:['ΝΟΜΟΘΕΤΗΜΑΤΑ','Νομοθεσία και υπηρεσιακό πλαίσιο'],guide:['ΟΔΗΓΟΣ ΕΦΑΡΜΟΓΗΣ','Βήμα-βήμα χρήση της εφαρμογής'],profile:['ΠΡΟΦΙΛ','Τα στοιχεία μου'],settings:['ΡΥΘΜΙΣΕΙΣ','Προσαρμογή εφαρμογής']};
+const pages={home:['ΕΞΩΤΕΡΙΚΗ ΦΡΟΥΡΗΣΗ','V4.36 • Ενιαία εφαρμογή ΥΕΦΚΚ'],salary:['ΜΙΣΘΟΛΟΓΙΟ','ΥΕΦΚΚ • 2026'],pension:['ΣΥΝΤΑΞΙΟΔΟΤΙΚΟΣ ΟΔΗΓΟΣ','Σενάρια ΥΕΦΚΚ'],calendar:['ΗΜΕΡΟΛΟΓΙΟ ΥΠΗΡΕΣΙΑΣ','Βάρδιες • Νύχτες • Πενθήμερα'],stats:['ΣΤΑΤΙΣΤΙΚΑ','Από το ημερολόγιο υπηρεσίας'],laws:['ΝΟΜΟΘΕΤΗΜΑΤΑ','Νομοθεσία και υπηρεσιακό πλαίσιο'],guide:['ΟΔΗΓΟΣ ΕΦΑΡΜΟΓΗΣ','Βήμα-βήμα χρήση της εφαρμογής'],profile:['ΠΡΟΦΙΛ','Τα στοιχεία μου'],settings:['ΡΥΘΜΙΣΕΙΣ','Προσαρμογή εφαρμογής']};
 function closeSidebar(){document.body.classList.remove('menu-open');const t=document.getElementById('menuToggle');if(t)t.setAttribute('aria-expanded','false')}
 function show(page){document.querySelectorAll('.page').forEach(x=>x.classList.add('hide'));document.getElementById(page).classList.remove('hide');document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===page));document.getElementById('pageTitle').textContent=pages[page][0];document.getElementById('pageSub').textContent=pages[page][1];location.hash=page;closeSidebar()}
 document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>show(b.dataset.page)));
