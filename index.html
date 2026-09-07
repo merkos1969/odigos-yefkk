@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#07111f">
-<title>ΕΞΩΤΕΡΙΚΗ ΦΡΟΥΡΗΣΗ — V4.46 • 5ετία / σενάρια</title>
+<title>ΕΞΩΤΕΡΙΚΗ ΦΡΟΥΡΗΣΗ — V4.55</title>
 <style>
 :root{
   --bg:#050a12; --panel:#0b1422; --panel2:#101d2e; --text:#f3f7fb;
@@ -38,7 +38,7 @@ input,select{width:100%;background:#081321;border:1px solid var(--line);color:#f
 .calNoteBadge{position:absolute;left:7px;bottom:7px;font-size:11px;font-weight:900;color:#37415a;background:#c8c8f2;padding:5px 7px;border-radius:9px;max-width:calc(100% - 55px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hasNote{box-shadow:inset 0 0 0 2px rgba(168,117,255,.5)}
 @media(max-width:650px){.calMonthTitle{font-size:25px}.calGrid{gap:7px;padding:8px}.calCell{min-height:92px;padding:7px;border-radius:15px}.calNum{font-size:15px}.calShiftBadge{right:5px;bottom:5px;min-width:36px;padding:7px 4px}.shiftPalette{gap:8px;border-width:9px}.shiftPalette button{height:50px;font-size:15px}.calTotals{grid-template-columns:1fr;gap:5px}.calWeek div{font-size:10px}}
 
-/* V4.46 — Premium left sidebar / mobile drawer */
+/* V4.45 — Premium left sidebar / mobile drawer */
 .side{width:258px;padding:18px 14px 16px;background:linear-gradient(180deg,rgba(2,10,19,.98),rgba(4,15,25,.98));border-right:1px solid rgba(72,255,154,.20);box-shadow:10px 0 45px rgba(0,0,0,.24);overflow-y:auto}
 .sideBrand{padding:6px 4px 18px;border-bottom:1px solid rgba(56,217,255,.12);margin-bottom:12px}.brandMark{width:86px;height:86px;margin:0 auto 12px;border:2px solid var(--green);border-radius:24px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--green);font-weight:950;font-size:16px;letter-spacing:1px;background:radial-gradient(circle,rgba(72,255,154,.14),rgba(56,217,255,.03) 65%,transparent);box-shadow:0 0 28px rgba(72,255,154,.15),inset 0 0 20px rgba(56,217,255,.06)}
 .logo{padding:0;text-align:center}.logo b{font-size:17px;letter-spacing:.6px}.logo small{display:block;margin-top:5px;font-size:11px}.nav button{position:relative;min-height:48px;padding:11px 13px;font-size:14px;font-weight:750;border:1px solid transparent;transition:.18s ease}.nav button:hover{transform:translateX(2px);background:rgba(56,217,255,.06)}.nav button.active{background:linear-gradient(90deg,rgba(72,255,154,.17),rgba(56,217,255,.07));border-color:rgba(72,255,154,.20);box-shadow:inset 3px 0 var(--green),0 8px 25px rgba(0,0,0,.14);color:#fff}.sideClose{display:none}.menuToggle{display:none;width:46px;height:46px;border:1px solid rgba(72,255,154,.22);background:rgba(8,20,32,.9);color:var(--green);border-radius:13px;font-size:23px;box-shadow:0 0 18px rgba(72,255,154,.08)}
@@ -340,6 +340,11 @@ html[data-theme="light"] .yefkkSignature:before{
 @media screen{#printStatement{display:none}}
 </style>
 
+
+<style>
+.checkRow{display:flex;align-items:flex-start;gap:10px;padding:11px 12px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:rgba(255,255,255,.025);cursor:pointer;color:#eaf6ff}.checkRow input{width:19px;height:19px;accent-color:#39f5a5;margin-top:1px;flex:none}.checkRow:has(input:checked){border-color:rgba(57,245,165,.35);background:rgba(57,245,165,.06)}.checkRow:has(input:checked) span{text-decoration:line-through;opacity:.7}
+.retAccordion{margin-top:12px;display:grid;gap:9px}.retAccItem{border:1px solid rgba(56,217,255,.18);border-radius:16px;background:#0a1626;overflow:hidden}.retAccBtn{width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;border:0;background:transparent;color:#fff;text-align:left;padding:15px 16px;font-weight:900;font-size:15px}.retAccArrow{color:var(--cyan);transition:.2s}.retAccItem.open .retAccArrow{transform:rotate(180deg)}.retAccPanel{display:none;padding:0 16px 16px;color:#cbd8e5;line-height:1.6}.retAccItem.open .retAccPanel{display:block}.retAccPanel ol,.retAccPanel ul{padding-left:22px}.retAccPanel a{color:var(--cyan)}html[data-theme="light"] .retAccItem{background:#fff;border-color:rgba(20,45,70,.13)}html[data-theme="light"] .retAccBtn{color:#172231}html[data-theme="light"] .retAccPanel{color:#405365}
+</style>
 </head>
 <body>
 <div id="printStatement" aria-hidden="true">
@@ -368,7 +373,7 @@ html[data-theme="light"] .yefkkSignature:before{
 </aside>
 
 <main class="main">
-<header class="top"><button class="menuToggle" id="menuToggle" aria-label="Άνοιγμα μενού" aria-expanded="false">☰</button><div class="title"><h1 id="pageTitle">ΕΞΩΤΕΡΙΚΗ ΦΡΟΥΡΗΣΗ</h1><p id="pageSub">V4.46 • Ενιαία εφαρμογή ΥΕΦΚΚ</p></div><div class="badge">V4.46 • 2026</div></header>
+<header class="top"><button class="menuToggle" id="menuToggle" aria-label="Άνοιγμα μενού" aria-expanded="false">☰</button><div class="title"><h1 id="pageTitle">ΕΞΩΤΕΡΙΚΗ ΦΡΟΥΡΗΣΗ</h1><p id="pageSub">V4.55 • Ενιαία εφαρμογή ΥΕΦΚΚ</p></div><div class="badge">V4.55 • 2026</div></header>
 
 <section id="home" class="page">
   <div class="section homeProfileFirst">
@@ -490,7 +495,7 @@ html[data-theme="light"] .yefkkSignature:before{
       <div class="tableWrap">
         <table class="table" id="pensionTable">
           <thead>
-            <tr><th>ΣΤΟΙΧΕΙΟ</th><th>37 ΕΤΗ<br><small>ΠΑΛΑΙΟ</small></th><th>35 + 5<br><small>ΝΕΟ = 40</small></th><th>60 + 5<br><small>ΜΑΧΙΜΗ</small></th></tr>
+            <tr><th>ΣΤΟΙΧΕΙΟ</th><th>37 ΕΤΗ<br><small>ΠΑΛΑΙΟ</small></th><th>60 ΕΤΗ<br><small>ΠΑΛΑΙΟ • 0 ΜΑΧΙΜΗ</small></th><th>35 + 5<br><small>ΝΕΟ = 40</small></th><th>60 + 5<br><small>ΜΑΧΙΜΗ</small></th></tr>
           </thead>
           <tbody></tbody>
         </table>
@@ -514,8 +519,26 @@ html[data-theme="light"] .yefkkSignature:before{
       <p class="muted">Τα παραπάνω σημεία προέρχονται από τον πίνακα/οδηγό που έχουμε δουλέψει. Ενδιάμεσες τιμές εμφανίζονται ως εκτίμηση.</p>
     </div>
 
-    <div class="notice section">⚠️ Ενημερωτικός υπολογισμός. Τα ποσά εθνικής, ανταποδοτικής, επικουρικής και ΜΤΠΥ που εμφανίζονται ως εκτίμηση δεν αποτελούν επίσημη πράξη συνταξιοδότησης.</div>
-  </div>
+    <div class="section card" style="background:#081321;border-color:rgba(56,217,255,.28)">
+      <h3>6. 🧭 Συνταξιοδοτικός Οδηγός — Βήμα βήμα</h3>
+      <p class="muted">Η ενότητα είναι οργανωμένη σε αναπτυσσόμενες υποενότητες, όπως τα Νομοθετήματα. Ανοίγεις μόνο αυτό που χρειάζεσαι.</p>
+      <div class="retAccordion">
+        <div class="retAccItem open"><button class="retAccBtn" type="button"><span>🟢 1. Έλεγχος θεμελίωσης</span><span class="retAccArrow">⌄</span></button><div class="retAccPanel"><p>Έλεγξε το βασικό σενάριο, την ηλικία και τον συνολικό χρόνο ασφάλισης. Η μάχιμη 5ετία δεν προστίθεται αυτόματα σε κάθε σενάριο.</p></div></div>
+        <div class="retAccItem"><button class="retAccBtn" type="button"><span>📂 2. Έλεγχος ασφαλιστικού χρόνου</span><span class="retAccArrow">⌄</span></button><div class="retAccPanel"><ul><li>Έτη ΥΕΦΚΚ.</li><li>Άλλα ταμεία/φορείς.</li><li>Τυχόν χρόνος στο εξωτερικό.</li><li>Πλασματικοί χρόνοι και μάχιμη 5ετία.</li><li>Αποδεικτικά για χρόνο που δεν εμφανίζεται ψηφιακά.</li></ul><div class="notice">Ο e-ΕΦΚΑ προβλέπει διαδικασία για επιπλέον χρόνο ασφάλισης που δεν εμφανίζεται στο ΑΤΛΑΣ, με τα σχετικά αποδεικτικά μέσω του Ψηφιακού Δωματίου Επικοινωνίας.</div></div></div>
+        <div class="retAccItem"><button class="retAccBtn" type="button"><span>🧾 3. Αναγνωρίσεις πριν από την αίτηση</span><span class="retAccArrow">⌄</span></button><div class="retAccPanel"><p>Έλεγξε ότι οι αναγνωρίσεις που χρειάζονται για θεμελίωση έχουν ζητηθεί εγκαίρως και ότι έχεις τις σχετικές αποφάσεις/δικαιολογητικά.</p></div></div>
+        <div class="retAccItem"><button class="retAccBtn" type="button"><span>☑️ 4. Checklist πριν την αποχώρηση</span><span class="retAccArrow">⌄</span></button><div class="retAccPanel"><div id="retirementChecklistItems" style="display:grid;gap:8px"><label class="checkRow"><input type="checkbox" data-ret-check="1"><span>Έχω ελέγξει τις προϋποθέσεις.</span></label><label class="checkRow"><input type="checkbox" data-ret-check="2"><span>Έχω ελέγξει ΥΕΦΚΚ, άλλα ταμεία και αναγνωρίσεις.</span></label><label class="checkRow"><input type="checkbox" data-ret-check="3"><span>Έχω ελέγξει ξεχωριστά τη μάχιμη 5ετία.</span></label><label class="checkRow"><input type="checkbox" data-ret-check="4"><span>Έχω ελέγξει τις συντάξιμες αποδοχές και τον μέσο όρο από 1/1/2002.</span></label><label class="checkRow"><input type="checkbox" data-ret-check="5"><span>Έχω επικοινωνήσει με τη Διεύθυνση Προσωπικού για e-ΔΑΥΚ.</span></label><label class="checkRow"><input type="checkbox" data-ret-check="6"><span>Έχω συγκεντρώσει τα δικαιολογητικά.</span></label><label class="checkRow"><input type="checkbox" data-ret-check="7"><span>Έχω υποβάλει την αίτηση συνταξιοδότησης.</span></label><label class="checkRow"><input type="checkbox" data-ret-check="8"><span>Έχω ελέγξει την επικουρική.</span></label><label class="checkRow"><input type="checkbox" data-ret-check="9"><span>Έχω ελέγξει το Μ.Τ.Π.Υ.</span></label><label class="checkRow"><input type="checkbox" data-ret-check="10"><span>Έχω ελέγξει την οριστική απόφαση.</span></label></div><div id="retirementChecklistProgress" class="notice" style="margin-top:10px">0 / 10 ολοκληρωμένα</div><button id="retirementChecklistReset" class="action" type="button">↺ Επαναφορά checklist</button></div></div>
+        <div class="retAccItem"><button class="retAccBtn" type="button"><span>🏢 5. Διεύθυνση Προσωπικού & e-ΔΑΥΚ</span><span class="retAccArrow">⌄</span></button><div class="retAccPanel"><p>Ακολούθησε τη διαδικασία της υπηρεσίας προσωπικού για τη λύση της σχέσης. Η υπηρεσία συντάσσει και διαβιβάζει το e-ΔΑΥΚ στην αρμόδια υπηρεσία συντάξεων του e-ΕΦΚΑ.</p></div></div>
+        <div class="retAccItem"><button class="retAccBtn" type="button"><span>✍️ 6. Λύση υπαλληλικής σχέσης</span><span class="retAccArrow">⌄</span></button><div class="retAccPanel"><p>Ολοκλήρωσε την υπηρεσιακή διαδικασία αποχώρησης και κράτησε αντίγραφο της πράξης λύσης της σχέσης.</p></div></div>
+        <div class="retAccItem"><button class="retAccBtn" type="button"><span>💻 7. Αίτηση κύριας σύνταξης & δικαιολογητικά</span><span class="retAccArrow">⌄</span></button><div class="retAccPanel"><p>Χρησιμοποίησε την ηλεκτρονική υπηρεσία του e-ΕΦΚΑ και υπέβαλε όσα δικαιολογητικά δεν αντλούνται αυτόματα.</p><a class="lawBtn" href="https://www.efka.gov.gr/el/elektronikes-yperesies/aitisi" target="_blank" rel="noopener noreferrer">🔗 Αίτηση συνταξιοδότησης e-ΕΦΚΑ</a></div></div>
+        <div class="retAccItem"><button class="retAccBtn" type="button"><span>⏳ 8. Παρακολούθηση & προσωρινή σύνταξη</span><span class="retAccArrow">⌄</span></button><div class="retAccPanel"><p>Κράτησε τα στοιχεία της αίτησης και παρακολούθησε την πορεία. Για δημοσίους υπαλλήλους υπάρχει διαδικασία προσωρινής σύνταξης μετά την οριστικοποίηση του e-ΔΑΥΚ, εφόσον πληρούνται οι προϋποθέσεις.</p></div></div>
+        <div class="retAccItem"><button class="retAccBtn" type="button"><span>📜 9. Οριστική απόφαση κύριας σύνταξης</span><span class="retAccArrow">⌄</span></button><div class="retAccPanel"><p>Έλεγξε συνολικό χρόνο, αναγνωρίσεις, συντάξιμες αποδοχές, ποσοστό αναπλήρωσης, εθνική και ανταποδοτική σύνταξη και κρατήσεις.</p></div></div>
+        <div class="retAccItem"><button class="retAccBtn" type="button"><span>🟣 10. Επικουρική σύνταξη</span><span class="retAccArrow">⌄</span></button><div class="retAccPanel"><ol><li>Έλεγξε χρόνο επικουρικής.</li><li>Έλεγξε την αντίστοιχη αίτηση.</li><li>Παρακολούθησε την πορεία στον e-ΕΦΚΑ.</li><li>Έλεγξε ξεχωριστά την απόφαση και το ποσό.</li></ol><a class="lawBtn" href="https://www.efka.gov.gr/el/elektronikes-yperesies/elektronikes-yperesies-gia-syntaxioychoys" target="_blank" rel="noopener noreferrer">🔗 Ηλεκτρονικές υπηρεσίες e-ΕΦΚΑ</a></div></div>
+        <div class="retAccItem"><button class="retAccBtn" type="button"><span>🟡 11. Μέρισμα Μ.Τ.Π.Υ.</span><span class="retAccArrow">⌄</span></button><div class="retAccPanel"><ol><li>Έλεγξε χρόνο συμμετοχής.</li><li>Επιβεβαίωσε τη διαβίβαση του Δ.Α.Υ.Κ.</li><li>Έλεγξε ότι η υπόθεση παραλήφθηκε.</li><li>Παρακολούθησε την Προσωποποιημένη Πληροφόρηση.</li><li>Έλεγξε την απόφαση και την ημερομηνία έναρξης.</li></ol></div></div>
+        <div class="retAccItem"><button class="retAccBtn" type="button"><span>💼 12. Τελικός φάκελος συνταξιοδότησης</span><span class="retAccArrow">⌄</span></button><div class="retAccPanel"><p>Κράτησε σε έναν φάκελο την πράξη λύσης σχέσης, στοιχεία e-ΔΑΥΚ, αιτήσεις, αποδεικτικά χρόνων, αποφάσεις αναγνώρισης, κύρια σύνταξη, επικουρική και Μ.Τ.Π.Υ.</p></div></div>
+      </div>
+    </div>
+     <div class="notice section">⚠️ Ενημερωτικός υπολογισμός. Τα ποσά εθνικής, ανταποδοτικής, επικουρικής και ΜΤΠΥ που εμφανίζονται ως εκτίμηση δεν αποτελούν επίσημη πράξη συνταξιοδότησης.</div>
+   </div>
 </section>
 
 <section id="calendar" class="page hide">
@@ -613,11 +636,62 @@ html[data-theme="light"] .yefkkSignature:before{
     </div>
 
     <div class="lawQuick" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:12px 0">
-      <button class="action" onclick="lawJump('yefkkLaw')">🛡️ ΥΕΦΚΚ</button>
+      <button class="action" onclick="lawJump('yefkkLaw')">🛡️ Ίδρυση & θεσμικό πλαίσιο</button>
+      <button class="action" onclick="lawJump('missionLaw')">🎯 Αποστολή & καθήκοντα</button>
+      <button class="action" onclick="lawJump('staffLaw')">👥 Προσωπικό & προσλήψεις</button>
+      <button class="action" onclick="lawJump('trainingLaw')">🎓 Εκπαίδευση</button>
+      <button class="action" onclick="lawJump('timeLaw')">🕐 Ωράριο, βάρδιες & άδειες</button>
+      <button class="action" onclick="lawJump('salaryLaw')">💶 Μισθολογικό</button>
+      <button class="action" onclick="lawJump('pensionLaw')">🧓 Συνταξιοδοτικό</button>
       <button class="action" onclick="lawJump('disciplineLaw')">⚖️ Πειθαρχικό</button>
       <button class="action" onclick="lawJump('prisonLaw')">🏛️ Σωφρονιστικό</button>
       <button class="action" onclick="lawJump('publicCodeLaw')">📘 Κώδικας Υπαλλήλων</button>
     </div>
+
+    <div class="lawCard highlightLaw lawItem" id="lawMap">
+      <b>📚 Θεματικός χάρτης νομοθεσίας ΥΕΦΚΚ</b>
+      <p>Η βιβλιοθήκη οργανώνεται πλέον σε θεματικές ενότητες ώστε να βρίσκεις γρήγορα ποιο πλαίσιο αφορά κάθε υπηρεσιακό θέμα.</p>
+      <ul>
+        <li><b>Ίδρυση / θεσμικό πλαίσιο:</b> Ν. 2721/1999, Ν. 3388/2005, Π.Δ. 215/2006.</li>
+        <li><b>Αποστολή / καθήκοντα:</b> Π.Δ. 265/1999 και Π.Δ. 215/2006.</li>
+        <li><b>Προσωπικό / στελέχωση:</b> Ν. 3038/2002, Ν. 3659/2008, Ν. 4760/2020, Ν. 5236/2025 και νεότερες ειδικές ρυθμίσεις.</li>
+        <li><b>Εκπαίδευση:</b> ΚΥΑ 11965/2021, ΚΥΑ 22244/2023, ΚΥΑ 8321/2025, ΚΥΑ 12546/2026.</li>
+        <li><b>Ωράριο / βάρδιες / άδειες:</b> ειδικές διατάξεις του Π.Δ. 215/2006.</li>
+        <li><b>Μισθολογικό:</b> Ν. 4354/2015 και μεταγενέστερες μισθολογικές μεταβολές.</li>
+        <li><b>Συνταξιοδοτικό:</b> Ν. 4387/2016, Ν. 4670/2020 και ειδικές συνταξιοδοτικές διατάξεις που εφαρμόζονται στο Δημόσιο.</li>
+        <li><b>Πειθαρχικό / υπηρεσιακή κατάσταση:</b> Ν. 3528/2007 και Ν. 5225/2025, μαζί με τις ειδικές διατάξεις της ΥΕΦΚΚ.</li>
+      </ul>
+      <div class="notice">ℹ️ Για κάθε διάταξη η εφαρμογή πρέπει να ξεχωρίζει το <b>ισχύον</b> από το <b>ιστορικό/καταργημένο</b> και να παραπέμπει στο πλήρες κείμενο ή στο ΦΕΚ.</div>
+    </div>
+
+    <div class="lawGroup lawItem" id="missionLaw">
+      <h3>🎯 2. Αποστολή, καθήκοντα και επιχειρησιακό έργο</h3>
+      <div class="lawCard"><b>Π.Δ. 265/1999 — Αποστολή και αρμοδιότητες</b><p>Περιγράφει την αποστολή της Υπηρεσίας: εξωτερική φρούρηση, φρούρηση νοσηλευομένων κρατουμένων και συνοδεία/μεταγωγές στις προβλεπόμενες περιπτώσεις.</p><button class="action lawLink" onclick="openLaw('https://www.e-nomothesia.gr/kat-dikasteria-dikaiosune/pd-265-1999.html')">📄 Πλήρες Π.Δ.</button></div>
+      <div class="lawCard"><b>Π.Δ. 215/2006 — Κανονισμός Οργάνωσης και Λειτουργίας</b><p>Βασικό ειδικό κανονιστικό κείμενο για τη λειτουργία της ΥΕΦΚΚ. Η τρέχουσα ενοποιημένη έκδοση που εντοπίστηκε ενσωματώνει τροποποιήσεις έως 11.10.2025.</p><button class="action lawLink" onclick="openLaw('https://www.e-nomothesia.gr/kat-dikasteria-dikaiosune/pd-215-2006.html')">📄 Πλήρες Π.Δ.</button></div>
+    </div>
+
+    <div class="lawGroup lawItem" id="staffLaw">
+      <h3>👥 3. Προσωπικό, οργανικές θέσεις, προσλήψεις & υπηρεσιακές μεταβολές</h3>
+      <div class="lawCard"><b>Ν. 3038/2002</b><p>Ρυθμίσεις που συνδέονται με την ενίσχυση και τη στελέχωση της ΥΕΦΚΚ.</p><button class="action lawLink" onclick="openLaw('https://www.e-nomothesia.gr/kat-dikasteria-dikaiosune/n-3038-2002.html')">📄 Πηγή</button></div>
+      <div class="lawCard"><b>Ν. 3659/2008</b><p>Ρυθμίσεις για το προσωπικό και τη στελέχωση της Εξωτερικής Φρούρησης, με διάκριση των διατάξεων που έχουν μεταγενέστερα καταργηθεί.</p><button class="action lawLink" onclick="openLaw('https://www.e-nomothesia.gr/kat-dikasteria-dikaiosune/n-3659-2008.html')">📄 Πηγή</button></div>
+      <div class="lawCard"><b>Ν. 4760/2020</b><p>Ειδικές ρυθμίσεις για προσωπικό ΔΕ Προσωπικού Εξωτερικής Φρούρησης. Η εφαρμογή επισημαίνει τις διατάξεις που έχουν καταργηθεί μεταγενέστερα.</p><button class="action lawLink" onclick="openLaw('https://www.e-nomothesia.gr/kat-astynomikos-astynomia/idrysi-leitourgia-uperesion/nomos-4760-2020-phek-247a-11-12-2020.html')">📄 Πηγή</button></div>
+      <div class="lawCard highlightLaw"><b>Ν. 5236/2025</b><p>Νεότερο σημείο ελέγχου για αλλαγές και καταργήσεις ειδικών διατάξεων που αφορούν την ΥΕΦΚΚ.</p><button class="action lawLink" onclick="openLaw('https://www.e-nomothesia.gr/kat-demosia-dioikese/nomos-5236-2025.html')">📄 Πηγή</button></div>
+    </div>
+
+    <div class="lawGroup lawItem" id="trainingLaw">
+      <h3>🎓 4. Εκπαίδευση & επιμόρφωση</h3>
+      <div class="lawCard"><b>ΚΥΑ 11965/2021</b><p>Πλαίσιο εκπαίδευσης και ζητήματα δικαιωμάτων/υποχρεώσεων που συνδέονται με την εκπαίδευση.</p><button class="action lawLink" onclick="openLaw('https://www.e-nomothesia.gr/kat-dikasteria-dikaiosune/kya-11965-2021.html')">📄 Πηγή</button></div>
+      <div class="lawCard"><b>ΚΥΑ 22244/2023</b><p>Εξειδίκευση του προγράμματος εκπαίδευσης, με αντικείμενα σχετικά με δικαιώματα και υποχρεώσεις.</p><button class="action lawLink" onclick="openLaw('https://www.e-nomothesia.gr/kat-dikasteria-dikaiosune/kya-22244-2023.html')">📄 Πηγή</button></div>
+      <div class="lawCard"><b>ΚΥΑ 8321/2025</b><p>Νεότερο πλαίσιο βασικής εκπαίδευσης.</p><button class="action lawLink" onclick="openLaw('https://www.ypes.gr/wp-content/uploads/2025/04/20250407_atnp_evdomadiaio_14.pdf')">📄 Πηγή</button></div>
+      <div class="lawCard highlightLaw"><b>ΚΥΑ 12546/2026 — ΦΕΚ 2642/Β/12.05.2026</b><p>Καθορίζει την οργάνωση, τη διεύθυνση, το περιεχόμενο, τον τόπο και τη διάρκεια της βασικής εκπαίδευσης των υποψηφίων ΔΕ Προσωπικού Εξωτερικής Φρούρησης και των υπαλλήλων ΔΕ Φύλαξης.</p><button class="action lawLink" onclick="openLaw('https://www.e-nomothesia.gr/kat-dikasteria-dikaiosune/kya-12546-2026.html')">📄 Πλήρες κείμενο</button></div>
+    </div>
+
+    <div class="lawGroup lawItem" id="timeLaw">
+      <h3>🕐 5. Ωράριο, βάρδιες, αδιάθετο & άδειες</h3>
+      <div class="lawCard"><b>Π.Δ. 215/2006 — ειδικές υπηρεσιακές ρυθμίσεις</b><p>Η εφαρμογή συγκεντρώνει εδώ τις διατάξεις του Κανονισμού που αφορούν νυκτερινή υπηρεσία, ημερήσια ανάπαυση, αδιάθετο και άδειες. Στο κείμενο του Π.Δ. αναφέρεται, μεταξύ άλλων, ότι νυκτερινή υπηρεσία είναι μεταξύ 22:00 και 06:00 και ότι η ημερήσια ανάπαυση αρχίζει από τις 06:00 της επόμενης ημέρας και διαρκεί τουλάχιστον 24 ώρες.</p><button class="action lawLink" onclick="openLaw('https://www.e-nomothesia.gr/kat-dikasteria-dikaiosune/pd-215-2006.html')">📄 Έλεγχος άρθρων</button></div>
+      <div class="lawCard"><b>Άδειες ΥΕΦΚΚ</b><p>Το Π.Δ. 215/2006 περιλαμβάνει ειδικές ρυθμίσεις για κανονική, βραχεία, αναρρωτική, ολιγόωρη και λοιπές άδειες, με παραπομπή και στο γενικό πλαίσιο των δημοσίων υπαλλήλων.</p><button class="action lawLink" onclick="openLaw('https://www.e-nomothesia.gr/kat-dikasteria-dikaiosune/pd-215-2006.html')">📄 Άρθρο 17</button></div>
+    </div>
+
 
     <div class="lawGroup lawItem" id="yefkkLaw">
       <h3>🛡️ 1. Υπηρεσία Εξωτερικής Φρούρησης Καταστημάτων Κράτησης</h3>
@@ -709,6 +783,69 @@ html[data-theme="light"] .yefkkSignature:before{
         </ul></div>
         <button class="action lawLink" onclick="openLaw('https://www.e-nomothesia.gr/kat-dikasteria-dikaiosune/n-5236-2025.html')">📄 Πηγή</button>
       </div>
+      <div class="lawCard highlightLaw">
+        <b>Ν. 4411/2016 — Θέματα εξωτερικής φρουράς και εργασιακού χρόνου</b>
+        <p>Περιλαμβάνει ειδικές διατάξεις που αφορούν την Υπηρεσία Εξωτερικής Φρούρησης, μεταξύ άλλων για καθήκοντα σε εξωτερικά θυρωρεία και ειδικά υπηρεσιακά ζητήματα.</p>
+        <button class="action lawToggle" onclick="toggleLaw(this)">▼ Αναλυτικά</button>
+        <div class="lawDetails hide"><ul>
+          <li>Άρθρο δέκατο τέταρτο: ειδικές ρυθμίσεις για εργασία προσωπικού Καταστημάτων Κράτησης και ΥΕΦΚΚ.</li>
+          <li>Άρθρο δέκατο έβδομο: ειδικές ρυθμίσεις για την εξωτερική φρουρά και τροποποίηση του Ν. 2721/1999.</li>
+          <li>Οι συγκεκριμένες χρονικά περιορισμένες ρυθμίσεις ελέγχονται στο ισχύον κωδικοποιημένο κείμενο.</li>
+        </ul></div>
+        <button class="action lawLink" onclick="openLaw('https://www.e-nomothesia.gr/kat-nomothesia-genikou-endiapherontos/nomos-4411-2016.html')">📄 Πηγή</button>
+      </div>
+      <div class="lawCard">
+        <b>Ν. 4760/2020 — Ρυθμίσεις για το προσωπικό ΥΕΦΚΚ</b>
+        <p>Περιέχει ειδικές ρυθμίσεις για την υπηρεσιακή κατάσταση και τη διαδικασία επιλογής προσωπικού ΔΕ Προσωπικού Εξωτερικής Φρούρησης. Το άρθρο 11 έχει μεταγενέστερα καταργηθεί από τον Ν. 5236/2025.</p>
+        <button class="action lawToggle" onclick="toggleLaw(this)">▼ Αναλυτικά</button>
+        <div class="lawDetails hide"><ul>
+          <li>Άρθρο 11: ιστορικό πλαίσιο επιλογής προσωπικού ΔΕ Φύλαξης και ΔΕ Προσωπικού Εξωτερικής Φρούρησης.</li>
+          <li>Άρθρο 14: ρυθμίσεις για μετατάξεις προσωπικού ΔΕ Προσωπικού Εξωτερικής Φρούρησης.</li>
+          <li>Το άρθρο 11 καταργήθηκε από τον Ν. 5236/2025· παραμένει στη βιβλιοθήκη ως ιστορική αναφορά.</li>
+        </ul></div>
+        <button class="action lawLink" onclick="openLaw('https://www.e-nomothesia.gr/kat-astynomikos-astynomia/idrysi-leitourgia-uperesion/nomos-4760-2020-phek-247a-11-12-2020.html')">📄 Πηγή</button>
+      </div>
+      <div class="lawCard">
+        <b>Ν. 4937/2022 — Ειδική ρύθμιση για την ΥΕΦΚΚ</b>
+        <p>Περιλαμβάνει ειδική διάταξη για την ανανέωση επαγγελματικών αδειών οδήγησης υπαλλήλων Εξωτερικής Φρούρησης για υπηρεσιακές ανάγκες.</p>
+        <button class="action lawToggle" onclick="toggleLaw(this)">▼ Αναλυτικά</button>
+        <div class="lawDetails hide"><ul>
+          <li>Άρθρο 31: η ανανέωση των επαγγελματικών αδειών οδήγησης για τις ανάγκες της παρ. 3 του άρθρου 10 του Π.Δ. 215/2006 γίνεται με μέριμνα και δαπάνη της υπηρεσίας.</li>
+          <li>Άρθρο 32: περιλαμβάνει γενικότερη ρύθμιση για μετατάξεις/αποσπάσεις προσωπικού Καταστημάτων Κράτησης.</li>
+        </ul></div>
+        <button class="action lawLink" onclick="openLaw('https://www.e-nomothesia.gr/kat-dikasteria-dikaiosune/nomos-4937-2022-phek-106a-2-6-2022.html')">📄 Πηγή</button>
+      </div>
+      <div class="lawCard">
+        <b>Ν. 3659/2008 — Ρυθμίσεις προσωπικού και στελέχωσης</b>
+        <p>Περιλαμβάνει ρυθμίσεις που αφορούν οργανικές θέσεις και υπηρεσιακή εξέλιξη προσωπικού της Εξωτερικής Φρούρησης.</p>
+        <button class="action lawToggle" onclick="toggleLaw(this)">▼ Αναλυτικά</button>
+        <div class="lawDetails hide"><ul>
+          <li>Άρθρο 60: ρυθμίζει, μεταξύ άλλων, θέματα κατάταξης υπηρετούντων υπαλλήλων Εξωτερικής Φρούρησης.</li>
+          <li>Περιλαμβάνει ρυθμίσεις για τον αριθμό οργανικών θέσεων του κλάδου ΔΕ Προσωπικού Εξωτερικής Φρούρησης.</li>
+          <li>Το άρθρο 63 αναφέρεται ρητά ως καταργημένη διάταξη στον Ν. 5236/2025.</li>
+        </ul></div>
+        <button class="action lawLink" onclick="openLaw('https://www.e-nomothesia.gr/kat-dikasteria-dikaiosune/n-3659-2008.html')">📄 Πηγή</button>
+      </div>
+      <div class="lawCard">
+        <b>Ν. 3160/2003 — Ιστορικές ρυθμίσεις ενίσχυσης ΥΕΦΚΚ</b>
+        <p>Ιστορικό νομοθέτημα που περιείχε ρυθμίσεις σχετικά με την υποστήριξη της Υπηρεσίας Εξωτερικής Φρούρησης από την Ελληνική Αστυνομία.</p>
+        <button class="action lawToggle" onclick="toggleLaw(this)">▼ Αναλυτικά</button>
+        <div class="lawDetails hide"><ul>
+          <li>Περιλαμβάνει ιστορικές παρατάσεις ρυθμίσεων του Ν. 2721/1999 για την ενίσχυση της ΥΕΦΚΚ.</li>
+          <li>Χρήσιμο ως ιστορική αναφορά στην εξέλιξη του θεσμικού πλαισίου.</li>
+        </ul></div>
+        <button class="action lawLink" onclick="openLaw('https://www.e-nomothesia.gr/kat-dikasteria-dikaiosune/n-3160-2003.html')">📄 Πηγή</button>
+      </div>
+      <div class="lawCard">
+        <b>Ν. 3242/2004 — Ιστορική παράταση ειδικών ρυθμίσεων ΥΕΦΚΚ</b>
+        <p>Περιείχε μεταβατικές/χρονικά περιορισμένες ρυθμίσεις σχετικά με την ενίσχυση της ΥΕΦΚΚ και τις μεταγωγές.</p>
+        <button class="action lawToggle" onclick="toggleLaw(this)">▼ Αναλυτικά</button>
+        <div class="lawDetails hide"><ul>
+          <li>Άρθρο 18: παράταση ειδικών ρυθμίσεων που συνδέονταν με την ενίσχυση της ΥΕΦΚΚ.</li>
+          <li>Πρόκειται για ιστορική αναφορά και όχι για αυτοτελές σημερινό πλαίσιο λειτουργίας.</li>
+        </ul></div>
+        <button class="action lawLink" onclick="openLaw('https://www.e-nomothesia.gr/autodioikese-demoi/n-3242-2004.html')">📄 Πηγή</button>
+      </div>
       <div class="lawCard">
         <b>ΚΥΑ 11965/2021 — Εκπαίδευση προσωπικού ΥΕΦΚΚ</b>
         <p>Ρυθμίζει ζητήματα εκπαίδευσης και το πλαίσιο δικαιωμάτων και υποχρεώσεων του προσωπικού.</p>
@@ -729,6 +866,7 @@ html[data-theme="light"] .yefkkSignature:before{
         <p>Νεότερη ρύθμιση για την οργάνωση, τη διεύθυνση, το περιεχόμενο, τον τόπο και τη διάρκεια της βασικής εκπαίδευσης υποψηφίων και υπαλλήλων.</p>
         <button class="action lawLink" onclick="openLaw('https://www.ypes.gr/wp-content/uploads/2025/04/20250407_atnp_evdomadiaio_14.pdf')">📄 Επίσημη πηγή ΥΠΕΣ</button>
       </div>
+      <div class="section notice" style="margin:10px 0">ℹ️ <b>Σημείωση ισχύος:</b> Η βιβλιοθήκη διαχωρίζει τα σημερινά/ενεργά σημεία αναφοράς από ιστορικές ή καταργημένες διατάξεις. Ιδίως, ο Ν. 5236/2025 έχει καταργήσει συγκεκριμένες παλαιότερες διατάξεις για την πρόσληψη προσωπικού, ενώ το Π.Δ. 215/2006 έχει ενοποιηθεί με τις μεταγενέστερες τροποποιήσεις του.</div>
       <div class="lawCard">
         <b>📚 Υπηρεσιακός οδηγός ΥΕΦΚΚ</b>
         <p>Σύνδεση της νομοθεσίας με πρακτικά θέματα: υπηρεσία, βάρδιες, καθήκοντα, αναφορές, υπηρεσιακές υποχρεώσεις και πειθαρχική ευθύνη.</p>
@@ -738,7 +876,7 @@ html[data-theme="light"] .yefkkSignature:before{
     </div>
 
     <div class="lawGroup lawItem" id="prisonLaw">
-      <h3>🏛️ 2. Σωφρονιστικό πλαίσιο</h3>
+      <h3>🏛️ 9. Σωφρονιστικό πλαίσιο</h3>
       <div class="lawCard">
         <b>Ν. 2776/1999 — Σωφρονιστικός Κώδικας</b>
         <p>Βασικό νομοθετικό πλαίσιο για την εκτέλεση των ποινών και τη λειτουργία του σωφρονιστικού συστήματος.</p>
@@ -754,19 +892,23 @@ html[data-theme="light"] .yefkkSignature:before{
       <div class="lawCard"><b>Γενική Γραμματεία Αντεγκληματικής Πολιτικής</b><p>Επίσημη πηγή για τη διοικητική δομή και τις αρμόδιες υπηρεσίες.</p><button class="action lawLink" onclick="openLaw('https://www.sofron.gov.gr/poioi-eimaste/organogramma/diefthynsi-organosis-kai-leitourgias/')">🌐 Επίσημη σελίδα</button></div>
     </div>
 
-    <div class="lawGroup lawItem">
-      <h3>💶 3. Μισθολόγιο ΥΕΦΚΚ</h3>
+    <div class="lawGroup lawItem" id="salaryLaw">
+      <h3>💶 6. Μισθολόγιο ΥΕΦΚΚ</h3>
+      <div class="lawCard highlightLaw"><b>Ν. 4354/2015 — Ενιαίο Μισθολόγιο</b><p>Βασικό γενικό μισθολογικό πλαίσιο του Δημοσίου, στο οποίο στηρίζονται τα μισθολογικά κλιμάκια και οι σχετικές αποδοχές, μαζί με τις ειδικές διατάξεις που εφαρμόζονται στην ΥΕΦΚΚ.</p><button class="action lawLink" onclick="openLaw('https://www.e-nomothesia.gr/kat-demosion-upallelon/nomos-4354-2015.html')">📄 Πλήρες κείμενο</button></div>
+      <div class="lawCard"><b>Ν. 5163/2024 — Μισθολογικές αναπροσαρμογές από το 2026</b><p>Περιλαμβάνει ρυθμίσεις για την προσαύξηση των βασικών μισθών του Δημοσίου από το 2026 και αποτελεί συμπληρωματικό σημείο ελέγχου για τα μισθολογικά δεδομένα.</p><button class="action lawLink" onclick="openLaw('https://www.e-nomothesia.gr/kat-ergasia-koinonike-asphalise/n-5163-2024.html')">📄 Πηγή</button></div>
       <div class="lawCard"><b>Μισθολογικά στοιχεία</b><p>Μ.Κ., βασικός μισθός, ειδικές συνθήκες, οικογενειακές παροχές και πρόσθετες αποδοχές, όπως έχουν ενσωματωθεί στα μισθολογικά δεδομένα της εφαρμογής.</p><button class="action" data-go="salary">💶 Άνοιγμα Μισθολογίου</button></div>
       <div class="lawCard"><b>Κρατήσεις / ΜΤΠΥ</b><p>Οι κρατήσεις εμφανίζονται αναλυτικά στον υπολογισμό μισθού και η εφαρμογή ξεχωρίζει τη διαφοροποίηση του ΜΤΠΥ ανά ασφαλιστική κατηγορία.</p><button class="action" data-go="salary">📊 Αναλυτικές κρατήσεις</button></div>
     </div>
 
-    <div class="lawGroup lawItem">
-      <h3>🧓 4. Συνταξιοδοτικό ΥΕΦΚΚ</h3>
+    <div class="lawGroup lawItem" id="pensionLaw">
+      <h3>🧓 7. Συνταξιοδοτικό ΥΕΦΚΚ</h3>
+      <div class="lawCard"><b>Ν. 4387/2016 — Συνταξιοδοτικό πλαίσιο</b><p>Βασικό πλαίσιο για τον χρόνο ασφάλισης, τη συντάξιμη βάση και την ανταποδοτική σύνταξη.</p><button class="action lawLink" onclick="openLaw('https://www.e-nomothesia.gr/kat-ergasia-koinonike-asphalise/nomos-4387-2016-phek-85a-12-5-2016.html')">📄 Πλήρες κείμενο</button></div>
+      <div class="lawCard"><b>Ν. 4670/2020 — τροποποιήσεις και ποσοστά αναπλήρωσης</b><p>Τροποποίησε, μεταξύ άλλων, το άρθρο 8 του Ν. 4387/2016 σχετικά με την ανταποδοτική σύνταξη και τα ποσοστά αναπλήρωσης.</p><button class="action lawLink" onclick="openLaw('https://www.e-nomothesia.gr/kat-ergasia-koinonike-asphalise/nomos-4670-2020-phek-43a-28-2-2020.html')">📄 Πηγή</button></div>
       <div class="lawCard"><b>Συντάξιμος χρόνος και μέσος μισθός</b><p>Ξεχωριστά ο πραγματικός χρόνος ΥΕΦΚΚ, ο χρόνος άλλων ταμείων και οι αναγνωρίσεις. Ο οδηγός της εφαρμογής υπολογίζει τον μέσο συντάξιμο μισθό από 01/01/2002 έως τον μήνα υπολογισμού.</p><button class="action" data-go="pension">🧓 Άνοιγμα Συνταξιοδοτικού</button></div>
     </div>
 
     <div class="lawGroup lawItem" id="disciplineLaw">
-      <h3>⚖️ 5. Νέο Πειθαρχικό Δίκαιο Δημοσίων Υπαλλήλων</h3>
+      <h3>⚖️ 8. Νέο Πειθαρχικό Δίκαιο Δημοσίων Υπαλλήλων</h3>
       <div class="lawCard highlightLaw">
         <b>Ν. 5225/2025 — ΦΕΚ Α΄ 152/02.09.2025</b>
         <p>Ο νέος βασικός κορμός του πειθαρχικού δικαίου των υπαλλήλων του δημόσιου τομέα. Η εφαρμογή δίνει ενημερωτικό οδηγό και παραπέμπει στο ισχύον επίσημο κείμενο.</p>
@@ -803,16 +945,16 @@ html[data-theme="light"] .yefkkSignature:before{
     </div>
 
     <div class="lawGroup lawItem" id="publicCodeLaw">
-      <h3>📘 6. Κώδικας Δημοσίων Υπαλλήλων</h3>
+      <h3>📘 10. Κώδικας Δημοσίων Υπαλλήλων</h3>
       <div class="lawCard"><b>Ν. 3528/2007 — Κώδικας Κατάστασης Δημοσίων Πολιτικών Διοικητικών Υπαλλήλων και Υπαλλήλων Ν.Π.Δ.Δ.</b><p>Συμπληρωματικό βασικό κείμενο για την υπηρεσιακή κατάσταση και το πειθαρχικό πλαίσιο, όπως έχει τροποποιηθεί και ισχύει.</p><button class="action lawLink" onclick="openLaw('https://www.ypes.gr/kodikas-ypallilon-dimosioy-kai-n-p-d-d/')">📘 Επίσημος Κώδικας</button></div>
     </div>
 
     <div class="lawGroup lawItem">
-      <h3>🔎 7. Επίσημη αναζήτηση ΦΕΚ</h3>
+      <h3>🔎 11. Επίσημη αναζήτηση ΦΕΚ</h3>
       <div class="lawCard"><b>Εθνικό Τυπογραφείο</b><p>Για ακριβή έλεγχο αριθμού ΦΕΚ, άρθρου, έτους και ισχύοντος κειμένου χρησιμοποιείται η επίσημη βάση αναζήτησης.</p><button class="action lawLink" onclick="openLaw('https://search.et.gr/el/')">🏛️ Αναζήτηση στο Εθνικό Τυπογραφείο</button></div>
     </div>
 
-    <div class="notice"><b>📌 Δομή V4.35:</b> κάθε νόμος οργανώνεται ως <b>Νόμος → θέμα → αναλυτική περίληψη → επίσημη πηγή → έλεγχος τροποποιήσεων</b>. Επόμενη επέκταση μπορεί να γίνει ανά άρθρο, με ειδική σελίδα «τι σημαίνει για ΥΕΦΚΚ».</div>
+    <div class="notice"><b>📌 Δομή V4.50:</b> κάθε νόμος οργανώνεται ως <b>Νόμος → θέμα → αναλυτική περίληψη → επίσημη πηγή → έλεγχος τροποποιήσεων</b>. Επόμενη επέκταση μπορεί να γίνει ανά άρθρο, με ειδική σελίδα «τι σημαίνει για ΥΕΦΚΚ».</div>
   </div>
 </section>
 
@@ -961,7 +1103,7 @@ html[data-theme="light"] .yefkkSignature:before{
 </div>
 <div class="sideOverlay" id="sideOverlay"></div>
 <script>
-const pages={home:['ΕΞΩΤΕΡΙΚΗ ΦΡΟΥΡΗΣΗ','V4.46 • Ενιαία εφαρμογή ΥΕΦΚΚ'],salary:['ΜΙΣΘΟΛΟΓΙΟ','ΥΕΦΚΚ • 2026'],pension:['ΣΥΝΤΑΞΙΟΔΟΤΙΚΟΣ ΟΔΗΓΟΣ','Σενάρια ΥΕΦΚΚ'],calendar:['ΗΜΕΡΟΛΟΓΙΟ ΥΠΗΡΕΣΙΑΣ','Βάρδιες • Νύχτες • Πενθήμερα'],stats:['ΣΤΑΤΙΣΤΙΚΑ','Από το ημερολόγιο υπηρεσίας'],laws:['ΝΟΜΟΘΕΤΗΜΑΤΑ','Νομοθεσία και υπηρεσιακό πλαίσιο'],guide:['ΟΔΗΓΟΣ ΕΦΑΡΜΟΓΗΣ','Βήμα-βήμα χρήση της εφαρμογής'],profile:['ΠΡΟΦΙΛ','Τα στοιχεία μου'],settings:['ΡΥΘΜΙΣΕΙΣ','Προσαρμογή εφαρμογής']};
+const pages={home:['ΕΞΩΤΕΡΙΚΗ ΦΡΟΥΡΗΣΗ','V4.55 • Ενιαία εφαρμογή ΥΕΦΚΚ'],salary:['ΜΙΣΘΟΛΟΓΙΟ','ΥΕΦΚΚ • 2026'],pension:['ΣΥΝΤΑΞΙΟΔΟΤΙΚΟΣ ΟΔΗΓΟΣ','Σενάρια ΥΕΦΚΚ'],calendar:['ΗΜΕΡΟΛΟΓΙΟ ΥΠΗΡΕΣΙΑΣ','Βάρδιες • Νύχτες • Πενθήμερα'],stats:['ΣΤΑΤΙΣΤΙΚΑ','Από το ημερολόγιο υπηρεσίας'],laws:['ΝΟΜΟΘΕΤΗΜΑΤΑ','Νομοθεσία και υπηρεσιακό πλαίσιο'],guide:['ΟΔΗΓΟΣ ΕΦΑΡΜΟΓΗΣ','Βήμα-βήμα χρήση της εφαρμογής'],profile:['ΠΡΟΦΙΛ','Τα στοιχεία μου'],settings:['ΡΥΘΜΙΣΕΙΣ','Προσαρμογή εφαρμογής']};
 function closeSidebar(){document.body.classList.remove('menu-open');const t=document.getElementById('menuToggle');if(t)t.setAttribute('aria-expanded','false')}
 function show(page){document.querySelectorAll('.page').forEach(x=>x.classList.add('hide'));document.getElementById(page).classList.remove('hide');document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===page));document.getElementById('pageTitle').textContent=pages[page][0];document.getElementById('pageSub').textContent=pages[page][1];location.hash=page;closeSidebar()}
 document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>show(b.dataset.page)));
@@ -1893,6 +2035,8 @@ function calculatePension(){
   // Νέο: 35 βασικά + ακριβώς 5 μάχιμη = 40.
   // Ηλικία 60: ξεχωριστά 0..5 μάχιμη.
   const old = baseYears>=37 ? pensionColumn(37,wage) : null;
+  // Παλιό καθεστώς με ηλικία 60: ξεχωριστό σενάριο, χωρίς καμία χρήση μάχιμης 5ετίας.
+  const oldAge60 = age>=60 ? pensionColumn(Math.min(baseYears,40),wage) : null;
   const newer = baseYears>=35 ? pensionColumn(40,wage) : null;
   const age60 = age>=60 ? pensionColumn(Math.min(baseYears+5,40),wage) : null;
 
@@ -1904,23 +2048,23 @@ function calculatePension(){
       : dash;
 
   const rows=[
-    ['Συντάξιμα έτη',val(old,'years'),val(newer,'years'),val(age60,'years')],
-    ['Ποσοστό αναπλήρωσης',val(old,'rate'),val(newer,'rate'),val(age60,'rate')],
-    ['Εθνική σύνταξη',val(old,'national'),val(newer,'national'),val(age60,'national')],
-    ['Ανταποδοτική σύνταξη (εκτίμηση)',val(old,'contributory'),val(newer,'contributory'),val(age60,'contributory')],
-    ['Επικουρική σύνταξη (εκτίμηση)',val(old,'supplementary'),val(newer,'supplementary'),val(age60,'supplementary')],
-    ['ΜΤΠΥ (εφόσον θεμελιωθεί)',val(old,'mtpy'),val(newer,'mtpy'),val(age60,'mtpy')],
-    ['ΣΥΝΟΛΟ ΜΙΚΤΗΣ ΣΥΝΤΑΞΗΣ',val(old,'gross'),val(newer,'gross'),val(age60,'gross')],
-    ['Υγειονομική περίθαλψη (6%)',val(old,'health'),val(newer,'health'),val(age60,'health')],
-    ['ΣΥΝΟΛΟ ΑΣΦΑΛΙΣΤΙΚΩΝ ΚΡΑΤΗΣΕΩΝ',val(old,'deductions'),val(newer,'deductions'),val(age60,'deductions')],
-    ['ΕΚΤΙΜΩΜΕΝΗ ΚΑΘΑΡΗ ΣΥΝΤΑΞΗ',val(old,'net'),val(newer,'net'),val(age60,'net')]
+    ['Συντάξιμα έτη',val(old,'years'),val(oldAge60,'years'),val(newer,'years'),val(age60,'years')],
+    ['Ποσοστό αναπλήρωσης',val(old,'rate'),val(oldAge60,'rate'),val(newer,'rate'),val(age60,'rate')],
+    ['Εθνική σύνταξη',val(old,'national'),val(oldAge60,'national'),val(newer,'national'),val(age60,'national')],
+    ['Ανταποδοτική σύνταξη (εκτίμηση)',val(old,'contributory'),val(oldAge60,'contributory'),val(newer,'contributory'),val(age60,'contributory')],
+    ['Επικουρική σύνταξη (εκτίμηση)',val(old,'supplementary'),val(oldAge60,'supplementary'),val(newer,'supplementary'),val(age60,'supplementary')],
+    ['ΜΤΠΥ (εφόσον θεμελιωθεί)',val(old,'mtpy'),val(oldAge60,'mtpy'),val(newer,'mtpy'),val(age60,'mtpy')],
+    ['ΣΥΝΟΛΟ ΜΙΚΤΗΣ ΣΥΝΤΑΞΗΣ',val(old,'gross'),val(oldAge60,'gross'),val(newer,'gross'),val(age60,'gross')],
+    ['Υγειονομική περίθαλψη (6%)',val(old,'health'),val(oldAge60,'health'),val(newer,'health'),val(age60,'health')],
+    ['ΣΥΝΟΛΟ ΑΣΦΑΛΙΣΤΙΚΩΝ ΚΡΑΤΗΣΕΩΝ',val(old,'deductions'),val(oldAge60,'deductions'),val(newer,'deductions'),val(age60,'deductions')],
+    ['ΕΚΤΙΜΩΜΕΝΗ ΚΑΘΑΡΗ ΣΥΝΤΑΞΗ',val(old,'net'),val(oldAge60,'net'),val(newer,'net'),val(age60,'net')]
   ];
   document.querySelector('#pensionTable tbody').innerHTML=rows.map(r=>`<tr>${r.map((x,i)=>`<td${i===0?' class="muted"':''}>${x}</td>`).join('')}</tr>`).join('');
 
-  const detail=age60||newer||old;
+  const detail=age60||newer||oldAge60||old;
   if(!detail){
     document.getElementById('pensionBreakdown').innerHTML=`
-      <div class="notice">Δεν εμφανίζονται ποσά επειδή δεν έχει συμπληρωθεί ακόμη καμία από τις προϋποθέσεις των σεναρίων: <b>37 βασικά συνολικά έτη</b>, <b>35 βασικά έτη για το 35 + 5 μάχιμη = 40</b> ή <b>ηλικία 60</b>.</div>`;
+      <div class="notice">Δεν εμφανίζονται ποσά επειδή δεν έχει συμπληρωθεί ακόμη καμία από τις προϋποθέσεις των σεναρίων: <b>37 βασικά συνολικά έτη</b>, <b>35 βασικά έτη για το 35 + 5 μάχιμη = 40</b> ή <b>ηλικία 60 (με 0 μάχιμη στο παλιό καθεστώς ή 0–5 μάχιμη στα ξεχωριστά σενάρια)</b>.</div>`;
     return;
   }
 
@@ -1970,7 +2114,7 @@ function syncPensionProfile(){
 }
 ['pYefkk','pOther','pPlastic'].forEach(id=>document.getElementById(id)?.addEventListener('input',calculatePension));
 
-// V4.46 • 5ετία / σενάρια: κοινή επιλογή αναγνώρισης 5ετίας σε Μισθολόγιο και Σύνταξη.
+// V4.45 + 5ετία: κοινή επιλογή αναγνώρισης 5ετίας σε Μισθολόγιο και Σύνταξη.
 const recSalary=document.getElementById('recognitionFive');
 const recPension=document.getElementById('pRecognitionFive');
 const savedRecognition=localStorage.getItem('yefkk_recognitionFive');
@@ -2183,3 +2327,29 @@ function lawJump(id){ const e=document.getElementById(id); if(e){ e.scrollIntoVi
 const childrenField=document.getElementById('children'); if(childrenField) childrenField.disabled=true;
 document.getElementById('calcSalary')?.addEventListener('click',()=>{setTimeout(()=>{try{refreshHomeFromSources();}catch(e){}},0)});
 </script>
+<script>
+// V4.55 — robust navigation/menu handlers
+(function(){
+  function go(pageId){
+    if(!document.getElementById(pageId)) pageId='home';
+    document.querySelectorAll('.page').forEach(p=>p.classList.toggle('hide',p.id!==pageId));
+    document.querySelectorAll('.nav button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===pageId));
+    const titles={home:['ΕΞΩΤΕΡΙΚΗ ΦΡΟΥΡΗΣΗ','V4.55 • Ενιαία εφαρμογή ΥΕΦΚΚ'],salary:['Μισθολόγιο','ΥΕΦΚΚ • Μισθολόγιο'],pension:['Συνταξιοδοτικός Οδηγός','ΥΕΦΚΚ • Σύνταξη'],calendar:['Ημερολόγιο','ΥΕΦΚΚ • Υπηρεσία'],stats:['Στατιστικά','ΥΕΦΚΚ • Στατιστικά'],laws:['Νομοθετήματα','ΥΕΦΚΚ • Νομοθεσία'],guide:['Οδηγός ΥΕΦΚΚ','ΥΕΦΚΚ • Οδηγός'],profile:['Προφίλ','ΥΕΦΚΚ • Προσωπικά στοιχεία'],settings:['Ρυθμίσεις','ΥΕΦΚΚ • Ρυθμίσεις']};
+    const t=titles[pageId]||titles.home,h=document.getElementById('pageTitle'),sub=document.getElementById('pageSub');if(h)h.textContent=t[0];if(sub)sub.textContent=t[1];
+    document.body.classList.remove('menu-open');document.getElementById('menuToggle')?.setAttribute('aria-expanded','false');try{localStorage.setItem('yefkk_activePage',pageId)}catch(e){}window.scrollTo({top:0,behavior:'smooth'});
+  }
+  window.yefkkGo=go;document.querySelectorAll('.nav button[data-page]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();go(b.dataset.page)}));document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();go(b.dataset.go)}));
+  const mt=document.getElementById('menuToggle'),close=document.getElementById('sideClose');mt?.addEventListener('click',()=>{document.body.classList.add('menu-open');mt.setAttribute('aria-expanded','true')});close?.addEventListener('click',()=>{document.body.classList.remove('menu-open');mt?.setAttribute('aria-expanded','false')});document.querySelector('.sideOverlay')?.addEventListener('click',()=>{document.body.classList.remove('menu-open');mt?.setAttribute('aria-expanded','false')});
+  let initial='home';try{const saved=localStorage.getItem('yefkk_activePage');if(saved&&document.getElementById(saved))initial=saved}catch(e){}go(initial);
+})();
+</script>
+<script>
+// V4.55 — retirement accordion + checklist
+(function(){
+ document.querySelectorAll('.retAccBtn').forEach(btn=>btn.addEventListener('click',()=>btn.closest('.retAccItem')?.classList.toggle('open')));
+ const key='yefkk_retirementChecklist_v1',boxes=[...document.querySelectorAll('[data-ret-check]')],progress=document.getElementById('retirementChecklistProgress'),reset=document.getElementById('retirementChecklistReset');
+ function update(){const done=boxes.filter(b=>b.checked).length;if(progress)progress.innerHTML=`<b>${done} / ${boxes.length}</b> ολοκληρωμένα${done===boxes.length?' — 🎉 Όλα έτοιμα!':''}`;const saved={};boxes.forEach(b=>saved[b.dataset.retCheck]=b.checked);try{localStorage.setItem(key,JSON.stringify(saved))}catch(e){}}
+ let saved={};try{saved=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}boxes.forEach(b=>{b.checked=!!saved[b.dataset.retCheck];b.addEventListener('change',update)});reset?.addEventListener('click',()=>{boxes.forEach(b=>b.checked=false);update()});update();
+})();
+</script>
+
