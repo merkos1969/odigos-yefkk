@@ -69,6 +69,9 @@ body{background:radial-gradient(900px 500px at 70% -10%,#123d63 0%,#061526 48%,#
 /* Calendar */
 .calendarShell{background:linear-gradient(145deg,#061c30,#03101d)!important}.calGrid{background:#06192a}.calCell{background:#071a2d;color:#edf7ff;border-color:rgba(32,191,255,.10)}.calCell.weekend{background:#13283a;color:#d8e6f2}.calCell.isNight{background:#344254;color:#fff}.calCell.isFive,.calCell.isFive.isNight,.calCell.shiftCell-N.isFive,.calCell.shiftCell-PN.isFive.isNight{background:#ffd21c;color:#101820}.calWeek div{background:#102b45;color:#9edcff}.calTotals{background:#061a2c;color:#fff}.calTotals div{background:#0c263c;color:#dceaf6}.calTotals div:nth-child(1){background:#3b4763}.calTotals div:nth-child(2){background:#ffd21c;color:#111}.shiftPalette{border:1px solid rgba(32,191,255,.22);background:#06192a}.calNav{background:#0a2944;color:#fff;border:1px solid rgba(32,191,255,.2)}
 @media(max-width:900px){.side{display:block;transform:translateX(-105%);transition:.25s;z-index:100;width:285px}.main{margin-left:0;width:100%;padding:0 14px 50px}.top{margin:0 -14px 18px;padding:0 14px;height:82px}.menuToggle{display:block;flex:0 0 auto}.title{min-width:0}.title h1{font-size:28px}.title p{font-size:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.topMeta{display:none}.sideFooter{display:none}body.menu-open .side{transform:translateX(0)}body.menu-open:after{content:"";position:fixed;inset:0;background:rgba(0,0,0,.62);z-index:90}.grid,.grid2,.formgrid{grid-template-columns:1fr}.homeProfileCard{flex-direction:column;align-items:flex-start!important}.page> .card:first-child{padding:18px}.page h2{font-size:26px}.page h3{font-size:20px}.value{font-size:31px}.retAccBtn{font-size:15px}.calCell{min-height:88px}.calGrid{gap:5px;padding:6px}}
+.profileBuyoutGrid .rateItem span{font-size:20px;font-weight:900;color:#fff1e5}.profileBuyoutGrid .rateItem b{font-size:12px}.profileBuyoutGrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:900px){.profileBuyoutGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.profileBuyoutGrid{grid-template-columns:1fr}}
 </style>
 
 <style>
@@ -714,6 +717,29 @@ html[data-theme="light"] .sideBrand .logo small{color:#ffd2a3!important;}
       <p class="muted">Τα παραπάνω σημεία προέρχονται από τον πίνακα/οδηγό που έχουμε δουλέψει. Ενδιάμεσες τιμές εμφανίζονται ως εκτίμηση.</p>
     </div>
 
+    <div class="section card plasticBuyout" style="background:linear-gradient(135deg,rgba(20,18,24,.98),rgba(10,25,39,.98));border-color:rgba(255,145,0,.45);box-shadow:0 0 28px rgba(255,125,0,.08)">
+      <h3>💶 Υπολογιστής Εξαγοράς Πλασματικών Ετών</h3>
+      <p class="muted">Ενδεικτικός υπολογισμός κόστους με βάση τους μήνες εξαγοράς, τις συντάξιμες αποδοχές και το ποσοστό εισφοράς. Για μισθωτούς, ο e-ΕΦΚΑ αναφέρει ότι η εξαγορά υπολογίζεται με το σύνολο των εισφορών κλάδου σύνταξης που ισχύει κατά την αίτηση· ως παράδειγμα αναφέρει 20% για ΙΚΑ-ΕΤΑΜ.</p>
+      <div class="formgrid">
+        <div><label>Αναγνωρισμένοι μήνες</label><input id="buyoutMonths" type="number" min="1" step="1" value="18"><small class="muted">Αν υπάρχουν στο Προφίλ, συμπληρώνονται αυτόματα.</small></div>
+        <div><label>Ημερομηνία αίτησης αναγνώρισης</label><input id="buyoutApplicationDate" type="date"><small class="muted">Ο συντελεστής αλλάζει ανάλογα με το έτος της αίτησης.</small></div>
+        <div><label>Συντάξιμες μηνιαίες αποδοχές (€)</label><input id="buyoutWage" type="number" min="0" step="0.01" value="1500"><small class="muted">Βάση υπολογισμού</small></div>
+        <div><label>Ενδεικτικό ποσοστό εισφοράς</label><select id="buyoutRate"><option value="0.20" selected>20%</option><option value="0.1667">16,67%</option><option value="0.1334">13,34%</option><option value="0.10">10%</option><option value="0.0667">6,67%</option><option value="custom">Άλλο</option></select><small class="muted" id="buyoutRateHint">Επίλεξε ημερομηνία αίτησης για αυτόματη πρόταση.</small></div>
+        <div id="buyoutCustomRateWrap" class="hide"><label>Άλλο ποσοστό (%)</label><input id="buyoutCustomRate" type="number" min="0" step="0.01" value="20"></div>
+      </div>
+      <div class="notice" style="border-color:rgba(255,145,0,.35);background:rgba(255,145,0,.06)">📌 Εργαλείο εκτίμησης — το ακριβές ποσό εξαγοράς καθορίζεται από τον e-ΕΦΚΑ και τα στοιχεία της συγκεκριμένης αναγνώρισης.</div>
+      <div class="rateGrid" style="margin-top:14px">
+        <div class="rateItem"><b>Κόστος / μήνα</b><span id="buyoutPerMonth">300,00 €</span></div>
+        <div class="rateItem"><b>Συνολικό κόστος</b><span id="buyoutTotal">5.400,00 €</span></div>
+        <div class="rateItem"><b>Εφάπαξ με έκπτωση</b><span id="buyoutLump">5.292,00 €</span></div>
+        <div class="rateItem"><b>Μηνιαία δόση</b><span id="buyoutInstallment">300,00 €</span></div>
+        <div class="rateItem"><b>Πλήθος μηνιαίων δόσεων</b><span id="buyoutInstallmentsCount">18</span></div>
+        <div class="rateItem"><b>Έκπτωση εφάπαξ</b><span id="buyoutDiscount">108,00 €</span></div>
+      </div>
+      <div id="buyoutSummary" class="card" style="margin-top:14px;background:rgba(255,255,255,.035);border-color:rgba(56,217,255,.2)">18 μήνες × 300,00 € = <b>5.400,00 €</b></div>
+      <small class="muted" style="display:block;margin-top:10px">Ο e-ΕΦΚΑ αναφέρει έκπτωση 2% για κάθε πλήρες έτος σε εφάπαξ καταβολή· χρόνος μικρότερος του ενός έτους δεν λαμβάνει έκπτωση.</small>
+    </div>
+
     <div class="section card" style="background:#081321;border-color:rgba(56,217,255,.28)">
       <h3>6. 🧭 Συνταξιοδοτικός Οδηγός — Βήμα βήμα</h3>
       <p class="muted">Η ενότητα είναι οργανωμένη σε αναπτυσσόμενες υποενότητες, όπως τα Νομοθετήματα. Ανοίγεις μόνο αυτό που χρειάζεσαι.</p>
@@ -1243,8 +1269,30 @@ html[data-theme="light"] .sideBrand .logo small{color:#ffd2a3!important;}
         <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
       </select></div>
       <div><label>Ημέρες ασφάλισης σε άλλα ταμεία</label><input id="profOtherDays" type="number" min="0" step="1" value="0"><small class="muted">300 ημέρες = 1 έτος</small></div>
-      <div><label>Πλασματικά / αναγνωρισμένα έτη</label><input id="profPlasticYears" type="number" min="0" step="0.1" value="0"></div>
+      <div><label>Αναγνωρισμένοι μήνες πλασματικού χρόνου</label><input id="profPlasticMonths" type="number" min="0" step="1" value="0"><small class="muted">π.χ. 18 μήνες = 1 έτος και 6 μήνες</small></div>
+      <div><label>Ημερομηνία αίτησης αναγνώρισης</label><input id="profRecognitionDate" type="date"><small class="muted">Χρησιμοποιείται για τον ενδεικτικό συντελεστή εξαγοράς.</small></div>
+      <div><label>Συντάξιμες μηνιαίες αποδοχές για την εκτίμηση (€)</label><input id="profBuyoutWage" type="number" min="0" step="0.01" value="1500"><small class="muted">Η βάση της ενδεικτικής εκτίμησης εξαγοράς.</small></div>
+      <div class="card" style="background:linear-gradient(135deg,rgba(255,125,0,.10),rgba(20,30,45,.95));border-color:rgba(255,145,0,.35)">
+        <span class="muted">💶 Ενδεικτικός συντελεστής εξαγοράς</span>
+        <div class="value" style="color:#ff9a2f" id="profileBuyoutRateView">—</div>
+        <small class="muted" id="profileBuyoutRateHint">Συμπλήρωσε την ημερομηνία αίτησης.</small>
+      </div>
+      <div><label>Πλασματικά / αναγνωρισμένα έτη</label><input id="profPlasticYears" type="number" min="0" step="0.1" value="0" readonly><small class="muted">Υπολογίζονται αυτόματα από τους αναγνωρισμένους μήνες.</small></div>
     </div>
+    <div class="section card" style="background:linear-gradient(135deg,rgba(255,125,0,.12),rgba(8,19,33,.98));border-color:rgba(255,145,0,.42);box-shadow:0 0 24px rgba(255,125,0,.08)">
+      <h3>💶 Κόστος εξαγοράς αναγνωρισμένων μηνών</h3>
+      <div class="rateGrid profileBuyoutGrid">
+        <div class="rateItem"><b>Αναγνωρισμένοι μήνες</b><span id="profileBuyoutMonthsView">0</span></div>
+        <div class="rateItem"><b>Κόστος / μήνα</b><span id="profileBuyoutPerMonthView">0,00 €</span></div>
+        <div class="rateItem"><b>Συνολικό κόστος</b><span id="profileBuyoutTotalView">0,00 €</span></div>
+        <div class="rateItem"><b>Εφάπαξ με έκπτωση</b><span id="profileBuyoutLumpView">0,00 €</span></div>
+        <div class="rateItem"><b>Μηνιαία δόση</b><span id="profileBuyoutInstallmentView">0,00 €</span></div>
+        <div class="rateItem"><b>Δόσεις</b><span id="profileBuyoutInstallmentsView">0</span></div>
+      </div>
+      <div id="profileBuyoutSummary" class="notice" style="margin-top:12px;border-color:rgba(255,145,0,.30);background:rgba(255,145,0,.05)">Συμπλήρωσε αναγνωρισμένους μήνες, ημερομηνία αίτησης και αποδοχές.</div>
+      <small class="muted" style="display:block;margin-top:9px">Ενδεικτικός υπολογισμός. Η τελική οφειλή καθορίζεται από τον e-ΕΦΚΑ και τα στοιχεία της συγκεκριμένης αναγνώρισης.</small>
+    </div>
+    <div class="section notice" style="border-color:rgba(255,145,0,.35);background:rgba(255,145,0,.06)">💡 Οι <b>αναγνωρισμένοι μήνες</b> και η <b>ημερομηνία αίτησης</b> χρησιμοποιούνται αυτόματα και στον Υπολογιστή Εξαγοράς. Η ημερομηνία αίτησης προτείνει τον αντίστοιχο ενδεικτικό συντελεστή: 6,67% → 10% → 13,34% → 16,67% → 20%.</div>
     <div class="section notice">🔗 Τα αποθηκευμένα στοιχεία του προφίλ χρησιμοποιούνται αυτόματα στο Μισθολόγιο και στον Συνταξιοδοτικό Οδηγό.</div>
     <div class="section" style="display:flex;gap:10px;flex-wrap:wrap">
       <button class="primary action" id="saveProfile">💾 Αποθήκευση προφίλ</button>
@@ -1298,7 +1346,7 @@ html[data-theme="light"] .sideBrand .logo small{color:#ffd2a3!important;}
 </div>
 <div class="sideOverlay" id="sideOverlay"></div>
 <script>
-const pages={home:['ΥΕΦΚΚ','V4.68 • Ενιαία εφαρμογή ΥΕΦΚΚ'],salary:['ΜΙΣΘΟΛΟΓΙΟ','ΥΕΦΚΚ • 2026'],pension:['ΣΥΝΤΑΞΙΟΔΟΤΙΚΟΣ ΟΔΗΓΟΣ','Σενάρια ΥΕΦΚΚ'],calendar:['ΗΜΕΡΟΛΟΓΙΟ ΥΠΗΡΕΣΙΑΣ','Βάρδιες • Νύχτες • Πενθήμερα'],stats:['ΣΤΑΤΙΣΤΙΚΑ','Από το ημερολόγιο υπηρεσίας'],laws:['ΝΟΜΟΘΕΤΗΜΑΤΑ','Νομοθεσία και υπηρεσιακό πλαίσιο'],guide:['ΟΔΗΓΟΣ ΕΦΑΡΜΟΓΗΣ','Βήμα-βήμα χρήση της εφαρμογής'],profile:['ΠΡΟΦΙΛ','Τα στοιχεία μου'],settings:['ΡΥΘΜΙΣΕΙΣ','Προσαρμογή εφαρμογής']};
+const pages={home:['ΥΕΦΚΚ','V4.70 • Ενιαία εφαρμογή ΥΕΦΚΚ'],salary:['ΜΙΣΘΟΛΟΓΙΟ','ΥΕΦΚΚ • 2026'],pension:['ΣΥΝΤΑΞΙΟΔΟΤΙΚΟΣ ΟΔΗΓΟΣ','Σενάρια ΥΕΦΚΚ'],calendar:['ΗΜΕΡΟΛΟΓΙΟ ΥΠΗΡΕΣΙΑΣ','Βάρδιες • Νύχτες • Πενθήμερα'],stats:['ΣΤΑΤΙΣΤΙΚΑ','Από το ημερολόγιο υπηρεσίας'],laws:['ΝΟΜΟΘΕΤΗΜΑΤΑ','Νομοθεσία και υπηρεσιακό πλαίσιο'],guide:['ΟΔΗΓΟΣ ΕΦΑΡΜΟΓΗΣ','Βήμα-βήμα χρήση της εφαρμογής'],profile:['ΠΡΟΦΙΛ','Τα στοιχεία μου'],settings:['ΡΥΘΜΙΣΕΙΣ','Προσαρμογή εφαρμογής']};
 function closeSidebar(){document.body.classList.remove('menu-open');const t=document.getElementById('menuToggle');if(t)t.setAttribute('aria-expanded','false')}
 function show(page){document.querySelectorAll('.page').forEach(x=>x.classList.add('hide'));document.getElementById(page).classList.remove('hide');document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===page));document.getElementById('pageTitle').textContent='ΥΕΦΚΚ';document.getElementById('pageSub').textContent='Με ευθύνη. Με συνέπεια. Με αποστολή.';location.hash=page;closeSidebar()}
 document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>show(b.dataset.page)));
@@ -1308,9 +1356,67 @@ sideClose?.addEventListener('click',closeSidebar);sideOverlay?.addEventListener(
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSidebar()});
 document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>show(b.dataset.go)));
 if(location.hash && pages[location.hash.slice(1)]) show(location.hash.slice(1));
-const profileKeys=['profName','profDob','profAge','profAppointment','profFamily','profChildren','profOtherDays','profPlasticYears'];
+const profileKeys=['profName','profDob','profAge','profAppointment','profFamily','profChildren','profOtherDays','profPlasticMonths','profRecognitionDate','profPlasticYears','profBuyoutWage'];
+function getBuyoutRateForDate(dateValue){
+  if(!dateValue) return null;
+  const y=Number(String(dateValue).slice(0,4));
+  if(!y) return null;
+  if(y<=2016) return 0.0667;
+  if(y===2017) return 0.10;
+  if(y===2018) return 0.1334;
+  if(y===2019) return 0.1667;
+  return 0.20;
+}
+function formatRate(r){ return r==null ? '—' : (r*100).toLocaleString('el-GR',{minimumFractionDigits:2,maximumFractionDigits:2})+'%'; }
+function updateProfileBuyoutPreview(){
+  const d=document.getElementById('profRecognitionDate')?.value || localStorage.getItem('yefkk_profRecognitionDate') || '';
+  const r=getBuyoutRateForDate(d);
+  const rv=document.getElementById('profileBuyoutRateView');
+  const rh=document.getElementById('profileBuyoutRateHint');
+  if(rv) rv.textContent=formatRate(r);
+  if(rh) rh.textContent=r==null ? 'Συμπλήρωσε την ημερομηνία αίτησης.' : `Ενδεικτικός συντελεστής για αίτηση ${d.slice(0,4)}.`;
+  updateProfileBuyoutCost();
+}
+function updateProfileBuyoutCost(){
+  const months=Math.max(0,Math.round(Number(document.getElementById('profPlasticMonths')?.value)||0));
+  const wage=Math.max(0,Number(document.getElementById('profBuyoutWage')?.value)||0);
+  const d=document.getElementById('profRecognitionDate')?.value || localStorage.getItem('yefkk_profRecognitionDate') || '';
+  const rate=getBuyoutRateForDate(d);
+  const perMonth=rate==null ? 0 : wage*rate;
+  const total=perMonth*months;
+  const fullYears=Math.floor(months/12);
+  const discount=total*(fullYears*0.02);
+  const lump=total-discount;
+  const installment=months?total/months:0;
+  const fmt=n=>n.toLocaleString('el-GR',{minimumFractionDigits:2,maximumFractionDigits:2})+' €';
+  const set=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v};
+  set('profileBuyoutMonthsView',String(months));
+  set('profileBuyoutPerMonthView',fmt(perMonth));
+  set('profileBuyoutTotalView',fmt(total));
+  set('profileBuyoutLumpView',fmt(lump));
+  set('profileBuyoutInstallmentView',fmt(installment));
+  set('profileBuyoutInstallmentsView',String(months));
+  const summary=document.getElementById('profileBuyoutSummary');
+  if(summary){
+    summary.innerHTML = rate==null ? 'Συμπλήρωσε την <b>ημερομηνία αίτησης</b> για να υπολογιστεί το ενδεικτικό κόστος.' : `${months} μήνες × ${fmt(perMonth)} = <b>${fmt(total)}</b> · εφάπαξ: <b>${fmt(lump)}</b> · ${months} μηνιαίες δόσεις των <b>${fmt(installment)}</b>.`;
+  }
+}
 function loadProfile(){
   profileKeys.forEach(id=>{const e=document.getElementById(id),v=localStorage.getItem('yefkk_'+id);if(e&&v!==null)e.value=v});
+  // Μετάβαση από παλαιότερη έκδοση: έτη -> αναγνωρισμένοι μήνες.
+  const monthsEl=document.getElementById('profPlasticMonths');
+  if(monthsEl && localStorage.getItem('yefkk_profPlasticMonths')===null){
+    const oldYears=Number(localStorage.getItem('yefkk_profPlasticYears')||0);
+    monthsEl.value=Math.round(oldYears*12);
+  }
+  const m=Number(monthsEl?.value||0);
+  const yearsEl=document.getElementById('profPlasticYears');
+  if(yearsEl) yearsEl.value=(m/12).toFixed(1).replace(/\.0$/,'');
+  if(document.getElementById('profBuyoutWage') && !localStorage.getItem('yefkk_profBuyoutWage')){
+    const oldWage=localStorage.getItem('yefkk_buyoutWage');
+    if(oldWage) document.getElementById('profBuyoutWage').value=oldWage;
+  }
+  updateProfileBuyoutPreview();
   updateProfileView();
 }
 function updateProfileView(){
@@ -1336,9 +1442,18 @@ function updateProfileView(){
   document.getElementById('profileAgeView').textContent=age?age+' ετών':'—';
   document.getElementById('profileFamilyView').textContent=fam[document.getElementById('profFamily').value]||'—';
 }
+['profPlasticMonths','profRecognitionDate','profBuyoutWage'].forEach(id=>document.getElementById(id)?.addEventListener('input',updateProfileBuyoutPreview));
 document.getElementById('saveProfile').onclick=()=>{
+  const pm=document.getElementById('profPlasticMonths');
+  const py=document.getElementById('profPlasticYears');
+  if(pm && py){ py.value=(Math.max(0,Number(pm.value)||0)/12).toFixed(1).replace(/\.0$/,''); }
   profileKeys.forEach(id=>{const e=document.getElementById(id);localStorage.setItem('yefkk_'+id,e.value)});
+  updateProfileBuyoutPreview();
   updateProfileView();
+  const bw=document.getElementById('buyoutWage'); if(bw && document.getElementById('profBuyoutWage')) bw.value=document.getElementById('profBuyoutWage').value;
+  const bm=document.getElementById('buyoutMonths'); if(bm && document.getElementById('profPlasticMonths')) bm.value=document.getElementById('profPlasticMonths').value;
+  const bd=document.getElementById('buyoutApplicationDate'); if(bd && document.getElementById('profRecognitionDate')) bd.value=document.getElementById('profRecognitionDate').value;
+  try{ updateBuyoutCalculator(); }catch(e){}
   const hasProfile=syncProfileToCalculators();
   // V4.29: μετά την αποθήκευση του Προφίλ ενημερώνονται ΑΜΕΣΑ όλα τα πεδία του Μισθολογίου.
   if(hasProfile){
@@ -1361,7 +1476,7 @@ document.getElementById('clearProfile').onclick=()=>{
     // Καθαρίζουμε και τα πεδία που παίρνουν δεδομένα από το προφίλ.
     const resetValues={
       profName:'', profDob:'', profAge:'', profAppointment:'',
-      profFamily:'single', profChildren:'0', profOtherDays:'0', profPlasticYears:'0',
+      profFamily:'single', profChildren:'0', profOtherDays:'0', profPlasticMonths:'0', profRecognitionDate:'', profPlasticYears:'0',
       years:'0', children:'0', age:'', pYefkk:'0', pOther:'0', pPlastic:'0', pRecognitionFive:'no'
     };
     Object.entries(resetValues).forEach(([id,v])=>{
@@ -1430,7 +1545,7 @@ document.getElementById('profAppointment').addEventListener('change',updateProfi
 document.getElementById('profAge').addEventListener('input',updateProfileView);
 document.getElementById('profFamily').addEventListener('change',updateProfileView);
 // V4.29: αλλαγή ημερομηνίας διορισμού/στοιχείων προφίλ συγχρονίζει αμέσως τους υπολογισμούς.
-['profAppointment','profDob','profChildren','profOtherDays','profPlasticYears','profFamily'].forEach(id=>{
+['profAppointment','profDob','profChildren','profOtherDays','profPlasticMonths','profRecognitionDate','profFamily'].forEach(id=>{
   const e=document.getElementById(id);
   e?.addEventListener('change',()=>{
     try{ syncProfileToCalculators(); }catch(err){ console.warn('V4.29 profile sync:',err); }
@@ -1440,6 +1555,12 @@ document.getElementById('profFamily').addEventListener('change',updateProfileVie
     try{ refreshHomeFromSources(); }catch(err){ console.warn('V4.29 home sync:',err); }
   });
 });
+document.getElementById('profPlasticMonths')?.addEventListener('input',()=>{
+  const m=Math.max(0,Number(document.getElementById('profPlasticMonths').value)||0);
+  const y=document.getElementById('profPlasticYears');
+  if(y) y.value=(m/12).toFixed(1).replace(/\.0$/,'');
+});
+document.getElementById('profRecognitionDate')?.addEventListener('change',updateProfileBuyoutPreview);
 loadProfile();
 function syncProfileToCalculators(){
   const hasProfile = profileKeys.some(id => {
@@ -1542,6 +1663,7 @@ function updateHomeProfileSummary(){
 
 
 const originalSaveProfile=document.getElementById('saveProfile').onclick;
+['profPlasticMonths','profRecognitionDate','profBuyoutWage'].forEach(id=>document.getElementById(id)?.addEventListener('input',updateProfileBuyoutPreview));
 document.getElementById('saveProfile').onclick=()=>{
   originalSaveProfile();
   updateHomeDashboard();
@@ -2290,11 +2412,13 @@ function syncPensionProfile(){
   const recognitionEl=document.getElementById('pRecognitionFive');
   if(recognitionEl) recognitionEl.value=recognition;
   const other=localStorage.getItem('yefkk_profOtherDays');
-  const plastic=localStorage.getItem('yefkk_profPlasticYears');
+  const plasticMonths=localStorage.getItem('yefkk_profPlasticMonths');
+  const oldPlasticYears=localStorage.getItem('yefkk_profPlasticYears');
+  const plastic=plasticMonths!==null ? (Number(plasticMonths||0)/12) : Number(oldPlasticYears||0);
   const otherEl=document.getElementById('pOther');
   const plasticEl=document.getElementById('pPlastic');
   if(otherEl) otherEl.value=other!==null?other:0;
-  if(plasticEl) plasticEl.value=plastic!==null?plastic:0;
+  if(plasticEl) plasticEl.value=Number.isFinite(plastic)?plastic:0;
 
   const dob=localStorage.getItem('yefkk_profDob');
   const ageEl=document.getElementById('age');
@@ -2623,7 +2747,7 @@ document.getElementById('calcSalary')?.addEventListener('click',()=>{setTimeout(
     if(!document.getElementById(pageId)) pageId='home';
     document.querySelectorAll('.page').forEach(p=>p.classList.toggle('hide',p.id!==pageId));
     document.querySelectorAll('.nav button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===pageId));
-    const titles={home:['ΥΕΦΚΚ','V4.68 • Ενιαία εφαρμογή ΥΕΦΚΚ'],salary:['Μισθολόγιο','ΥΕΦΚΚ • Μισθολόγιο'],pension:['Συνταξιοδοτικός Οδηγός','ΥΕΦΚΚ • Σύνταξη'],calendar:['Ημερολόγιο','ΥΕΦΚΚ • Υπηρεσία'],stats:['Στατιστικά','ΥΕΦΚΚ • Στατιστικά'],laws:['Νομοθετήματα','ΥΕΦΚΚ • Νομοθεσία'],guide:['Οδηγός ΥΕΦΚΚ','ΥΕΦΚΚ • Οδηγός'],profile:['Προφίλ','ΥΕΦΚΚ • Προσωπικά στοιχεία'],settings:['Ρυθμίσεις','ΥΕΦΚΚ • Ρυθμίσεις']};
+    const titles={home:['ΥΕΦΚΚ','V4.70 • Ενιαία εφαρμογή ΥΕΦΚΚ'],salary:['Μισθολόγιο','ΥΕΦΚΚ • Μισθολόγιο'],pension:['Συνταξιοδοτικός Οδηγός','ΥΕΦΚΚ • Σύνταξη'],calendar:['Ημερολόγιο','ΥΕΦΚΚ • Υπηρεσία'],stats:['Στατιστικά','ΥΕΦΚΚ • Στατιστικά'],laws:['Νομοθετήματα','ΥΕΦΚΚ • Νομοθεσία'],guide:['Οδηγός ΥΕΦΚΚ','ΥΕΦΚΚ • Οδηγός'],profile:['Προφίλ','ΥΕΦΚΚ • Προσωπικά στοιχεία'],settings:['Ρυθμίσεις','ΥΕΦΚΚ • Ρυθμίσεις']};
     const h=document.getElementById('pageTitle'),sub=document.getElementById('pageSub');if(h)h.textContent='ΥΕΦΚΚ';if(sub)sub.textContent='Με ευθύνη. Με συνέπεια. Με αποστολή.';
     document.body.classList.remove('menu-open');document.getElementById('menuToggle')?.setAttribute('aria-expanded','false');try{localStorage.setItem('yefkk_activePage',pageId)}catch(e){}window.scrollTo({top:0,behavior:'smooth'});
   }
@@ -2640,5 +2764,38 @@ document.getElementById('calcSalary')?.addEventListener('click',()=>{setTimeout(
  function update(){const done=boxes.filter(b=>b.checked).length;if(progress)progress.innerHTML=`<b>${done} / ${boxes.length}</b> ολοκληρωμένα${done===boxes.length?' — 🎉 Όλα έτοιμα!':''}`;const saved={};boxes.forEach(b=>saved[b.dataset.retCheck]=b.checked);try{localStorage.setItem(key,JSON.stringify(saved))}catch(e){}}
  let saved={};try{saved=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}boxes.forEach(b=>{b.checked=!!saved[b.dataset.retCheck];b.addEventListener('change',update)});reset?.addEventListener('click',()=>{boxes.forEach(b=>b.checked=false);update()});update();
 })();
+
+function updateBuyoutCalculator(){
+ const months=Math.max(0,Math.round(Number(document.getElementById('buyoutMonths')?.value)||0));
+ const wage=Math.max(0,Number(document.getElementById('buyoutWage')?.value)||0);
+ const dateEl=document.getElementById('buyoutApplicationDate');
+ const dateValue=dateEl?.value || localStorage.getItem('yefkk_profRecognitionDate') || '';
+ const autoRate=getBuyoutRateForDate(dateValue);
+ const rateSel=document.getElementById('buyoutRate'); const custom=document.getElementById('buyoutCustomRate');
+ const wrap=document.getElementById('buyoutCustomRateWrap');
+ if(autoRate!=null && rateSel && rateSel.value!=='custom') rateSel.value=String(autoRate);
+ const rate=rateSel?.value==='custom'?Math.max(0,Number(custom?.value)||0)/100:Number(rateSel?.value)||0;
+ if(wrap) wrap.classList.toggle('hide',rateSel?.value!=='custom');
+ const perMonth=wage*rate, total=perMonth*months;
+ const fullYears=Math.floor(months/12), discountRate=fullYears*0.02;
+ const discount=total*discountRate;
+ const lump=total-discount; const installment=months?total/months:0;
+ const fmt=n=>n.toLocaleString('el-GR',{minimumFractionDigits:2,maximumFractionDigits:2})+' €';
+ const set=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v};
+ set('buyoutPerMonth',fmt(perMonth)); set('buyoutTotal',fmt(total)); set('buyoutLump',fmt(lump)); set('buyoutInstallment',fmt(installment));
+ set('buyoutInstallmentsCount',String(months)); set('buyoutDiscount',fmt(discount));
+ const hint=document.getElementById('buyoutRateHint');
+ if(hint) hint.textContent=autoRate!=null ? `Αυτόματο από την αίτηση ${dateValue.slice(0,4)}: ${formatRate(autoRate)}.` : 'Επίλεξε ημερομηνία αίτησης για αυτόματη πρόταση.';
+ const s=document.getElementById('buyoutSummary'); if(s)s.innerHTML=`${months} μήνες × ${fmt(perMonth)} = <b>${fmt(total)}</b>`;
+}
+['buyoutMonths','buyoutApplicationDate','buyoutWage','buyoutRate','buyoutCustomRate'].forEach(id=>{const e=document.getElementById(id);if(e){e.addEventListener('input',updateBuyoutCalculator);e.addEventListener('change',updateBuyoutCalculator)}});
+(function initBuyoutFromProfile(){
+ const m=localStorage.getItem('yefkk_profPlasticMonths');
+ const d=localStorage.getItem('yefkk_profRecognitionDate');
+ const me=document.getElementById('buyoutMonths'); const de=document.getElementById('buyoutApplicationDate');
+ if(me && m!==null && Number(m)>0) me.value=m;
+ if(de && d) de.value=d;
+})();
+updateBuyoutCalculator();
 </script>
 
