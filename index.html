@@ -724,7 +724,7 @@ html[data-theme="light"] .sideBrand .logo small{color:#ffd2a3!important;}
         <div><label>Αναγνωρισμένοι μήνες</label><input id="buyoutMonths" type="number" min="1" step="1" value="18"><small class="muted">Αν υπάρχουν στο Προφίλ, συμπληρώνονται αυτόματα.</small></div>
         <div><label>Ημερομηνία αίτησης αναγνώρισης</label><input id="buyoutApplicationDate" type="date"><small class="muted">Ο συντελεστής αλλάζει ανάλογα με το έτος της αίτησης.</small></div>
         <div><label>Συντάξιμες μηνιαίες αποδοχές (€)</label><input id="buyoutWage" type="number" min="0" step="0.01" value="1500"><small class="muted">Βάση υπολογισμού</small></div>
-        <div><label>Ενδεικτικό ποσοστό εισφοράς</label><select id="buyoutRate"><option value="0.20" selected>20%</option><option value="0.1667">16,67%</option><option value="0.1334">13,34%</option><option value="0.10">10%</option><option value="0.0667">6,67%</option><option value="custom">Άλλο</option></select><small class="muted" id="buyoutRateHint">Επίλεξε ημερομηνία αίτησης για αυτόματη πρόταση.</small></div>
+        <div><label>Ενδεικτικό ποσοστό εισφοράς — αυτόματο από την ημερομηνία αίτησης</label><select id="buyoutRate"><option value="0.20">20%</option><option value="0.1667">16,67%</option><option value="0.1334">13,34%</option><option value="0.10">10%</option><option value="0.0667">6,67%</option><option value="custom">Άλλο</option></select><small class="muted" id="buyoutRateHint">Το ποσοστό επιλέγεται αυτόματα από το έτος της αίτησης.</small></div>
         <div id="buyoutCustomRateWrap" class="hide"><label>Άλλο ποσοστό (%)</label><input id="buyoutCustomRate" type="number" min="0" step="0.01" value="20"></div>
       </div>
       <div class="notice" style="border-color:rgba(255,145,0,.35);background:rgba(255,145,0,.06)">📌 Εργαλείο εκτίμησης — το ακριβές ποσό εξαγοράς καθορίζεται από τον e-ΕΦΚΑ και τα στοιχεία της συγκεκριμένης αναγνώρισης.</div>
@@ -1292,7 +1292,7 @@ html[data-theme="light"] .sideBrand .logo small{color:#ffd2a3!important;}
       <div id="profileBuyoutSummary" class="notice" style="margin-top:12px;border-color:rgba(255,145,0,.30);background:rgba(255,145,0,.05)">Συμπλήρωσε αναγνωρισμένους μήνες, ημερομηνία αίτησης και αποδοχές.</div>
       <small class="muted" style="display:block;margin-top:9px">Ενδεικτικός υπολογισμός. Η τελική οφειλή καθορίζεται από τον e-ΕΦΚΑ και τα στοιχεία της συγκεκριμένης αναγνώρισης.</small>
     </div>
-    <div class="section notice" style="border-color:rgba(255,145,0,.35);background:rgba(255,145,0,.06)">💡 Οι <b>αναγνωρισμένοι μήνες</b> και η <b>ημερομηνία αίτησης</b> χρησιμοποιούνται αυτόματα και στον Υπολογιστή Εξαγοράς. Η ημερομηνία αίτησης προτείνει τον αντίστοιχο ενδεικτικό συντελεστή: 6,67% → 10% → 13,34% → 16,67% → 20%.</div>
+    <div class="section notice" style="border-color:rgba(255,145,0,.35);background:rgba(255,145,0,.06)">💡 Οι <b>αναγνωρισμένοι μήνες</b> και η <b>ημερομηνία αίτησης</b> χρησιμοποιούνται αυτόματα και στον Υπολογιστή Εξαγοράς. Το <b>ποσοστό εισφοράς δεν το επιλέγεις χειροκίνητα</b> όταν υπάρχει ημερομηνία: προκύπτει αυτόματα από το έτος της αίτησης. Η ημερομηνία αίτησης προτείνει τον αντίστοιχο ενδεικτικό συντελεστή: 6,67% → 10% → 13,34% → 16,67% → 20%.</div>
     <div class="section notice">🔗 Τα αποθηκευμένα στοιχεία του προφίλ χρησιμοποιούνται αυτόματα στο Μισθολόγιο και στον Συνταξιοδοτικό Οδηγό.</div>
     <div class="section" style="display:flex;gap:10px;flex-wrap:wrap">
       <button class="primary action" id="saveProfile">💾 Αποθήκευση προφίλ</button>
@@ -1346,7 +1346,7 @@ html[data-theme="light"] .sideBrand .logo small{color:#ffd2a3!important;}
 </div>
 <div class="sideOverlay" id="sideOverlay"></div>
 <script>
-const pages={home:['ΥΕΦΚΚ','V4.70 • Ενιαία εφαρμογή ΥΕΦΚΚ'],salary:['ΜΙΣΘΟΛΟΓΙΟ','ΥΕΦΚΚ • 2026'],pension:['ΣΥΝΤΑΞΙΟΔΟΤΙΚΟΣ ΟΔΗΓΟΣ','Σενάρια ΥΕΦΚΚ'],calendar:['ΗΜΕΡΟΛΟΓΙΟ ΥΠΗΡΕΣΙΑΣ','Βάρδιες • Νύχτες • Πενθήμερα'],stats:['ΣΤΑΤΙΣΤΙΚΑ','Από το ημερολόγιο υπηρεσίας'],laws:['ΝΟΜΟΘΕΤΗΜΑΤΑ','Νομοθεσία και υπηρεσιακό πλαίσιο'],guide:['ΟΔΗΓΟΣ ΕΦΑΡΜΟΓΗΣ','Βήμα-βήμα χρήση της εφαρμογής'],profile:['ΠΡΟΦΙΛ','Τα στοιχεία μου'],settings:['ΡΥΘΜΙΣΕΙΣ','Προσαρμογή εφαρμογής']};
+const pages={home:['ΥΕΦΚΚ','V4.71 • Ενιαία εφαρμογή ΥΕΦΚΚ'],salary:['ΜΙΣΘΟΛΟΓΙΟ','ΥΕΦΚΚ • 2026'],pension:['ΣΥΝΤΑΞΙΟΔΟΤΙΚΟΣ ΟΔΗΓΟΣ','Σενάρια ΥΕΦΚΚ'],calendar:['ΗΜΕΡΟΛΟΓΙΟ ΥΠΗΡΕΣΙΑΣ','Βάρδιες • Νύχτες • Πενθήμερα'],stats:['ΣΤΑΤΙΣΤΙΚΑ','Από το ημερολόγιο υπηρεσίας'],laws:['ΝΟΜΟΘΕΤΗΜΑΤΑ','Νομοθεσία και υπηρεσιακό πλαίσιο'],guide:['ΟΔΗΓΟΣ ΕΦΑΡΜΟΓΗΣ','Βήμα-βήμα χρήση της εφαρμογής'],profile:['ΠΡΟΦΙΛ','Τα στοιχεία μου'],settings:['ΡΥΘΜΙΣΕΙΣ','Προσαρμογή εφαρμογής']};
 function closeSidebar(){document.body.classList.remove('menu-open');const t=document.getElementById('menuToggle');if(t)t.setAttribute('aria-expanded','false')}
 function show(page){document.querySelectorAll('.page').forEach(x=>x.classList.add('hide'));document.getElementById(page).classList.remove('hide');document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===page));document.getElementById('pageTitle').textContent='ΥΕΦΚΚ';document.getElementById('pageSub').textContent='Με ευθύνη. Με συνέπεια. Με αποστολή.';location.hash=page;closeSidebar()}
 document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>show(b.dataset.page)));
@@ -1368,9 +1368,23 @@ function getBuyoutRateForDate(dateValue){
   return 0.20;
 }
 function formatRate(r){ return r==null ? '—' : (r*100).toLocaleString('el-GR',{minimumFractionDigits:2,maximumFractionDigits:2})+'%'; }
+function syncBuyoutRateFromDate(dateValue){
+  const rate=getBuyoutRateForDate(dateValue);
+  const sel=document.getElementById('buyoutRate');
+  if(sel && rate!=null){
+    // Τα option values έχουν μορφή 0.20 / 0.10. Η String(rate)
+    // μπορεί να δώσει 0.2 / 0.1 και τότε το select δεν βρίσκει option.
+    const opt=[...sel.options].find(o=>o.value!=='custom' && Math.abs(Number(o.value)-rate)<0.000001);
+    if(opt){
+      sel.value=opt.value;
+      sel.dispatchEvent(new Event('change',{bubbles:true}));
+    }
+  }
+  return rate;
+}
 function updateProfileBuyoutPreview(){
   const d=document.getElementById('profRecognitionDate')?.value || localStorage.getItem('yefkk_profRecognitionDate') || '';
-  const r=getBuyoutRateForDate(d);
+  const r=syncBuyoutRateFromDate(d);
   const rv=document.getElementById('profileBuyoutRateView');
   const rh=document.getElementById('profileBuyoutRateHint');
   if(rv) rv.textContent=formatRate(r);
@@ -1442,7 +1456,7 @@ function updateProfileView(){
   document.getElementById('profileAgeView').textContent=age?age+' ετών':'—';
   document.getElementById('profileFamilyView').textContent=fam[document.getElementById('profFamily').value]||'—';
 }
-['profPlasticMonths','profRecognitionDate','profBuyoutWage'].forEach(id=>document.getElementById(id)?.addEventListener('input',updateProfileBuyoutPreview));
+['profPlasticMonths','profRecognitionDate','profBuyoutWage'].forEach(id=>{const e=document.getElementById(id);e?.addEventListener('input',updateProfileBuyoutPreview);e?.addEventListener('change',updateProfileBuyoutPreview);});
 document.getElementById('saveProfile').onclick=()=>{
   const pm=document.getElementById('profPlasticMonths');
   const py=document.getElementById('profPlasticYears');
@@ -1663,7 +1677,7 @@ function updateHomeProfileSummary(){
 
 
 const originalSaveProfile=document.getElementById('saveProfile').onclick;
-['profPlasticMonths','profRecognitionDate','profBuyoutWage'].forEach(id=>document.getElementById(id)?.addEventListener('input',updateProfileBuyoutPreview));
+['profPlasticMonths','profRecognitionDate','profBuyoutWage'].forEach(id=>{const e=document.getElementById(id);e?.addEventListener('input',updateProfileBuyoutPreview);e?.addEventListener('change',updateProfileBuyoutPreview);});
 document.getElementById('saveProfile').onclick=()=>{
   originalSaveProfile();
   updateHomeDashboard();
@@ -2747,7 +2761,7 @@ document.getElementById('calcSalary')?.addEventListener('click',()=>{setTimeout(
     if(!document.getElementById(pageId)) pageId='home';
     document.querySelectorAll('.page').forEach(p=>p.classList.toggle('hide',p.id!==pageId));
     document.querySelectorAll('.nav button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===pageId));
-    const titles={home:['ΥΕΦΚΚ','V4.70 • Ενιαία εφαρμογή ΥΕΦΚΚ'],salary:['Μισθολόγιο','ΥΕΦΚΚ • Μισθολόγιο'],pension:['Συνταξιοδοτικός Οδηγός','ΥΕΦΚΚ • Σύνταξη'],calendar:['Ημερολόγιο','ΥΕΦΚΚ • Υπηρεσία'],stats:['Στατιστικά','ΥΕΦΚΚ • Στατιστικά'],laws:['Νομοθετήματα','ΥΕΦΚΚ • Νομοθεσία'],guide:['Οδηγός ΥΕΦΚΚ','ΥΕΦΚΚ • Οδηγός'],profile:['Προφίλ','ΥΕΦΚΚ • Προσωπικά στοιχεία'],settings:['Ρυθμίσεις','ΥΕΦΚΚ • Ρυθμίσεις']};
+    const titles={home:['ΥΕΦΚΚ','V4.71 • Ενιαία εφαρμογή ΥΕΦΚΚ'],salary:['Μισθολόγιο','ΥΕΦΚΚ • Μισθολόγιο'],pension:['Συνταξιοδοτικός Οδηγός','ΥΕΦΚΚ • Σύνταξη'],calendar:['Ημερολόγιο','ΥΕΦΚΚ • Υπηρεσία'],stats:['Στατιστικά','ΥΕΦΚΚ • Στατιστικά'],laws:['Νομοθετήματα','ΥΕΦΚΚ • Νομοθεσία'],guide:['Οδηγός ΥΕΦΚΚ','ΥΕΦΚΚ • Οδηγός'],profile:['Προφίλ','ΥΕΦΚΚ • Προσωπικά στοιχεία'],settings:['Ρυθμίσεις','ΥΕΦΚΚ • Ρυθμίσεις']};
     const h=document.getElementById('pageTitle'),sub=document.getElementById('pageSub');if(h)h.textContent='ΥΕΦΚΚ';if(sub)sub.textContent='Με ευθύνη. Με συνέπεια. Με αποστολή.';
     document.body.classList.remove('menu-open');document.getElementById('menuToggle')?.setAttribute('aria-expanded','false');try{localStorage.setItem('yefkk_activePage',pageId)}catch(e){}window.scrollTo({top:0,behavior:'smooth'});
   }
@@ -2773,7 +2787,10 @@ function updateBuyoutCalculator(){
  const autoRate=getBuyoutRateForDate(dateValue);
  const rateSel=document.getElementById('buyoutRate'); const custom=document.getElementById('buyoutCustomRate');
  const wrap=document.getElementById('buyoutCustomRateWrap');
- if(autoRate!=null && rateSel && rateSel.value!=='custom') rateSel.value=String(autoRate);
+ if(autoRate!=null && rateSel){
+   const opt=[...rateSel.options].find(o=>o.value!=='custom' && Math.abs(Number(o.value)-autoRate)<0.000001);
+   if(opt) rateSel.value=opt.value;
+ }
  const rate=rateSel?.value==='custom'?Math.max(0,Number(custom?.value)||0)/100:Number(rateSel?.value)||0;
  if(wrap) wrap.classList.toggle('hide',rateSel?.value!=='custom');
  const perMonth=wage*rate, total=perMonth*months;
