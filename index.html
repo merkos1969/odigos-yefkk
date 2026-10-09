@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#07111f">
-<title>ΕΞΩΤΕΡΙΚΗ ΦΡΟΥΡΗΣΗ — V4.81</title>
+<title>ΕΞΩΤΕΡΙΚΗ ΦΡΟΥΡΗΣΗ — V4.87</title>
 <style>
 :root{
   --bg:#050a12; --panel:#0b1422; --panel2:#101d2e; --text:#f3f7fb;
@@ -531,6 +531,257 @@ html[data-theme="light"] .sideBrand .brandMark,html[data-theme="light"] .sideBra
 html[data-theme="light"] .sideBrand .logo small{color:#ffd2a3!important;}
 </style>
 
+
+<style id="v482-light-theme-contrast">
+/* V4.82 — καθολική διόρθωση αντίθεσης στο ανοιχτό θέμα */
+html[data-theme="light"] body{color:#172638!important}
+html[data-theme="light"] .page,
+html[data-theme="light"] .page p,
+html[data-theme="light"] .page label,
+html[data-theme="light"] .page small,
+html[data-theme="light"] .page .muted{color:#536a7d}
+html[data-theme="light"] .page h1,
+html[data-theme="light"] .page h2,
+html[data-theme="light"] .page h3,
+html[data-theme="light"] .page h4,
+html[data-theme="light"] .page .value,
+html[data-theme="light"] .page strong,
+html[data-theme="light"] .page b{color:#172638}
+/* Cards with colored gradients: keep the gradient, make all content readable */
+html[data-theme="light"] #home .grid .card,
+html[data-theme="light"] #salaryResult .card,
+html[data-theme="light"] #pensionBreakdown .card,
+html[data-theme="light"] .salarySummary .card,
+html[data-theme="light"] .salaryBreakdown .card{color:#f7fbff!important}
+html[data-theme="light"] #home .grid .card h1,
+html[data-theme="light"] #home .grid .card h2,
+html[data-theme="light"] #home .grid .card h3,
+html[data-theme="light"] #home .grid .card .value,
+html[data-theme="light"] #salaryResult .card h1,
+html[data-theme="light"] #salaryResult .card h2,
+html[data-theme="light"] #salaryResult .card h3,
+html[data-theme="light"] #salaryResult .card .value,
+html[data-theme="light"] #pensionBreakdown .card h1,
+html[data-theme="light"] #pensionBreakdown .card h2,
+html[data-theme="light"] #pensionBreakdown .card h3,
+html[data-theme="light"] #pensionBreakdown .card .value{color:#f7fbff!important}
+/* The salary detail panel is intentionally dark, so its labels and amounts must be light */
+html[data-theme="light"] #salaryResult,
+html[data-theme="light"] #salaryResult *{text-shadow:none}
+html[data-theme="light"] #salaryResult .notice{color:#d9e9f8!important}
+html[data-theme="light"] #salaryResult .card .muted,
+html[data-theme="light"] #salaryResult .card label,
+html[data-theme="light"] #salaryResult .card small{color:#c2d2e2!important}
+html[data-theme="light"] #salaryResult .card .value,
+html[data-theme="light"] #salaryResult .card strong,
+html[data-theme="light"] #salaryResult .card b{color:#f8fbff!important}
+/* Ensure form values and buttons remain legible */
+html[data-theme="light"] input,html[data-theme="light"] select,html[data-theme="light"] textarea{color:#172638!important;background:#fff!important}
+html[data-theme="light"] button{ text-shadow:none }
+html[data-theme="light"] .calMonthTitle{color:#17324a!important}
+html[data-theme="light"] .calSubtitle{color:#526b80!important}
+html[data-theme="light"] .calWeek div{color:#17324a!important;background:#d7e8f2!important}
+html[data-theme="light"] .calCell{color:#172638!important}
+html[data-theme="light"] .calCell .calNum{color:#172638!important}
+html[data-theme="light"] .calCell.isNight,html[data-theme="light"] .calCell.isNight .calNum{color:#fff!important}
+html[data-theme="light"] .calCell.isFive,html[data-theme="light"] .calCell.isFive .calNum{color:#111!important}
+html[data-theme="light"] .calTotals{color:#172638!important}
+html[data-theme="light"] .calTotals div{color:#172638!important}
+html[data-theme="light"] .calTotals div:nth-child(1){color:#fff!important}
+html[data-theme="light"] .calTotals div:nth-child(2){color:#111!important}
+html[data-theme="light"] .shiftPalette button[data-shift="P"]{color:#172638!important}
+html[data-theme="light"] .shiftPalette button[data-shift="R"]{color:#172638!important}
+html[data-theme="light"] .shiftPalette button[data-shift="DEL"]{color:#172638!important}
+</style>
+
+<style id="v484-light-contrast-fix">
+/* V4.84: final high-specificity fixes for text contrast in the light theme. */
+html[data-theme="light"] #pension > .card > h2,
+html[data-theme="light"] #pension > .card > p,
+html[data-theme="light"] #pension > .card > .muted,
+html[data-theme="light"] #pension > .card > .section:not([style*="background:#081321"]):not([style*="gradient"]) h2,
+html[data-theme="light"] #pension > .card > .section:not([style*="background:#081321"]):not([style*="gradient"]) h3,
+html[data-theme="light"] #pension > .card > .section:not([style*="background:#081321"]):not([style*="gradient"]) p,
+html[data-theme="light"] #pension > .card > .section:not([style*="background:#081321"]):not([style*="gradient"]) small,
+html[data-theme="light"] #pension > .card > .section:not([style*="background:#081321"]):not([style*="gradient"]) label,
+html[data-theme="light"] #pension > .card > .section:not([style*="background:#081321"]):not([style*="gradient"]) .muted,
+html[data-theme="light"] #pension .rateItem,
+html[data-theme="light"] #pension .rateItem *,
+html[data-theme="light"] #pension .retAccItem:not([style*="background:#081321"]) .retAccPanel,
+html[data-theme="light"] #pension .retAccItem:not([style*="background:#081321"]) .retAccPanel * {
+  color:#172638!important;
+  -webkit-text-fill-color:#172638!important;
+  text-shadow:none!important;
+}
+/* Preserve pale text only inside deliberately dark panels/cards. */
+html[data-theme="light"] #pension .section.card[style*="background:#081321"],
+html[data-theme="light"] #pension .section.card[style*="background:#081321"] h3,
+html[data-theme="light"] #pension .section.card[style*="background:#081321"] p,
+html[data-theme="light"] #pension .section.card[style*="background:#081321"] small,
+html[data-theme="light"] #pension .section.card[style*="background:#081321"] label,
+html[data-theme="light"] #pension .section.card[style*="background:#081321"] .muted,
+html[data-theme="light"] #pension .section.card[style*="background:#081321"] .value,
+html[data-theme="light"] #pension .section.card[style*="background:#081321"] strong {
+  color:#dceaf7!important;
+  -webkit-text-fill-color:#dceaf7!important;
+}
+/* Salary summary tiles: the labels and amounts must contrast with their gradients. */
+html[data-theme="light"] #salaryResult > .grid > .card,
+html[data-theme="light"] #salaryResult > .grid > .card .muted,
+html[data-theme="light"] #salaryResult > .grid > .card .value,
+html[data-theme="light"] #salaryResult > .grid > .card span {
+  color:#f7fbff!important;
+  -webkit-text-fill-color:#f7fbff!important;
+  text-shadow:0 1px 2px rgba(0,0,0,.25)!important;
+}
+/* White/pale notices and cards should never inherit near-white text. */
+html[data-theme="light"] #salaryResult .notice,
+html[data-theme="light"] #salaryResult .notice *,
+html[data-theme="light"] #salaryResult .section.card:not([style*="background:#081321"]):not([style*="gradient"]) .muted,
+html[data-theme="light"] #salaryResult .section.card:not([style*="background:#081321"]):not([style*="gradient"]) p,
+html[data-theme="light"] #salaryResult .section.card:not([style*="background:#081321"]):not([style*="gradient"]) span:not(.extraNetInline),
+html[data-theme="light"] #salaryResult .section.card:not([style*="background:#081321"]):not([style*="gradient"]) strong {
+  color:#26384a!important;
+  -webkit-text-fill-color:#26384a!important;
+  text-shadow:none!important;
+}
+html[data-theme="light"] #salaryResult .section.card[style*="background:#081321"] h3,
+html[data-theme="light"] #salaryResult .section.card[style*="background:#081321"] .muted,
+html[data-theme="light"] #salaryResult .section.card[style*="background:#081321"] .value {
+  color:#dceaf7!important;-webkit-text-fill-color:#dceaf7!important;
+}
+/* Readable calendar headings and guide scenario cards in light theme. */
+html[data-theme="light"] .calendarShell .calMonthTitle,
+html[data-theme="light"] .calendarShell .calSubtitle {color:#edf6ff!important;-webkit-text-fill-color:#edf6ff!important}
+html[data-theme="light"] #age60Scenarios > *,
+html[data-theme="light"] #age60Scenarios > * * {color:#172638!important;-webkit-text-fill-color:#172638!important}
+</style>
+
+
+<style id="v485-light-theme-final-contrast">
+/* V4.87: final overrides for the pale cards that were still inheriting white text. */
+html[data-theme="light"] #salaryResult > .grid > .card,
+html[data-theme="light"] #salaryResult > .grid > .card .muted,
+html[data-theme="light"] #salaryResult > .grid > .card .value,
+html[data-theme="light"] #salaryResult > .grid > .card span,
+html[data-theme="light"] #salaryResult > .grid > .card strong {
+  color:#172638!important;
+  -webkit-text-fill-color:#172638!important;
+  text-shadow:none!important;
+}
+/* Keep text white only when a tile is explicitly dark, not merely because it has a gradient. */
+html[data-theme="light"] #salaryResult > .grid > .card[style*="#061c30"],
+html[data-theme="light"] #salaryResult > .grid > .card[style*="#081321"],
+html[data-theme="light"] #salaryResult > .grid > .card[style*="#17100b"] {
+  color:#f7fbff!important;
+}
+html[data-theme="light"] #salaryResult > .grid > .card[style*="#061c30"] *,
+html[data-theme="light"] #salaryResult > .grid > .card[style*="#081321"] *,
+html[data-theme="light"] #salaryResult > .grid > .card[style*="#17100b"] * {
+  color:#f7fbff!important;-webkit-text-fill-color:#f7fbff!important;
+}
+/* Pension guide: pale scenario/results cards need dark text; dark panels retain light text. */
+html[data-theme="light"] #pension .section.card:not([style*="#081321"]):not([style*="gradient"]),
+html[data-theme="light"] #pension .section.card:not([style*="#081321"]):not([style*="gradient"]) *,
+html[data-theme="light"] #pension .retAccItem:not([style*="#081321"]),
+html[data-theme="light"] #pension .retAccItem:not([style*="#081321"]) * {
+  color:#172638!important;-webkit-text-fill-color:#172638!important;text-shadow:none!important;
+}
+html[data-theme="light"] #pension .section.card[style*="#081321"],
+html[data-theme="light"] #pension .section.card[style*="#081321"] *,
+html[data-theme="light"] #pension .section.card[style*="gradient"],
+html[data-theme="light"] #pension .section.card[style*="gradient"] * {
+  color:#edf6ff!important;-webkit-text-fill-color:#edf6ff!important;
+}
+/* Profile summary tiles and explanatory notices in the light theme. */
+html[data-theme="light"] #profile .card:not([style*="#081321"]):not([style*="gradient"]) .muted,
+html[data-theme="light"] #profile .card:not([style*="#081321"]):not([style*="gradient"]) p,
+html[data-theme="light"] #profile .card:not([style*="#081321"]):not([style*="gradient"]) strong,
+html[data-theme="light"] #profile .card:not([style*="#081321"]):not([style*="gradient"]) .value,
+html[data-theme="light"] #pension .notice,
+html[data-theme="light"] #pension .notice * {
+  color:#26384a!important;-webkit-text-fill-color:#26384a!important;text-shadow:none!important;
+}
+/* Force readable accordion labels and controls on pale backgrounds. */
+html[data-theme="light"] #pension details,
+html[data-theme="light"] #pension details summary,
+html[data-theme="light"] #pension details summary * {
+  color:#172638!important;-webkit-text-fill-color:#172638!important;
+}
+</style>
+
+
+<style id="v486-light-theme-contrast-fix">
+/* V4.86: fix low contrast in open/light theme, especially pension guide white cards. */
+html[data-theme="light"] #pension .section.card:not([style*="#081321"]):not([style*="gradient"]),
+html[data-theme="light"] #pension .section.card:not([style*="#081321"]):not([style*="gradient"]) *,
+html[data-theme="light"] #pension .retAccItem:not([style*="#081321"]),
+html[data-theme="light"] #pension .retAccItem:not([style*="#081321"]) *,
+html[data-theme="light"] #pension .scenarioCard,
+html[data-theme="light"] #pension .scenarioCard * {
+  color:#172638!important; -webkit-text-fill-color:#172638!important; text-shadow:none!important; opacity:1!important;
+}
+html[data-theme="light"] #pension input:disabled,
+html[data-theme="light"] #pension select:disabled,
+html[data-theme="light"] #pension textarea:disabled,
+html[data-theme="light"] #pension input[readonly],
+html[data-theme="light"] #pension select[readonly],
+html[data-theme="light"] #pension textarea[readonly] {
+  color:#24384a!important; -webkit-text-fill-color:#24384a!important; opacity:1!important; background:#fff!important;
+}
+html[data-theme="light"] #pension .section.card[style*="#081321"],
+html[data-theme="light"] #pension .section.card[style*="#081321"] *,
+html[data-theme="light"] #pension .section.card[style*="gradient"],
+html[data-theme="light"] #pension .section.card[style*="gradient"] * {
+  color:#edf6ff!important; -webkit-text-fill-color:#edf6ff!important;
+}
+html[data-theme="light"] #pension .retAccItem { background:#fff!important; border-color:#c7d7e2!important; }
+html[data-theme="light"] #pension .retAccBtn { color:#172638!important; -webkit-text-fill-color:#172638!important; background:#fff!important; }
+</style>
+
+<style id="v487-soft-sky-gray-theme">
+/* V4.87 — Ενιαίο απαλό γκρι-σιέλ φόντο στο ανοιχτό θέμα */
+html[data-theme="light"] body{
+  background:linear-gradient(145deg,#e4edf5 0%,#dce8f1 48%,#e8f0f6 100%) !important;
+  background-attachment:fixed !important;
+  color:#17283a !important;
+}
+html[data-theme="light"] .app,
+html[data-theme="light"] .main,
+html[data-theme="light"] .content,
+html[data-theme="light"] .page{
+  background-color:transparent !important;
+}
+html[data-theme="light"] .card:not(.page>.card),
+html[data-theme="light"] .lawCard,
+html[data-theme="light"] .lawSearchBox input,
+html[data-theme="light"] .lawDetails,
+html[data-theme="light"] .disciplineGrid>div,
+html[data-theme="light"] .rateItem,
+html[data-theme="light"] .readonlyBox{
+  background:linear-gradient(145deg,#eaf2f8 0%,#dfeaf3 100%) !important;
+  color:#17283a !important;
+  border-color:rgba(40,75,105,.18) !important;
+}
+html[data-theme="light"] .calGrid{background:#dce7f0 !important}
+html[data-theme="light"] .calCell{background:#edf4f9 !important;color:#17283a !important}
+html[data-theme="light"] .calCell.weekend{background:#cbd8e3 !important;color:#17283a !important}
+html[data-theme="light"] input:not([type="checkbox"]):not([type="radio"]),
+html[data-theme="light"] select,
+html[data-theme="light"] textarea{
+  background:#edf4f9 !important;color:#17283a !important;
+  border-color:rgba(40,75,105,.22) !important;
+}
+html[data-theme="light"] input::placeholder,
+html[data-theme="light"] textarea::placeholder{color:#687f93 !important;opacity:1 !important}
+html[data-theme="light"] .card h1,
+html[data-theme="light"] .card h2,
+html[data-theme="light"] .card h3,
+html[data-theme="light"] .card p,
+html[data-theme="light"] .card label,
+html[data-theme="light"] .card small{ text-shadow:none; }
+</style>
+
 </head>
 <body>
 <div id="printStatement" aria-hidden="true">
@@ -560,7 +811,7 @@ html[data-theme="light"] .sideBrand .logo small{color:#ffd2a3!important;}
     <a class="navExternal" href="https://www.minocp.gov.gr/" target="_blank" rel="noopener noreferrer">🛡️ <span>Υπουργείο Προστασίας του Πολίτη</span> ↗</a>
     <button data-page="settings">⚙️ <span>Ρυθμίσεις</span></button>
   </nav>
-  <div class="sideFooter">ΥΕΦΚΚ<br><small>By KERMANIDI • V4.68</small></div>
+  <div class="sideFooter">ΥΕΦΚΚ<br><small>By KERMANIDI • V4.87</small></div>
 </aside>
 
 <main class="main">
@@ -1239,7 +1490,7 @@ html[data-theme="light"] .sideBrand .logo small{color:#ffd2a3!important;}
 
       <div class="card">
         <h3>7️⃣ Ρυθμίσεις, εγκατάσταση & PDF</h3>
-        <p>Από <b>⚙️ Ρυθμίσεις</b> μπορούμε να αλλάξουμε εμφάνιση <b>Dark / Light</b>, αυτόματη αποθήκευση και να χρησιμοποιήσουμε την <b>📲 Εγκατάσταση εφαρμογής</b>.</p>
+        <p>Από <b>⚙️ Ρυθμίσεις</b> μπορούμε να ρυθμίσουμε την αυτόματη αποθήκευση και να χρησιμοποιήσουμε την <b>📲 Εγκατάσταση εφαρμογής</b>.</p>
         <p class="muted">Η <b>🖨️ Εκτύπωση / Αποθήκευση PDF</b> επιτρέπει να κρατήσουμε εκτυπώσιμη αναφορά των στοιχείων.</p>
       </div>
 
@@ -1311,21 +1562,6 @@ html[data-theme="light"] .sideBrand .logo small{color:#ffd2a3!important;}
 <section id="settings" class="page hide">
   <div class="card settingsCard">
     <h2>⚙️ Ρυθμίσεις</h2>
-
-    <div class="settingRow">
-      <div>
-        <div class="settingTitle">🎨 Θέμα εφαρμογής</div>
-        <div class="muted settingHint" id="themeStatus">Σκούρο θέμα</div>
-      </div>
-      <label class="themeSwitch" aria-label="Εναλλαγή θέματος">
-        <input id="themeToggle" type="checkbox" role="switch" aria-label="Ανοιχτό θέμα">
-        <span class="themeSlider">
-          <span class="themeIcon">☀️</span>
-          <span class="themeKnob"></span>
-          <span class="themeIcon moon">🌙</span>
-        </span>
-      </label>
-    </div>
 
     <div class="settingRow">
       <div>
@@ -2524,29 +2760,15 @@ function lawJump(id){ const e=document.getElementById(id); if(e){ e.scrollIntoVi
 </div>
 
 <script>
-/* V4.21 theme controls */
+/* V4.91 — fixed dark theme; light-theme option removed */
 (function(){
   const root=document.documentElement;
-  const toggle=document.getElementById('themeToggle');
-  const status=document.getElementById('themeStatus');
   const auto=document.getElementById('autoSaveToggle');
-
-  function applyTheme(light, save){
-    root.setAttribute('data-theme', light ? 'light' : 'dark');
-    if(toggle) toggle.checked=!!light;
-    if(status) status.textContent=light ? 'Ανοιχτό θέμα' : 'Σκούρο θέμα';
-    if(save) localStorage.setItem('yefkk_theme', light ? 'light' : 'dark');
-  }
-
-  const themeKey='yefkk_theme_v458';
-  const saved=localStorage.getItem(themeKey);
-  applyTheme(saved === 'light', false);
-
-  toggle?.addEventListener('change',()=>{
-    root.setAttribute('data-theme', toggle.checked ? 'light' : 'dark');
-    if(status) status.textContent=toggle.checked ? 'Ανοιχτό θέμα' : 'Σκούρο θέμα';
-    localStorage.setItem(themeKey, toggle.checked ? 'light' : 'dark');
-  });
+  root.setAttribute('data-theme','dark');
+  try {
+    localStorage.setItem('yefkk_theme_v458','dark');
+    localStorage.setItem('yefkk_theme','dark');
+  } catch(e) {}
 
   const savedAuto=localStorage.getItem('yefkk_autoSave');
   if(auto) auto.checked = savedAuto !== 'off';
@@ -2823,7 +3045,106 @@ document.addEventListener('click', function(e){
   });
 })();
 </script>
-\n</body>
+\n
+<style id="v488-light-surface-contrast-fix">
+/* V4.88: make the light theme consistently pale grey-blue and restore readable contrast. */
+html[data-theme="light"] body {
+  background: linear-gradient(180deg,#eaf2f7 0%,#dfeaf2 52%,#e8f1f6 100%) !important;
+  color:#1b2a3a !important;
+}
+html[data-theme="light"] { --bg:#e5eef4; --panel:#e8f1f6; --panel2:#dce8f0; --text:#1b2a3a; --muted:#526779; --line:rgba(29,58,79,.20); }
+html[data-theme="light"] .card,
+html[data-theme="light"] .section.card:not([style*="background:#081321"]),
+html[data-theme="light"] .rateItem,
+html[data-theme="light"] .profileBuyoutGrid > div {
+  background:linear-gradient(145deg,#e8f1f6,#dfeaf2) !important;
+  color:#1b2a3a !important;
+  border-color:#c1d1dc !important;
+}
+/* Dark blue panels retain the original dark styling and light typography. */
+html[data-theme="light"] #pension .section.card[style*="background:#081321"],
+html[data-theme="light"] #pension .card[style*="background:#081321"],
+html[data-theme="light"] #salaryResult .section.card[style*="background:#081321"],
+html[data-theme="light"] .calendarShell { background:#081321 !important; color:#edf6ff !important; }
+html[data-theme="light"] #pension .section.card[style*="background:#081321"] h2,
+html[data-theme="light"] #pension .section.card[style*="background:#081321"] h3,
+html[data-theme="light"] #pension .section.card[style*="background:#081321"] p,
+html[data-theme="light"] #pension .section.card[style*="background:#081321"] label,
+html[data-theme="light"] #pension .section.card[style*="background:#081321"] small,
+html[data-theme="light"] #pension .section.card[style*="background:#081321"] .muted,
+html[data-theme="light"] #pension .section.card[style*="background:#081321"] .value { color:#dceaf7 !important; -webkit-text-fill-color:#dceaf7 !important; }
+/* Cards inside the pension guide that are pale must not inherit pale text from their dark parent. */
+html[data-theme="light"] #pension .card:not([style*="background:#081321"]):not([style*="rgba(24,38,68"]),
+html[data-theme="light"] #pension .card:not([style*="background:#081321"]):not([style*="rgba(24,38,68"]) h2,
+html[data-theme="light"] #pension .card:not([style*="background:#081321"]):not([style*="rgba(24,38,68"]) h3,
+html[data-theme="light"] #pension .card:not([style*="background:#081321"]):not([style*="rgba(24,38,68"]) p,
+html[data-theme="light"] #pension .card:not([style*="background:#081321"]):not([style*="rgba(24,38,68"]) span,
+html[data-theme="light"] #pension .card:not([style*="background:#081321"]):not([style*="rgba(24,38,68"]) b,
+html[data-theme="light"] #pension .card:not([style*="background:#081321"]):not([style*="rgba(24,38,68"]) small,
+html[data-theme="light"] #pension .card:not([style*="background:#081321"]):not([style*="rgba(24,38,68"]) .muted,
+html[data-theme="light"] #pension .card:not([style*="background:#081321"]):not([style*="rgba(24,38,68"]) .value { color:#1b2a3a !important; -webkit-text-fill-color:#1b2a3a !important; text-shadow:none !important; }
+html[data-theme="light"] input, html[data-theme="light"] select, html[data-theme="light"] textarea { background:#f3f8fb !important; color:#1b2a3a !important; -webkit-text-fill-color:#1b2a3a !important; border-color:#b9cbd7 !important; }
+html[data-theme="light"] input::placeholder, html[data-theme="light"] textarea::placeholder { color:#718596 !important; -webkit-text-fill-color:#718596 !important; opacity:1 !important; }
+html[data-theme="light"] .muted, html[data-theme="light"] small { color:#526779 !important; -webkit-text-fill-color:#526779 !important; }
+html[data-theme="light"] h1, html[data-theme="light"] h2, html[data-theme="light"] h3, html[data-theme="light"] .sectionTitle { color:#1b2a3a !important; -webkit-text-fill-color:#1b2a3a !important; }
+html[data-theme="light"] #pension > .card, html[data-theme="light"] #pension > .card h2, html[data-theme="light"] #pension > .card > p { color:#1b2a3a !important; -webkit-text-fill-color:#1b2a3a !important; }
+html[data-theme="light"] #pension > .card .section.card[style*="background:#081321"], html[data-theme="light"] #pension > .card .section.card[style*="background:#081321"] h3, html[data-theme="light"] #pension > .card .section.card[style*="background:#081321"] p { color:#dceaf7 !important; -webkit-text-fill-color:#dceaf7 !important; }
+</style>
+
+<style id="v489-final-contrast-fix">
+/* V4.89: fix low-contrast inherited/inline text in pension and salary cards */
+/* Dark panels: labels, helper text, table labels and headings stay bright. */
+html[data-theme="light"] #pension .card:not(.lightCard) .muted,
+html[data-theme="light"] #pension .card:not(.lightCard) small,
+html[data-theme="light"] #pension .card:not(.lightCard) label,
+html[data-theme="light"] #pension .card:not(.lightCard) p,
+html[data-theme="light"] #pension .card:not(.lightCard) td,
+html[data-theme="light"] #pension .card:not(.lightCard) th,
+html[data-theme="light"] #pension .card:not(.lightCard) h3,
+html[data-theme="light"] #pension .card:not(.lightCard) h4,
+html[data-theme="light"] #pension .card:not(.lightCard) strong,
+html[data-theme="light"] #salaryResult .section.card[style*="background:#081321"] .muted,
+html[data-theme="light"] #salaryResult .section.card[style*="background:#081321"] small,
+html[data-theme="light"] #salaryResult .section.card[style*="background:#081321"] label,
+html[data-theme="light"] #salaryResult .section.card[style*="background:#081321"] p,
+html[data-theme="light"] #salaryResult .section.card[style*="background:#081321"] h3,
+html[data-theme="light"] #salaryResult .section.card[style*="background:#081321"] strong {
+ color:#dceaf7!important; -webkit-text-fill-color:#dceaf7!important; text-shadow:none!important;
+}
+/* Pale blue cards: override faded inline colors on titles and amounts. */
+html[data-theme="light"] #pension .card[style*="background:#e"],
+html[data-theme="light"] #pension .card[style*="background: #e"],
+html[data-theme="light"] #salaryResult .card[style*="background:#e"],
+html[data-theme="light"] #salaryResult .card[style*="background: #e"] { color:#1b2b3c!important; }
+html[data-theme="light"] #pension .card[style*="background:#e"] h1,
+html[data-theme="light"] #pension .card[style*="background:#e"] h2,
+html[data-theme="light"] #pension .card[style*="background:#e"] h3,
+html[data-theme="light"] #pension .card[style*="background:#e"] h4,
+html[data-theme="light"] #pension .card[style*="background:#e"] p,
+html[data-theme="light"] #pension .card[style*="background:#e"] span,
+html[data-theme="light"] #pension .card[style*="background:#e"] strong,
+html[data-theme="light"] #pension .card[style*="background:#e"] .muted,
+html[data-theme="light"] #pension .card[style*="background:#e"] .value,
+html[data-theme="light"] #salaryResult .card[style*="background:#e"] h1,
+html[data-theme="light"] #salaryResult .card[style*="background:#e"] h2,
+html[data-theme="light"] #salaryResult .card[style*="background:#e"] h3,
+html[data-theme="light"] #salaryResult .card[style*="background:#e"] p,
+html[data-theme="light"] #salaryResult .card[style*="background:#e"] span,
+html[data-theme="light"] #salaryResult .card[style*="background:#e"] strong,
+html[data-theme="light"] #salaryResult .card[style*="background:#e"] .muted,
+html[data-theme="light"] #salaryResult .card[style*="background:#e"] .value {
+ color:#1b2b3c!important; -webkit-text-fill-color:#1b2b3c!important; text-shadow:none!important;
+}
+/* Tables in the pension comparison: readable row labels and headings. */
+html[data-theme="light"] #pension table th,
+html[data-theme="light"] #pension table td { color:#dceaf7!important; -webkit-text-fill-color:#dceaf7!important; }
+html[data-theme="light"] #pension table td:first-child { color:#c8d9e8!important; -webkit-text-fill-color:#c8d9e8!important; }
+</style>
+
+</body>
+
+
+
 </html>
 
 <script>
@@ -2926,3 +3247,124 @@ updateBuyoutCalculator();
   refresh();
 })();
 </script>
+
+<style id="v483-light-theme-contrast-fix">
+/* V4.83: comprehensive contrast fixes for the light theme */
+html[data-theme="light"] #salaryResult > .grid > .card,
+html[data-theme="light"] #salaryResult .grid > .card,
+html[data-theme="light"] #salaryResult .grid2 > .card,
+html[data-theme="light"] #homeDashboard .card,
+html[data-theme="light"] .dashboardGrid .card {
+  color:#172638!important;
+}
+html[data-theme="light"] #salaryResult > .grid > .card .muted,
+html[data-theme="light"] #salaryResult .grid > .card .muted,
+html[data-theme="light"] #salaryResult .grid > .card span,
+html[data-theme="light"] #salaryResult .grid > .card .value,
+html[data-theme="light"] #salaryResult .grid > .card .value.green,
+html[data-theme="light"] #salaryResult .grid > .card .value.cyan,
+html[data-theme="light"] #homeDashboard .card .muted,
+html[data-theme="light"] #homeDashboard .card .value,
+html[data-theme="light"] .dashboardGrid .card .muted,
+html[data-theme="light"] .dashboardGrid .card .value {
+  color:#172638!important;
+  -webkit-text-fill-color:#172638!important;
+  text-shadow:none!important;
+}
+/* Keep deliberately dark gradient salary tiles readable with light text. */
+html[data-theme="light"] #salaryResult .grid > .card[style*="gradient"],
+html[data-theme="light"] #salaryResult .grid > .card[style*="#17100b"],
+html[data-theme="light"] #salaryResult .grid > .card[style*="#061c30"] {
+  color:#f7fbff!important;
+}
+html[data-theme="light"] #salaryResult .grid > .card[style*="gradient"] .muted,
+html[data-theme="light"] #salaryResult .grid > .card[style*="gradient"] .value,
+html[data-theme="light"] #salaryResult .grid > .card[style*="gradient"] span {
+  color:#f7fbff!important;-webkit-text-fill-color:#f7fbff!important;
+}
+/* Dark panels such as the pension guide and salary breakdown must use light text. */
+html[data-theme="light"] #pension > .card,
+html[data-theme="light"] #pension > .card .section.card[style*="background:#081321"],
+html[data-theme="light"] #salaryResult .section.card[style*="background:#081321"],
+html[data-theme="light"] .calendarShell {
+  color:#edf6ff!important;
+}
+html[data-theme="light"] #pension > .card h2,
+html[data-theme="light"] #pension > .card h3,
+html[data-theme="light"] #pension > .card p,
+html[data-theme="light"] #pension > .card label,
+html[data-theme="light"] #pension > .card small,
+html[data-theme="light"] #pension > .card .muted,
+html[data-theme="light"] #pension > .card .value,
+html[data-theme="light"] #pension > .card strong,
+html[data-theme="light"] #salaryResult .section.card[style*="background:#081321"] h3,
+html[data-theme="light"] #salaryResult .section.card[style*="background:#081321"] .muted,
+html[data-theme="light"] #salaryResult .section.card[style*="background:#081321"] .value,
+html[data-theme="light"] .calendarShell h2,
+html[data-theme="light"] .calendarShell h3,
+html[data-theme="light"] .calendarShell .muted {
+  color:#dceaf7!important;-webkit-text-fill-color:#dceaf7!important;text-shadow:none!important;
+}
+html[data-theme="light"] #pension input,
+html[data-theme="light"] #pension select,
+html[data-theme="light"] #pension textarea {
+  background:#fff!important;color:#172638!important;-webkit-text-fill-color:#172638!important;border-color:#b8cbd8!important;
+}
+/* Calendar title, weekday labels, controls and shift palette */
+html[data-theme="light"] .calendarShell .calMonth,
+html[data-theme="light"] .calendarShell .calTitle,
+html[data-theme="light"] .calendarShell h2,
+html[data-theme="light"] .calendarShell h3 {color:#edf6ff!important;-webkit-text-fill-color:#edf6ff!important}
+html[data-theme="light"] .calendarShell .calCell {color:#172638!important}
+html[data-theme="light"] .calendarShell .calCell.weekend {background:#cbd6df!important;color:#172638!important}
+html[data-theme="light"] .calendarShell .calWeek div {background:#d8e8f2!important;color:#29475d!important}
+html[data-theme="light"] .calendarShell .calNav {background:#fff!important;color:#172638!important}
+html[data-theme="light"] .calendarShell .shiftPalette {color:#edf6ff!important}
+/* Generic pale cards: force dark readable values instead of inherited white text. */
+html[data-theme="light"] .card[style*="background:#fff"] .value,
+html[data-theme="light"] .card[style*="background: #fff"] .value,
+html[data-theme="light"] .card[style*="background:#f"] .value,
+html[data-theme="light"] .card[style*="background: #f"] .value {
+  color:#172638!important;-webkit-text-fill-color:#172638!important;
+}
+</style>
+
+<style id="v490-global-readable-colors">
+/* V4.91: global contrast reset for the light-blue page background */
+html[data-theme="light"] #pension,
+html[data-theme="light"] #salaryResult { color:#182a3b !important; }
+/* Dark navy panels: make all text readable, including inline-styled helper labels. */
+html[data-theme="light"] #pension > .card,
+html[data-theme="light"] #pension .section.card[style*="background:#081321"],
+html[data-theme="light"] #pension .card[style*="background:#06182a"],
+html[data-theme="light"] #salaryResult .section.card[style*="background:#081321"] {
+  color:#edf6ff !important;
+}
+html[data-theme="light"] #pension > .card :is(h1,h2,h3,h4,p,label,small,span,b,strong,td,th,li,div),
+html[data-theme="light"] #pension .section.card[style*="background:#081321"] :is(h1,h2,h3,h4,p,label,small,span,b,strong,td,th,li,div),
+html[data-theme="light"] #pension .card[style*="background:#06182a"] :is(h1,h2,h3,h4,p,label,small,span,b,strong,td,th,li,div),
+html[data-theme="light"] #salaryResult .section.card[style*="background:#081321"] :is(h1,h2,h3,h4,p,label,small,span,b,strong,td,th,li,div) {
+  color:#dceaf7 !important; -webkit-text-fill-color:#dceaf7 !important; opacity:1 !important; text-shadow:none !important;
+}
+/* Pale/white cards inside dark panels always use dark typography. */
+html[data-theme="light"] #pension .card:not([style*="background:#081321"]):not([style*="background:#06182a"]):not([style*="background:#071a2c"]),
+html[data-theme="light"] #salaryResult .card:not([style*="background:#081321"]):not([style*="background:#06182a"]):not([style*="background:#071a2c"]) {
+  color:#182a3b !important;
+}
+html[data-theme="light"] #pension .card:not([style*="background:#081321"]):not([style*="background:#06182a"]):not([style*="background:#071a2c"]) :is(h1,h2,h3,h4,p,label,small,span,b,strong,td,th,li,div),
+html[data-theme="light"] #salaryResult .card:not([style*="background:#081321"]):not([style*="background:#06182a"]):not([style*="background:#071a2c"]) :is(h1,h2,h3,h4,p,label,small,span,b,strong,td,th,li,div) {
+  color:#182a3b !important; -webkit-text-fill-color:#182a3b !important; opacity:1 !important; text-shadow:none !important;
+}
+/* Inputs remain pale with dark entered values and visible placeholders. */
+html[data-theme="light"] #pension :is(input,select,textarea) {
+  background:#f8fbfd !important; color:#182a3b !important; -webkit-text-fill-color:#182a3b !important; opacity:1 !important; border-color:#b9cbd7 !important;
+}
+html[data-theme="light"] #pension :is(input,textarea)::placeholder { color:#687d8e !important; -webkit-text-fill-color:#687d8e !important; opacity:1 !important; }
+/* Comparison table: dark header, white text, visible row separators. */
+html[data-theme="light"] #pension table { border-collapse:collapse !important; }
+html[data-theme="light"] #pension table th { background:#111827 !important; color:#fff !important; -webkit-text-fill-color:#fff !important; }
+html[data-theme="light"] #pension table td { color:#dceaf7 !important; -webkit-text-fill-color:#dceaf7 !important; border-bottom:1px solid rgba(220,234,247,.16) !important; }
+html[data-theme="light"] #pension table td:first-child { color:#c8d9e8 !important; -webkit-text-fill-color:#c8d9e8 !important; }
+/* Prevent faded opacity inherited from previous theme overrides. */
+html[data-theme="light"] #pension :is(.muted,small,label,.value,strong,b,h1,h2,h3,h4) { opacity:1 !important; }
+</style>
