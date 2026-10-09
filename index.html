@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#07111f">
-<title>ΕΞΩΤΕΡΙΚΗ ΦΡΟΥΡΗΣΗ — V4.87</title>
+<title>ΕΞΩΤΕΡΙΚΗ ΦΡΟΥΡΗΣΗ — V4.92</title>
 <style>
 :root{
   --bg:#050a12; --panel:#0b1422; --panel2:#101d2e; --text:#f3f7fb;
@@ -163,6 +163,16 @@ html[data-theme="light"] .calCell.weekend{background:#cbd3db}
 html[data-theme="light"] .calTotals{background:#fff}
 html[data-theme="light"] .calNav,
 html[data-theme="light"] .calTools button{background:#fff;color:#172231}
+
+.calToolsCopy{display:flex;align-items:end;gap:10px;padding:14px;background:linear-gradient(135deg,rgba(56,217,255,.09),rgba(72,255,154,.07));border:1px solid rgba(56,217,255,.22);border-radius:18px}
+.calToolsCopy .calControl{display:flex;flex-direction:column;gap:5px;min-width:120px;flex:1}
+.calToolsCopy .calControl label{font-size:14px;font-weight:900;color:#eaf6ff;margin:0}
+.calToolsCopy .calControl select{min-height:48px;padding:10px 12px;background:#fff;color:#102039;border:2px solid #8bb8d9;border-radius:12px;font-size:16px;font-weight:800}
+.calToolsCopy button{min-height:48px;font-size:15px;padding:11px 16px;border-radius:13px;white-space:nowrap}
+.calToolsCopy .copyCycleAction{background:linear-gradient(100deg,#24d66f,#48ff9a);color:#052315;box-shadow:0 5px 18px rgba(36,214,111,.16)}
+.calToolsCopy .clearCycleAction{background:#fff;color:#152033;border:2px solid #9eb6ca}
+@media(max-width:650px){.calToolsCopy{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px}.calToolsCopy .calControl{min-width:0}.calToolsCopy .calControl label{font-size:13px}.calToolsCopy .calControl select{font-size:15px;min-height:46px}.calToolsCopy #copyCycleBtn,.calToolsCopy #clearCalBtn{width:100%;min-width:0;white-space:normal}.calToolsCopy button{font-size:14px;padding:10px 8px}}
+
 html[data-theme="light"] .noteBox{background:#fff;color:#172231}
 html[data-theme="light"] .noteBox textarea,
 html[data-theme="light"] .copyRangeBox input[type="date"]{background:#f7fafc;color:#172231}
@@ -185,8 +195,8 @@ html[data-theme="light"] .copyRangeBox .rangeHint{color:#216348;background:#eefa
 <style>
 /* V4.21 — καθαρό toolbar ημερολογίου: μόνο Αντιγραφή 5 / Αντιγραφή 10 / Σβήσιμο */
 .calTools{display:flex;gap:10px;flex-wrap:wrap}
-.calTools #copy5Btn,.calTools #copy10Btn{min-width:145px}
-.calTools #clearCalBtn{min-width:145px}
+.calTools #copyCycleBtn{min-width:180px}
+.calTools #clearCalBtn{min-width:120px}
 </style>
 
 
@@ -1022,10 +1032,11 @@ html[data-theme="light"] .card small{ text-shadow:none; }
       <div><div class="calMonthTitle" id="calTitle">ΣΕΠ 2026</div><div class="calSubtitle">Ημερολόγιο Βαρδιών</div></div>
       <button id="calNext" class="calNav" type="button">▶</button>
     </div>
-    <div class="calTools">
-      <button id="copy5Btn" type="button">Αντιγραφή 5</button>
-      <button id="copy10Btn" type="button">Αντιγραφή 10</button>
-      <button id="clearCalBtn" type="button">Σβήσιμο μήνα</button>
+    <div class="calTools calToolsCopy">
+      <div class="calControl"><label for="copyCycleSelect">Κύκλος</label><select id="copyCycleSelect" aria-label="Επιλογή κύκλου βαρδιών"><option value="5">5 ημερών</option><option value="10">10 ημερών</option></select></div>
+      <div class="calControl"><label for="copyPeriodSelect">Αντιγραφή σε</label><select id="copyPeriodSelect" aria-label="Περίοδος αντιγραφής"><option value="1">Μήνα</option><option value="3">3μηνο</option><option value="6">6μηνο</option><option value="12">Έτος</option></select></div>
+      <button id="copyCycleBtn" class="copyCycleAction" type="button">▣ Αντιγραφή κύκλου</button>
+      <button id="clearCalBtn" class="clearCycleAction" type="button">↻ Σβήσιμο</button>
     </div>
     <div class="weekdays calWeek"><div>ΔΕΥ</div><div>ΤΡΙ</div><div>ΤΕΤ</div><div>ΠΕΜ</div><div>ΠΑΡ</div><div>ΣΑΒ</div><div>ΚΥΡ</div></div>
     <div id="calGrid" class="calGrid"></div>
@@ -2439,13 +2450,25 @@ function copyCycle(len){ openCopyRange(len,false); }
 document.querySelectorAll('.shiftPalette .shiftBtn').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.shiftPalette .shiftBtn').forEach(x=>x.classList.remove('active'));b.classList.add('active');activeShift=b.dataset.shift;}));
 
 
-// V4.21 — οι 4 επιλογές ανοίγουν ΠΑΝΤΑ το ίδιο παράθυρο «Μοτίβο από / Από / Έως».
-// Δεν γίνεται καμία αυτόματη αντιγραφή στον τρέχοντα μήνα.
-document.getElementById('copy5Btn')?.addEventListener('click',function(e){
-  e.preventDefault(); e.stopPropagation(); openCopyRange(5,false);
-});
-document.getElementById('copy10Btn')?.addEventListener('click',function(e){
-  e.preventDefault(); e.stopPropagation(); openCopyRange(10,false);
+// V4.92 — επιλογή κύκλου 5/10 ημερών και περιόδου Μήνα/3μηνο/6μηνο/Έτος.
+// Διατηρείται το παράθυρο «Μοτίβο από / Επανάληψη από / Έως» ώστε ο χρήστης
+// να μπορεί να ελέγξει ή να αλλάξει τις ημερομηνίες πριν από την αντιγραφή.
+function openSelectedCycleCopy(){
+  const len=Number(document.getElementById('copyCycleSelect')?.value || 5);
+  const months=Math.max(1,Number(document.getElementById('copyPeriodSelect')?.value || 1));
+  const [y,m]=currentCalParts();
+  const first=new Date(y,m-1,1);
+  const last=new Date(y,m-1+months,0);
+  openCopyRange(len,false);
+  const start=document.getElementById('copyRangeStart');
+  const end=document.getElementById('copyRangeEnd');
+  const info=document.getElementById('copyRangeInfo');
+  if(start) start.value=localDateInputValue(first);
+  if(end) end.value=localDateInputValue(last);
+  if(info) info.innerHTML=`<b>Κύκλος:</b> ${len} ημερών. <b>Περίοδος:</b> ${months===1?'Μήνας':months===3?'3μηνο':months===6?'6μηνο':'Έτος'} (${localDateInputValue(first)} έως ${localDateInputValue(last)}). Μπορείς να αλλάξεις τις ημερομηνίες πριν πατήσεις «Αντιγραφή».`;
+}
+document.getElementById('copyCycleBtn')?.addEventListener('click',function(e){
+  e.preventDefault(); e.stopPropagation(); openSelectedCycleCopy();
 });
 document.getElementById('copyRangeCancel')?.addEventListener('click',closeCopyRange);
 document.getElementById('copyRangeApply')?.addEventListener('click',applyCopyRange);
