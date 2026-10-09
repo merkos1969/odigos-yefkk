@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#07111f">
-<title>ΕΞΩΤΕΡΙΚΗ ΦΡΟΥΡΗΣΗ — V4.80</title>
+<title>ΕΞΩΤΕΡΙΚΗ ΦΡΟΥΡΗΣΗ — V4.81</title>
 <style>
 :root{
   --bg:#050a12; --panel:#0b1422; --panel2:#101d2e; --text:#f3f7fb;
@@ -52,7 +52,7 @@ input,select{width:100%;background:#081321;border:1px solid var(--line);color:#f
 .lawSearchBox{margin:14px 0}.lawSearchBox input{width:100%;box-sizing:border-box;padding:14px 16px;border-radius:14px;border:1px solid rgba(56,217,255,.22);background:#07111e;color:#fff;font-size:16px}.lawDetails{margin-top:12px;padding:14px;border-radius:14px;background:rgba(5,12,24,.72);border:1px solid rgba(168,103,255,.22)}.disciplineGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.disciplineGrid>div{padding:12px;border-radius:12px;background:#0b1725;border:1px solid rgba(56,217,255,.12)}.disciplineGrid p{margin:6px 0 0}.lawLink{margin-top:9px}.lawToggle{margin-top:5px}@media(max-width:700px){.disciplineGrid{grid-template-columns:1fr}}
 .homeProfileFirst{margin-bottom:16px}.homeProfileCard{position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(8,24,39,.98),rgba(8,18,31,.94));box-shadow:0 14px 40px rgba(0,0,0,.20),inset 0 0 28px rgba(56,217,255,.035)}.homeProfileCard:before{content:"";position:absolute;inset:-70px auto auto -60px;width:190px;height:190px;border-radius:50%;background:radial-gradient(circle,rgba(56,217,255,.13),transparent 68%);pointer-events:none}.homeProfileTop{display:flex;align-items:center;gap:15px;position:relative;z-index:1}.homeProfileIcon{width:58px;height:58px;flex:0 0 58px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:30px;background:linear-gradient(135deg,rgba(56,217,255,.18),rgba(72,255,154,.12));border:1px solid rgba(56,217,255,.25);box-shadow:0 0 24px rgba(56,217,255,.08)}.homeProfileCard h3{margin:0 0 5px;font-size:22px}.homeProfileCard p{margin:0;line-height:1.45}.homeProfileCard .action{margin-top:16px;position:relative;z-index:1}@media(max-width:480px){.homeProfileCard{padding:18px}.homeProfileIcon{width:54px;height:54px;flex-basis:54px;font-size:28px}.homeProfileCard h3{font-size:20px}}
 .extraNetTotal{font-size:42px!important;font-weight:950!important;line-height:1.05;margin-top:8px}.extraNetBox{padding:16px 18px!important;border-radius:16px!important;background:rgba(101,255,57,.06);border:1px solid rgba(101,255,57,.28);text-align:center}.extraNetBox .muted{font-size:15px}.extraNetBox .extraNetTotal{display:block}
-/* ===== V4.80 PREMIUM INTERFACE — visual layer only ===== */
+/* ===== V4.81 PREMIUM INTERFACE — visual layer only ===== */
 :root{--bg:#020b16;--panel:#07182a;--panel2:#0b2036;--text:#f5f8fc;--muted:#9bb0c5;--green:#43f59a;--cyan:#20bfff;--purple:#b06cff;--gold:#ffd21c;--red:#ff5965;--blue:#168cff}
 body{background:radial-gradient(900px 500px at 70% -10%,#123d63 0%,#061526 48%,#020a13 100%);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
 .app{min-height:100vh}.side{width:230px;padding:0 9px 14px;background:linear-gradient(180deg,#031225 0%,#06192d 58%,#07111f 100%);border-right:1px solid rgba(32,191,255,.22);box-shadow:12px 0 50px rgba(0,0,0,.25)}
@@ -610,7 +610,7 @@ html[data-theme="light"] .sideBrand .logo small{color:#ffd2a3!important;}
       <div><label>Παραμεθόριος (+130 € / μήνα)</label><select id="salaryBorderland"><option value="no">ΟΧΙ</option><option value="yes">ΝΑΙ</option></select></div>
       <div><label>Βαθμός</label><div class="readonlyBox" id="autoRank">Υπολογίζεται αυτόματα</div></div>
       <div><label>Τέκνα <span class="muted">(από Προφίλ)</span></label><select id="children" disabled title="Ο αριθμός τέκνων συμπληρώνεται από το Προφίλ"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5+</option></select></div>
-      <div><label>Αναγνώριση 5ετίας</label><select id="recognitionFive"><option value="no">ΟΧΙ — 0,00 €</option><option value="yes">ΝΑΙ — 39,87 € / μήνα</option></select></div>
+      <div><label>Αναγνώριση 5ετίας</label><select id="recognitionFive"><option value="0">0 έτη — 0,00 € / μήνα</option><option value="1">1 έτος</option><option value="2">2 έτη</option><option value="3">3 έτη</option><option value="4">4 έτη</option><option value="5">5 έτη — 39,87 € / μήνα</option></select></div>
       <div><label>Πενθήμερα / μήνα <span class="muted">(από Ημερολόγιο)</span></label><input id="salaryFive" type="number" min="0" step="1" value="0" readonly></div>
       <div><label>Μήνας υπηρεσίας (αυτόματα από Ημερολόγιο)</label><input id="salaryMonth" type="month" value="2026-08" readonly></div><div><label>Νύχτες / μήνα <span class="muted">(από Ημερολόγιο)</span></label><input id="salaryNights" type="number" min="0" step="1" value="0" readonly></div>
     </div>
@@ -647,7 +647,7 @@ html[data-theme="light"] .sideBrand .logo small{color:#ffd2a3!important;}
         </div>
         <div>
           <label>Αναγνώριση 5ετίας</label>
-          <select id="pRecognitionFive"><option value="no">ΟΧΙ — 0 έτη</option><option value="yes">ΝΑΙ — +5 έτη</option></select>
+          <select id="pRecognitionFive"><option value="0">0 έτη</option><option value="1">1 έτος</option><option value="2">2 έτη</option><option value="3">3 έτη</option><option value="4">4 έτη</option><option value="5">5 έτη</option></select>
           <small class="muted">Όταν επιλεγεί ΝΑΙ, προστίθενται αυτόματα 5 έτη στα συντάξιμα.</small>
         </div>
         <div class="card" style="background:linear-gradient(135deg,rgba(24,38,68,.9),rgba(30,22,60,.9));border-color:rgba(177,120,255,.35);box-shadow:0 0 22px rgba(120,80,255,.10);display:flex;flex-direction:column;justify-content:center">
@@ -1812,7 +1812,7 @@ function salaryPayrollCalc(grossMain, children, age, insurance, fiveCount, night
   const fiveTax=fiveGross*0.20, nightTax=nightGross*0.20;
   const extrasDed=extrasBaseDed+fiveTax+nightTax;
   const poyef=4;
-  const fiveYearRecognition = recognitionFive==='yes' ? 39.87 : 0;
+  const fiveYearRecognition = Math.min(5,Math.max(0,Number(recognitionFive)||0))*39.87/5;
   const totalGross=g+fiveGross+nightGross;
   const totalDed=mainContrib+tax+poyef+extrasDed+fiveYearRecognition;
   return {tpdy,mtpy,teady,health,efka,unemp,mainContrib,taxableMonthly,annualTaxable,tax,fiveGross,nightGross,fiveDed,nightDed,fiveTax,nightTax,extrasBaseDed,extrasDed,poyef,fiveYearRecognition,totalGross,totalDed,net:Math.max(0,totalGross-totalDed),age,children,insurance,basic,special,family,allowanceBase};
@@ -1854,7 +1854,7 @@ function refreshHomeFromSources(){
     const taxDependents=Number(document.getElementById('salaryDependents')?.value ?? localStorage.getItem('yefkk_salaryDependents') ?? children)||0;
     const borderland=(document.getElementById('salaryBorderland')?.value || localStorage.getItem('yefkk_salaryBorderland') || 'no')==='yes'?130:0;
     const insurance=localStorage.getItem('yefkk_salaryInsurance')||'post93';
-    const recognitionFive=document.getElementById('recognitionFive')?.value||localStorage.getItem('yefkk_recognitionFive')||'no';
+    const recognitionFive=document.getElementById('recognitionFive')?.value||localStorage.getItem('yefkk_recognitionFive')||'0';
     const rankRow=getSalaryRow(years);
     const row=getSalaryRow(years+priorMonths/12);
     const a=familyAmounts(row,family,children); a.total+=borderland;
@@ -1898,7 +1898,7 @@ function renderSalary(){
   const a=familyAmounts(row,family,c); a.total+=borderland;
   const age=taxAge();
   const insurance=localStorage.getItem('yefkk_salaryInsurance')||'post93';
-  const recognitionFive=document.getElementById('recognitionFive')?.value||localStorage.getItem('yefkk_recognitionFive')||'no';
+  const recognitionFive=document.getElementById('recognitionFive')?.value||localStorage.getItem('yefkk_recognitionFive')||'0';
   const calendarCounts=syncSalaryExtrasFromCalendar(calCursor);
   const fiveCount=calendarCounts.five;
   const nightCount=calendarCounts.nights;
@@ -2338,7 +2338,7 @@ function calculatePension(){
 
   // Το επιλεγμένο «ΝΑΙ» προσθέτει 5 έτη στο εμφανιζόμενο σύνολο συντάξιμων.
   const actualBaseYears=yefkk+otherYears+plastic;
-  const combatFiveYears=recognitionFive==='yes'?5:0;
+  const combatFiveYears=Math.min(5,Math.max(0,Number(recognitionFive)||0));
   const baseYears=actualBaseYears+combatFiveYears;
   const totalMain=document.getElementById('totalPensionYearsMain');
   if(totalMain) totalMain.textContent=fmtYearsMonths(baseYears);
@@ -2376,7 +2376,7 @@ function calculatePension(){
   let sc='';
   for(let combat=0;combat<=5;combat++){
     const eligible=age>=60;
-    const total=actualBaseYears+(recognitionFive==='yes'?5:combat);
+    const total=actualBaseYears+(Number(recognitionFive)>0?Math.min(5,Number(recognitionFive)):combat);
     const years=eligible ? Math.min(total,40) : null;
     const rate=eligible ? pensionRate(years) : null;
     sc+=`<div class="card" style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;margin-bottom:8px">
@@ -2782,7 +2782,8 @@ document.addEventListener('click', function(e){
     const salary=document.getElementById('recognitionFive');
     const pension=document.getElementById('pRecognitionFive');
     if(!salary||!pension) return;
-    const value=source && source.id==='pRecognitionFive' ? pension.value : salary.value;
+    const raw=source && source.id==='pRecognitionFive' ? pension.value : salary.value;
+    const value=String(Math.min(5,Math.max(0,Number(raw)||0)));
     salary.value=value; pension.value=value;
     try{localStorage.setItem('yefkk_recognitionFive',value);}catch(e){}
     try{if(typeof calculatePension==='function') calculatePension();}catch(e){}
@@ -2793,7 +2794,7 @@ document.addEventListener('click', function(e){
     if(e.target && (e.target.id==='recognitionFive'||e.target.id==='pRecognitionFive')) syncFive(e.target);
   });
   document.addEventListener('DOMContentLoaded',function(){
-    const value=localStorage.getItem('yefkk_recognitionFive')||document.getElementById('recognitionFive')?.value||'no';
+    const value=localStorage.getItem('yefkk_recognitionFive')||document.getElementById('recognitionFive')?.value||'0';
     const salary=document.getElementById('recognitionFive'), pension=document.getElementById('pRecognitionFive');
     if(salary) salary.value=value;
     if(pension) pension.value=value;
@@ -2904,7 +2905,7 @@ updateBuyoutCalculator();
 
 
 <script>
-/* V4.80 — Προϋπηρεσία, εξαρτώμενα τέκνα και παραμεθόριος στο ενιαίο μισθολόγιο */
+/* V4.81 — Προϋπηρεσία, εξαρτώμενα τέκνα και παραμεθόριος στο ενιαίο μισθολόγιο */
 (function(){
   const $=id=>document.getElementById(id);
   const prior=$('salaryPreServiceMonths'), deps=$('salaryDependents'), border=$('salaryBorderland');
