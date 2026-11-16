@@ -1961,6 +1961,71 @@ html[data-theme="light"] #laws .lawCard li{
   text-decoration:underline!important;
 }
 </style>
+<style id="salary-insurance-table-design">
+/* Αλλαγή αποκλειστικά στον πίνακα ασφαλιστικού καθεστώτος της καρτέλας Μισθολόγιο */
+.insurance-table-wrap{
+  width:100%!important; overflow:hidden!important;
+  border:1px solid #d5c18b!important; border-radius:16px!important;
+  background:#fffaf0!important; box-shadow:0 8px 20px rgba(4,18,28,.16)!important;
+}
+.insurance-breakdown-table{
+  width:100%!important; min-width:0!important; table-layout:fixed!important;
+  border-collapse:separate!important; border-spacing:0!important;
+  background:#fffaf0!important; color:#26351f!important;
+  font-size:clamp(11px,3vw,14px)!important;
+}
+.insurance-breakdown-table th{
+  background:#17364a!important; color:#fff8e9!important;
+  -webkit-text-fill-color:#fff8e9!important;
+  padding:13px 7px!important; text-align:center!important;
+  font-weight:850!important; line-height:1.25!important;
+  border-bottom:3px solid #c6a85e!important;
+  overflow-wrap:anywhere!important;
+}
+.insurance-breakdown-table th:first-child{width:38%;text-align:left!important;padding-left:12px!important}
+.insurance-breakdown-table th:nth-child(2),
+.insurance-breakdown-table th:nth-child(3){width:31%}
+.insurance-breakdown-table td{
+  padding:13px 7px!important; text-align:right!important;
+  color:#26351f!important; -webkit-text-fill-color:#26351f!important;
+  background:#fffaf0!important; border-bottom:1px solid #e5d9bd!important;
+  font-weight:700!important; font-variant-numeric:tabular-nums!important;
+  overflow-wrap:anywhere!important; line-height:1.35!important;
+}
+.insurance-breakdown-table td:first-child{text-align:left!important;padding-left:12px!important}
+.insurance-breakdown-table tbody tr:nth-child(even) td{background:#f2ead8!important}
+.insurance-breakdown-table .insurance-name{display:block;font-weight:850!important;color:#26351f!important}
+.insurance-breakdown-table .insurance-rate{display:block;font-size:.88em!important;color:#66734f!important;font-weight:700!important;margin-top:2px}
+.insurance-breakdown-table .insurance-total td{
+  background:#e4ecd9!important;color:#203c2b!important;
+  -webkit-text-fill-color:#203c2b!important;border-top:2px solid #6f925c!important;
+  border-bottom:0!important;font-weight:900!important;
+}
+@media(max-width:390px){
+ .insurance-breakdown-table{font-size:10.5px!important}
+ .insurance-breakdown-table th,.insurance-breakdown-table td{padding:10px 4px!important}
+ .insurance-breakdown-table th:first-child,.insurance-breakdown-table td:first-child{padding-left:8px!important}
+}
+</style>
+
+<style id="insurance-header-readable-v2">
+/* Επικεφαλίδα πίνακα ασφαλιστικού καθεστώτος */
+html body .insurance-table-wrap .insurance-breakdown-table thead tr th,
+html body .insurance-table-wrap .insurance-breakdown-table thead tr th *,
+html body .insurance-breakdown-table thead th,
+html body .insurance-breakdown-table thead th * {
+  background-color:#304b32 !important;
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
+  opacity:1 !important;
+  font-weight:900 !important;
+  text-shadow:0 1px 1px rgba(0,0,0,.35) !important;
+}
+html body .insurance-table-wrap .insurance-breakdown-table thead th {
+  border-color:#c6a85e !important;
+}
+</style>
+
 </head>
 <body>
 <div id="printStatement" aria-hidden="true">
@@ -3382,19 +3447,21 @@ function renderSalary(){
           <button type="button" class="action" data-insurance-choice="pre93" aria-pressed="${insurance==='pre93'?'true':'false'}" style="min-height:52px;border-radius:14px;${insurance==='pre93'?'background:#174c31;color:#fff;border-color:#174c31;':'background:transparent;'}">Πριν το 1993</button>
           <button type="button" class="action" data-insurance-choice="post93" aria-pressed="${insurance==='post93'?'true':'false'}" style="min-height:52px;border-radius:14px;${insurance==='post93'?'background:#174c31;color:#fff;border-color:#174c31;':'background:transparent;'}">Μετά το 1993</button>
         </div>
-        <div style="overflow-x:hidden;border-radius:0 0 18px 18px;width:100%">
-          <table style="width:100%;table-layout:fixed;border-collapse:collapse;min-width:0;background:#050505;color:#f7f7f7;font-size:clamp(11px,2.8vw,14px)">
-            <thead><tr style="background:#111;border-bottom:2px solid #333">
-              <th style="width:42%;padding:10px 5px;text-align:left;overflow-wrap:anywhere">Κράτηση</th><th style="width:29%;padding:10px 3px;text-align:right;overflow-wrap:anywhere">Βασικός μισθός</th><th style="width:29%;padding:10px 5px;text-align:right;overflow-wrap:anywhere">Επιδόματα</th>
+        <div class="insurance-table-wrap">
+          <table class="insurance-breakdown-table">
+            <thead><tr>
+              <th style="background:#10283a!important;color:#ffffff!important;-webkit-text-fill-color:#ffffff!important;opacity:1!important;font-weight:900!important;text-shadow:none!important;">Κράτηση</th>
+              <th style="background:#10283a!important;color:#ffffff!important;-webkit-text-fill-color:#ffffff!important;opacity:1!important;font-weight:900!important;text-shadow:none!important;">Βασικός μισθός</th>
+              <th style="background:#10283a!important;color:#ffffff!important;-webkit-text-fill-color:#ffffff!important;opacity:1!important;font-weight:900!important;text-shadow:none!important;">Επιδόματα</th>
             </tr></thead>
             <tbody>
-              <tr style="border-bottom:1px solid #303030"><td style="padding:13px 8px">ΤΠΔΥ 4%</td><td style="text-align:right">${f(row.basic*0.04)}</td><td style="text-align:right">${insurance==='pre93'?'—':f(Math.max(0,a.total-row.basic)*0.04)}</td></tr>
-              <tr style="border-bottom:1px solid #303030"><td style="padding:13px 8px">ΜΤΠΥ</td><td style="text-align:right">${f(row.basic*0.045)}</td><td style="text-align:right">${insurance==='pre93'?f((a.special+a.childAllowance)*0.01):f(Math.max(0,a.total-row.basic)*0.045)}</td></tr>
-              <tr style="border-bottom:1px solid #303030"><td style="padding:13px 8px">ΤΕΑΔΥ 3%</td><td style="text-align:right">${f(row.basic*0.03)}</td><td style="text-align:right">${insurance==='pre93'?'—':f(Math.max(0,a.total-row.basic)*0.03)}</td></tr>
-              <tr style="border-bottom:1px solid #303030"><td style="padding:13px 8px">Υγειονομική 2,05%</td><td style="text-align:right">${f(row.basic*0.0205)}</td><td style="text-align:right">${f(Math.max(0,a.total-row.basic)*0.0205)}</td></tr>
-              <tr style="border-bottom:1px solid #303030"><td style="padding:13px 8px">ΕΦΚΑ σύνταξη 6,67%</td><td style="text-align:right">${f(row.basic*0.0667)}</td><td style="text-align:right">${insurance==='pre93'?'—':f(Math.max(0,a.total-row.basic)*0.0667)}</td></tr>
-              <tr style="border-bottom:1px solid #303030"><td style="padding:13px 8px">Ανεργία 2%</td><td style="text-align:right">${f(row.basic*0.02)}</td><td style="text-align:right">${f(Math.max(0,a.total-row.basic)*0.02)}</td></tr>
-              <tr style="background:#103421;border-top:4px solid #1d5635;font-weight:700"><td style="padding:14px 8px">Σύνολο</td><td style="text-align:right">${f(row.basic*(0.04+0.045+0.03+0.0205+0.0667+0.02))}</td><td style="text-align:right">${f(insurance==='pre93'?((a.special+a.childAllowance)*0.01+Math.max(0,a.total-row.basic)*(0.0205+0.02)):Math.max(0,a.total-row.basic)*(0.04+0.045+0.03+0.0205+0.0667+0.02))}</td></tr>
+              <tr><td><span class="insurance-name">ΤΠΔΥ</span><span class="insurance-rate">4%</span></td><td>${f(row.basic*0.04)}</td><td>${insurance==='pre93'?'—':f(Math.max(0,a.total-row.basic)*0.04)}</td></tr>
+              <tr><td><span class="insurance-name">ΜΤΠΥ</span><span class="insurance-rate">${insurance==='pre93'?'4,5% + 1% στα επιδόματα':'4,5%'}</span></td><td>${f(row.basic*0.045)}</td><td>${insurance==='pre93'?f((a.special+a.childAllowance)*0.01):f(Math.max(0,a.total-row.basic)*0.045)}</td></tr>
+              <tr><td><span class="insurance-name">ΤΕΑΔΥ</span><span class="insurance-rate">3%</span></td><td>${f(row.basic*0.03)}</td><td>${insurance==='pre93'?'—':f(Math.max(0,a.total-row.basic)*0.03)}</td></tr>
+              <tr><td><span class="insurance-name">Υγειονομική</span><span class="insurance-rate">2,05%</span></td><td>${f(row.basic*0.0205)}</td><td>${f(Math.max(0,a.total-row.basic)*0.0205)}</td></tr>
+              <tr><td><span class="insurance-name">ΕΦΚΑ σύνταξη</span><span class="insurance-rate">6,67%</span></td><td>${f(row.basic*0.0667)}</td><td>${insurance==='pre93'?'—':f(Math.max(0,a.total-row.basic)*0.0667)}</td></tr>
+              <tr><td><span class="insurance-name">Ανεργία</span><span class="insurance-rate">2%</span></td><td>${f(row.basic*0.02)}</td><td>${f(Math.max(0,a.total-row.basic)*0.02)}</td></tr>
+              <tr class="insurance-total"><td>Σύνολο κρατήσεων</td><td>${f(row.basic*(0.04+0.045+0.03+0.0205+0.0667+0.02))}</td><td>${f(insurance==='pre93'?((a.special+a.childAllowance)*0.01+Math.max(0,a.total-row.basic)*(0.0205+0.02)):Math.max(0,a.total-row.basic)*(0.04+0.045+0.03+0.0205+0.0667+0.02))}</td></tr>
             </tbody>
           </table>
         </div>
@@ -4333,6 +4400,39 @@ html[data-theme="light"] #pension table td { color:#dceaf7!important; -webkit-te
 html[data-theme="light"] #pension table td:first-child { color:#c8d9e8!important; -webkit-text-fill-color:#c8d9e8!important; }
 </style>
 
+
+<style id="insurance-table-header-contrast-final">
+/* Τελική διόρθωση: ευανάγνωστα γράμματα στην πράσινη επικεφαλίδα */
+body .insurance-table-wrap table.insurance-breakdown-table thead th,
+body .insurance-table-wrap table.insurance-breakdown-table thead th *,
+body table.insurance-breakdown-table th,
+body table.insurance-breakdown-table th *{
+  color:#fffdf5!important;
+  -webkit-text-fill-color:#fffdf5!important;
+  opacity:1!important;
+  text-shadow:none!important;
+  font-weight:900!important;
+}
+body .insurance-table-wrap table.insurance-breakdown-table thead th{
+  background:#304b32!important;
+  border-color:#c6a85e!important;
+}
+</style>
+<style id="insurance-header-final-force">
+html body table.insurance-breakdown-table thead tr th,
+html body table.insurance-breakdown-table thead tr th * {
+  background:#10283a!important;
+  background-color:#10283a!important;
+  color:#ffffff!important;
+  -webkit-text-fill-color:#ffffff!important;
+  opacity:1!important;
+  visibility:visible!important;
+  font-weight:900!important;
+  text-shadow:none!important;
+  mix-blend-mode:normal!important;
+  filter:none!important;
+}
+</style>
 </body>
 
 
