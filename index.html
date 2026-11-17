@@ -2026,6 +2026,135 @@ html body .insurance-table-wrap .insurance-breakdown-table thead th {
 }
 </style>
 
+
+<style id="insurance-table-reference-design">
+/* Ασφαλιστικό καθεστώς – εμφάνιση σύμφωνα με το υπόδειγμα */
+.insurance-table-wrap {
+  width: 100% !important;
+  overflow-x: auto !important;
+  border-radius: 22px !important;
+  border: 1px solid #d8d1b4 !important;
+  background: #fffdf5 !important;
+  box-shadow: 0 10px 24px rgba(35,48,25,.12) !important;
+}
+.insurance-breakdown-table {
+  width: 100% !important;
+  min-width: 0 !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  table-layout: fixed !important;
+  background: #fffdf5 !important;
+  color: #35432b !important;
+  font-size: 14px !important;
+}
+.insurance-breakdown-table thead th {
+  background: linear-gradient(135deg,#263b1d,#526b35) !important;
+  color: #fffdf5 !important;
+  -webkit-text-fill-color: #fffdf5 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+  font-weight: 800 !important;
+  padding: 17px 10px !important;
+  border: 0 !important;
+  border-bottom: 4px solid #c5a65b !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+.insurance-breakdown-table thead th:first-child {
+  text-align: left !important;
+  padding-left: 16px !important;
+  width: 42% !important;
+}
+.insurance-breakdown-table thead th:nth-child(2) { width: 29% !important; }
+.insurance-breakdown-table thead th:nth-child(3) { width: 29% !important; }
+.insurance-breakdown-table tbody td {
+  color: #35432b !important;
+  -webkit-text-fill-color: #35432b !important;
+  opacity: 1 !important;
+  padding: 17px 10px !important;
+  border: 0 !important;
+  border-bottom: 1px solid #e4dfce !important;
+  background: #fffdf5 !important;
+  font-weight: 600 !important;
+  text-align: right !important;
+  vertical-align: middle !important;
+  overflow-wrap: anywhere !important;
+}
+.insurance-breakdown-table tbody tr:nth-child(even) td {
+  background: #f1eddd !important;
+}
+.insurance-breakdown-table tbody td:first-child {
+  text-align: left !important;
+  padding-left: 16px !important;
+  font-weight: 700 !important;
+}
+.insurance-breakdown-table .insurance-name,
+.insurance-breakdown-table .insurance-rate {
+  color: #35432b !important;
+  -webkit-text-fill-color: #35432b !important;
+  opacity: 1 !important;
+  display: block !important;
+}
+.insurance-breakdown-table .insurance-rate {
+  font-size: .88em !important;
+  margin-top: 3px !important;
+}
+.insurance-breakdown-table tbody tr.insurance-total td {
+  background: #e4ead7 !important;
+  color: #35432b !important;
+  -webkit-text-fill-color: #35432b !important;
+  font-weight: 900 !important;
+  border-top: 3px solid #829765 !important;
+  border-bottom: 0 !important;
+}
+[data-insurance-choice] {
+  min-height: 56px !important;
+  border: 2px solid #c8c5a6 !important;
+  border-radius: 17px !important;
+  color: #35452b !important;
+  -webkit-text-fill-color: #35452b !important;
+  font-weight: 800 !important;
+  box-shadow: 0 7px 15px rgba(39,49,29,.13) !important;
+}
+[data-insurance-choice][aria-pressed="true"] {
+  background: linear-gradient(135deg,#344b25,#71844a) !important;
+  color: #fffdf5 !important;
+  -webkit-text-fill-color: #fffdf5 !important;
+  border-color: #344b25 !important;
+}
+@media (max-width: 420px) {
+  .insurance-breakdown-table { font-size: 12px !important; }
+  .insurance-breakdown-table thead th { padding: 14px 6px !important; }
+  .insurance-breakdown-table tbody td { padding: 15px 6px !important; }
+  .insurance-breakdown-table thead th:first-child,
+  .insurance-breakdown-table tbody td:first-child { padding-left: 11px !important; }
+}
+</style>
+
+
+<style id="insurance-choice-final-contrast">
+/* Force a genuinely different appearance for the selected and unselected
+   insurance option buttons; overrides the global .action !important rules. */
+button.action[data-insurance-choice][aria-pressed="false"],
+button[data-insurance-choice][aria-pressed="false"] {
+  background: #fffdf5 !important;
+  background-image: none !important;
+  color: #35452b !important;
+  -webkit-text-fill-color: #35452b !important;
+  border: 2px solid #c8c5a6 !important;
+  box-shadow: 0 5px 12px rgba(39,49,29,.12) !important;
+}
+button.action[data-insurance-choice][aria-pressed="true"],
+button[data-insurance-choice][aria-pressed="true"] {
+  background: linear-gradient(135deg,#344b25 0%,#71844a 100%) !important;
+  background-image: linear-gradient(135deg,#344b25 0%,#71844a 100%) !important;
+  color: #fffdf5 !important;
+  -webkit-text-fill-color: #fffdf5 !important;
+  border: 2px solid #344b25 !important;
+  box-shadow: 0 7px 16px rgba(39,49,29,.24) !important;
+}
+</style>
+
 </head>
 <body>
 <div id="printStatement" aria-hidden="true">
@@ -3444,15 +3573,15 @@ function renderSalary(){
       <div class="section card" style="border-color:rgba(56,217,255,.25);padding:14px">
         <h3 style="margin-top:0">Ασφαλιστικό καθεστώς</h3>
         <div class="grid2" style="margin-bottom:14px">
-          <button type="button" class="action" data-insurance-choice="pre93" aria-pressed="${insurance==='pre93'?'true':'false'}" style="min-height:52px;border-radius:14px;${insurance==='pre93'?'background:#174c31;color:#fff;border-color:#174c31;':'background:transparent;'}">Πριν το 1993</button>
-          <button type="button" class="action" data-insurance-choice="post93" aria-pressed="${insurance==='post93'?'true':'false'}" style="min-height:52px;border-radius:14px;${insurance==='post93'?'background:#174c31;color:#fff;border-color:#174c31;':'background:transparent;'}">Μετά το 1993</button>
+          <button type="button" class="action" data-insurance-choice="pre93" aria-pressed="${insurance==='pre93'?'true':'false'}" style="min-height:52px;border-radius:14px;${insurance==='pre93'?'background:linear-gradient(135deg,#344b25,#71844a);color:#fff;border-color:#344b25;':'background:#fffdf5;color:#34452b;border-color:#c8c5a6;'}">Πριν το 1993</button>
+          <button type="button" class="action" data-insurance-choice="post93" aria-pressed="${insurance==='post93'?'true':'false'}" style="min-height:52px;border-radius:14px;${insurance==='post93'?'background:linear-gradient(135deg,#344b25,#71844a);color:#fff;border-color:#344b25;':'background:#fffdf5;color:#34452b;border-color:#c8c5a6;'}">Μετά το 1993</button>
         </div>
         <div class="insurance-table-wrap">
           <table class="insurance-breakdown-table">
             <thead><tr>
-              <th style="background:#10283a!important;color:#ffffff!important;-webkit-text-fill-color:#ffffff!important;opacity:1!important;font-weight:900!important;text-shadow:none!important;">Κράτηση</th>
-              <th style="background:#10283a!important;color:#ffffff!important;-webkit-text-fill-color:#ffffff!important;opacity:1!important;font-weight:900!important;text-shadow:none!important;">Βασικός μισθός</th>
-              <th style="background:#10283a!important;color:#ffffff!important;-webkit-text-fill-color:#ffffff!important;opacity:1!important;font-weight:900!important;text-shadow:none!important;">Επιδόματα</th>
+              <th style="background:linear-gradient(135deg,#263b1d,#526b35)!important;color:#ffffff!important;-webkit-text-fill-color:#ffffff!important;opacity:1!important;font-weight:900!important;text-shadow:none!important;">Κράτηση</th>
+              <th style="background:linear-gradient(135deg,#263b1d,#526b35)!important;color:#ffffff!important;-webkit-text-fill-color:#ffffff!important;opacity:1!important;font-weight:900!important;text-shadow:none!important;">Βασικός μισθός</th>
+              <th style="background:linear-gradient(135deg,#263b1d,#526b35)!important;color:#ffffff!important;-webkit-text-fill-color:#ffffff!important;opacity:1!important;font-weight:900!important;text-shadow:none!important;">Επιδόματα</th>
             </tr></thead>
             <tbody>
               <tr><td><span class="insurance-name">ΤΠΔΥ</span><span class="insurance-rate">4%</span></td><td>${f(row.basic*0.04)}</td><td>${insurance==='pre93'?'—':f(Math.max(0,a.total-row.basic)*0.04)}</td></tr>
