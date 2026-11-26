@@ -4,30 +4,23 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="#17364b" name="theme-color"/>
-<title>Υπολογιστής Μίδας Υπαλλήλων Εξωτερικής Φρούρησης — V5.25</title>
+<meta content="#071525" name="theme-color"/>
+<meta name="description" content="Υπολογιστής Μίδας Υπαλλήλων Εξωτερικής Φρούρησης — μισθοδοσία και συνταξιοδοτικές εκτιμήσεις."/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="ΥΕΦΚΚ Μίδας"/>
+<link rel="apple-touch-icon" sizes="180x180" href="./icon-180.png"/>
+<link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png"/>
+<link rel="icon" type="image/png" sizes="512x512" href="./icon-512.png"/>
+<title>Υπολογιστής Μίδας Υπαλλήλων Εξωτερικής Φρούρησης — V5.43</title>
 
 
 
 
 
 
-<link href="manifest.json" rel="manifest"/>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<link href="./manifest.json" rel="manifest"/>
 
 
 
@@ -58,7 +51,22 @@
 
 
 
-<style type="text/css">/* V5.25 — unified structural redesign / strict three-colour system */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">/* V5.35 — unified structural redesign / strict three-colour system */
 :root{
  --navy:#071525;
  --navy-2:#0c2035;
@@ -136,7 +144,7 @@ table{width:100%;border-collapse:collapse;background:var(--white);color:var(--na
 th,td{padding:10px 12px;border-bottom:1px solid var(--gold-soft);text-align:left;vertical-align:middle;color:var(--navy)}
 th{background:var(--navy);color:var(--white);font-weight:900;position:sticky;top:0}
 tr:nth-child(even) td{background:rgba(7,21,37,.035)}
-/* Calendar */
+/* Calendar — V5.41 distinct colour per shift */
 .calendarShell{padding:16px;overflow:hidden}.calHead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .calMonthTitle{color:var(--navy)!important;font-size:24px;font-weight:950}.calSubtitle{color:var(--navy)!important}
 .calTools,.calToolsCopy,.calNav,.calControl,.shiftPalette,.calTotals{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:12px 0}
@@ -144,6 +152,17 @@ tr:nth-child(even) td{background:rgba(7,21,37,.035)}
 .weekdays>*{padding:8px 2px;background:var(--navy);color:var(--white);border-radius:8px;font-weight:850}
 .calGrid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}.calGrid>*{min-height:68px;border:1px solid var(--gold)!important;border-radius:9px;background:var(--white)!important;color:var(--navy)!important;padding:6px}
 .shiftBtn{min-height:38px;padding:7px 10px}.calTotals>*{flex:1 1 130px;background:var(--white);border:1px solid var(--gold);border-radius:12px;padding:12px;color:var(--navy);font-weight:800}
+/* V5.41 — distinct full-cell colours for every recorded shift */
+/* V5.43 — ΥΕΦΚΚ retirement exit-date comparison: 37 years vs age 60 */
+.calGrid>.calCell.shiftCell-A{background:#dcecff!important;border:2px solid #3979bd!important;color:#10243b!important}
+.calGrid>.calCell.shiftCell-PP{background:#fff0c2!important;border:2px solid #d39b22!important;color:#33250a!important}
+.calGrid>.calCell.shiftCell-N{background:#d9e1ec!important;border:2px solid #344c69!important;color:#10243b!important}
+.calGrid>.calCell.shiftCell-PN{background:#e8ddf7!important;border:2px solid #8060ad!important;color:#2c1b43!important}
+.calGrid>.calCell.shiftCell-AD{background:#f8dddd!important;border:2px solid #bd5555!important;color:#451919!important}
+.calGrid>.calCell.shiftCell-R{background:#dcebdc!important;border:2px solid #54865a!important;color:#19351d!important}
+.calGrid>.calCell.shiftCell-A .calNum,.calGrid>.calCell.shiftCell-PP .calNum,.calGrid>.calCell.shiftCell-N .calNum,.calGrid>.calCell.shiftCell-PN .calNum,.calGrid>.calCell.shiftCell-AD .calNum,.calGrid>.calCell.shiftCell-R .calNum{font-weight:900}
+.calShiftBadge{display:inline-block;margin-top:7px;padding:3px 6px;border-radius:6px;background:rgba(255,255,255,.78);font-weight:950;font-size:12px;color:#071525!important}
+
 /* Laws, accordion and modals */
 .lawGroup{margin:16px 0}.lawCard{padding:16px;margin:10px 0}.lawCard *{color:var(--navy)}
 .lawLink{display:inline-flex;margin:5px 5px 5px 0;padding:8px 11px;border:1px solid var(--gold);border-radius:10px;background:var(--navy);color:var(--white)!important;font-weight:750}
@@ -159,7 +178,7 @@ tr:nth-child(even) td{background:rgba(7,21,37,.035)}
 .page [style*="background:"]{background:var(--white)!important}
 .page [style*="border-color:"]{border-color:var(--gold)!important}
 .green,.cyan,.purple{color:var(--navy)!important}
-/* V5.25 — responsive branded heading */
+/* V5.35 — responsive branded heading */
 .top .title{min-width:0;flex:1 1 auto;color:var(--white)}
 .top .title h1{margin:0;color:var(--white);font-size:clamp(20px,2.1vw,29px);font-weight:950;line-height:1.08;letter-spacing:-.035em;white-space:normal}
 .top .title p{margin:5px 0 0;color:var(--white);font-size:clamp(13px,1.35vw,17px);font-weight:800;line-height:1.2;white-space:normal}
@@ -182,30 +201,77 @@ tr:nth-child(even) td{background:rgba(7,21,37,.035)}
  table{font-size:12px}th,td{padding:8px 7px;white-space:nowrap}
  .page>h1{font-size:29px}.page>h2{font-size:24px}
 }
-/* V5.25 — ασφαλιστικός πίνακας: προσαρμογή σε στενές οθόνες */
-.insurance-table-wrap{display:block;width:100%;max-width:100%;min-width:0;overflow-x:auto;overflow-y:hidden;box-sizing:border-box;border:1px solid var(--gold-soft);border-radius:10px;-webkit-overflow-scrolling:touch}
-.insurance-breakdown-table{width:100%;min-width:0;max-width:100%;table-layout:fixed;border-collapse:collapse;font-size:14px}
-.insurance-breakdown-table th,.insurance-breakdown-table td{box-sizing:border-box;padding:9px 8px;white-space:normal;overflow-wrap:anywhere;word-break:normal}
-.insurance-breakdown-table th:first-child,.insurance-breakdown-table td:first-child{width:48%}
-.insurance-breakdown-table th:nth-child(2),.insurance-breakdown-table td:nth-child(2),.insurance-breakdown-table th:nth-child(3),.insurance-breakdown-table td:nth-child(3){width:26%}
-.insurance-breakdown-table td:nth-child(2),.insurance-breakdown-table td:nth-child(3){font-variant-numeric:tabular-nums}
-.insurance-breakdown-table .insurance-name{display:block;font-weight:700}
-.insurance-breakdown-table .insurance-rate{display:block;font-size:.9em;opacity:.82}
-@media(max-width:640px){
- .insurance-table-wrap{margin-left:0;margin-right:0}
- .insurance-breakdown-table{font-size:11px}
- .insurance-breakdown-table th,.insurance-breakdown-table td{padding:8px 5px;line-height:1.25}
- .insurance-breakdown-table th:first-child,.insurance-breakdown-table td:first-child{width:46%}
- .insurance-breakdown-table th:nth-child(2),.insurance-breakdown-table td:nth-child(2),.insurance-breakdown-table th:nth-child(3),.insurance-breakdown-table td:nth-child(3){width:27%}
-}
+#printStatement{display:none!important}
 @media print{
+ #printStatement{display:block!important}
  @page{size:A4 landscape;margin:10mm}
  body{background:#fff!important;color:#071525!important}.side,.top,.sideOverlay,.menuToggle{display:none!important}
  .app,.main{display:block!important;margin:0!important;padding:0!important;width:100%!important;background:#fff!important}
  .page{display:none!important}.page.printing,.printArea{display:block!important}
  .card,.section,.tableWrap{box-shadow:none!important;break-inside:avoid}
 }
-</style></head>
+</style>
+<style id="v538-insurance-table-buttons-fix">
+/* V5.39: insurance deduction table stays inside the mobile card and can scroll horizontally
+/* V5.40: pensionable salary source switches from Unified Payroll to proposed special payroll on 01/01/2027 */ */
+.insurance-table-wrap{width:100%;max-width:100%;min-width:0;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior-inline:contain;border:1.5px solid var(--gold);border-radius:14px;background:var(--white);}
+.insurance-breakdown-table{width:100%;min-width:590px;border-collapse:collapse;table-layout:auto;font-size:14px;}
+.insurance-breakdown-table th,.insurance-breakdown-table td{white-space:nowrap;padding:10px 11px;}
+.insurance-breakdown-table th:first-child,.insurance-breakdown-table td:first-child{white-space:normal;min-width:145px;}
+/* The selected insurance regime is visibly highlighted; overrides the generic button theme. */
+button[data-insurance-choice][aria-pressed="true"]{background:linear-gradient(135deg,#e7bd55,#f3d98c)!important;color:#071525!important;border:2px solid #b88b2c!important;box-shadow:0 0 0 3px rgba(231,189,85,.24),0 5px 14px rgba(7,21,37,.16)!important;transform:translateY(-1px);}
+button[data-insurance-choice][aria-pressed="false"]{background:#ffffff!important;color:#071525!important;border:2px solid #d9b95d!important;box-shadow:none!important;}
+button[data-insurance-choice]:active{filter:brightness(.94);transform:scale(.985);}
+button[data-insurance-choice]:focus-visible{outline:3px solid rgba(231,189,85,.55)!important;outline-offset:3px;}
+@media(max-width:520px){.insurance-breakdown-table{font-size:13px}.insurance-breakdown-table th,.insurance-breakdown-table td{padding:9px 10px}}
+</style>
+
+
+<style id="v539-insurance-choice-state">
+button[data-insurance-choice]{transition:background .18s ease,color .18s ease,border-color .18s ease,box-shadow .18s ease;min-height:52px;font-weight:800;}
+button[data-insurance-choice][aria-pressed="true"]{background:linear-gradient(135deg,#e7bd55,#f3d98c)!important;color:#071525!important;-webkit-text-fill-color:#071525!important;border:2px solid #b88b2c!important;box-shadow:0 0 0 3px rgba(231,189,85,.25),0 5px 14px rgba(7,21,37,.16)!important;}
+button[data-insurance-choice][aria-pressed="false"]{background:#fff!important;color:#071525!important;-webkit-text-fill-color:#071525!important;border:2px solid #d9b95d!important;box-shadow:none!important;}
+button[data-insurance-choice]:active{filter:brightness(.92)!important;transform:scale(.985);}
+</style>
+
+<style id="v543-insurance-table-responsive-fix">
+/* V5.43: keep the insurance deductions table within its card on narrow screens. */
+#salary .section.card,
+#salary .section.card * { box-sizing:border-box; }
+#salary .section.card { min-width:0; max-width:100%; }
+#salary .insurance-table-wrap {
+  display:block; width:100%; max-width:100%; min-width:0;
+  overflow-x:auto; overflow-y:hidden; contain:inline-size;
+}
+#salary .insurance-breakdown-table {
+  width:100%; min-width:0; max-width:100%;
+  table-layout:fixed; border-collapse:collapse;
+}
+#salary .insurance-breakdown-table th,
+#salary .insurance-breakdown-table td {
+  white-space:normal !important;
+  overflow-wrap:anywhere; word-break:normal;
+  min-width:0; padding:9px 7px;
+}
+#salary .insurance-breakdown-table th:nth-child(1),
+#salary .insurance-breakdown-table td:nth-child(1) { width:54%; }
+#salary .insurance-breakdown-table th:nth-child(2),
+#salary .insurance-breakdown-table td:nth-child(2),
+#salary .insurance-breakdown-table th:nth-child(3),
+#salary .insurance-breakdown-table td:nth-child(3) { width:23%; }
+#salary .insurance-breakdown-table .insurance-rate {
+  display:block; white-space:normal; overflow-wrap:anywhere;
+}
+@media(max-width:520px) {
+  #salary .insurance-breakdown-table { font-size:12px; }
+  #salary .insurance-breakdown-table th,
+  #salary .insurance-breakdown-table td { padding:8px 5px; }
+  #salary .insurance-breakdown-table th:nth-child(2),
+  #salary .insurance-breakdown-table th:nth-child(3) { font-size:11px; }
+}
+</style>
+
+</head>
 <body>
 <div aria-hidden="true" id="printStatement">
 <div class="psPage" id="psSalaryPage"></div>
@@ -332,7 +398,7 @@ tr:nth-child(even) td{background:rgba(7,21,37,.035)}
 <div>
 <label>Μέσες συντάξιμες αποδοχές (€)</label>
 <input id="avgWage" min="0" readonly="" step="0.01" type="number" value="0"/>
-<small class="muted" id="avgWageInfo">Μέσος όρος από 01/01/2002 με πραγματικές αποδοχές ΑΤΛΑΣ, μεταβατικές αποδοχές 2026 και βασικό μισθό ειδικού μισθολογίου από 01/01/2027.</small>
+<small class="muted" id="avgWageInfo">Μέσος όρος από 01/01/2002 με πραγματικές αποδοχές ΑΤΛΑΣ, πίνακες Ενιαίου Μισθολογίου έως 31/12/2026 και βασικό μισθό ειδικού μισθολογίου από 01/01/2027.</small>
 </div>
 <div>
 <label>Ηλικία</label>
@@ -345,14 +411,14 @@ tr:nth-child(even) td{background:rgba(7,21,37,.035)}
 <div class="section card">
 <h3>📄 Συνδυασμός ασφαλιστικού ιστορικού ΑΤΛΑΣ</h3>
 <details class="pensionHelp"><summary>ℹ️ Πώς χρησιμοποιούνται οι εγγραφές ΑΤΛΑΣ</summary><p>Οι αποδοχές από 01/01/2002 και μετά συμμετέχουν στον μέσο όρο, εφόσον είναι αποδοχές επί των οποίων καταβλήθηκαν εισφορές κύριας σύνταξης. Οι ημέρες ασφάλισης ελέγχονται χωριστά από τα ποσά. Μήνες χωρίς εγγραφή δεν θεωρούνται αυτομάτως μηδενική ασφάλιση· χρειάζονται αποδεικτικά υπηρεσίας/ασφάλισης.</p></details>
-<p class="muted">Ανέβασε το Αναλυτικό Ιστορικό Ασφάλισης σε PDF. Ο μέσος όρος ξεκινά από 01/01/2002. Χρησιμοποιούνται πραγματικές αποδοχές ΑΤΛΑΣ όπου υπάρχουν· στους μήνες χωρίς εγγραφή, όπως το κενό 2000–2019, συνεχίζουν οι μισθολογικοί πίνακες. Τα έτη πριν από το 2002 μετρούν μόνο στον συνολικό συνταξιοδοτικό χρόνο.</p>
+<p class="muted">Αν δεν έχεις καταχωρίσει στο Προφίλ σου χρόνο ασφάλισης από άλλα ταμεία ή δεν γνωρίζεις ακριβώς τον χρόνο αυτό, ανέβασε εδώ το PDF του Αναλυτικού Ιστορικού Ασφάλισης ΑΤΛΑΣ. Ο μέσος όρος ξεκινά από 01/01/2002. Χρησιμοποιούνται πραγματικές αποδοχές ΑΤΛΑΣ όπου υπάρχουν· στους μήνες χωρίς εγγραφή, όπως το κενό 2000–2019, συνεχίζουν οι μισθολογικοί πίνακες. Τα έτη πριν από το 2002 μετρούν μόνο στον συνολικό συνταξιοδοτικό χρόνο.</p>
 <div class="formgrid">
 <div><label>PDF ΑΤΛΑΣ</label><input accept="application/pdf,.pdf" id="pAtlasFile" type="file"/><small class="muted" id="pAtlasFileName">Δεν έχει επιλεγεί αρχείο.</small></div>
 <div style="display:flex;align-items:end;gap:8px;flex-wrap:wrap"><button class="btn primary" id="pAtlasAnalyze" type="button">Ανάλυση PDF</button><button class="btn secondary" id="pAtlasClear" type="button">Καθαρισμός</button></div>
 </div>
 <div class="notice" id="pAtlasStatus" style="margin-top:12px">Δεν έχει φορτωθεί PDF ΑΤΛΑΣ. Ο υπολογισμός συνεχίζει με τους μισθολογικούς πίνακες.</div>
 <div class="grid2" style="margin-top:10px">
-<div class="card"><span class="muted">Ημέρες ΑΤΛΑΣ πριν από τον διορισμό</span><div class="value cyan" id="pAtlasPreDays">0</div><label style="display:flex;gap:8px;align-items:center;margin-top:8px"><input id="pAtlasIncludeDays" style="width:auto" type="checkbox"/> Να προστεθούν στον συνολικό χρόνο</label><small class="muted">Ενεργοποίησέ το μόνο αν αυτές οι ημέρες δεν περιλαμβάνονται ήδη στο πεδίο «άλλα ταμεία» του Προφίλ.</small></div>
+<div class="card"><span class="muted">Ημέρες ΑΤΛΑΣ πριν από τον διορισμό</span><div class="value cyan" id="pAtlasPreDays">0</div><label style="display:flex;gap:8px;align-items:center;margin-top:8px"><input id="pAtlasIncludeDays" style="width:auto" type="checkbox"/> Να προστεθούν στον συνολικό χρόνο</label><small class="muted">Αν έχεις δηλώσει έστω και ημέρες στο Προφίλ → «Ημέρες ασφάλισης σε άλλα ταμεία», οι ημέρες ΑΤΛΑΣ δεν προστίθενται ξανά. Για να χρησιμοποιήσεις τις ημέρες ΑΤΛΑΣ, μηδένισε πρώτα το πεδίο του Προφίλ.</small></div>
 <div class="card"><span class="muted">Μήνες με πραγματικές αποδοχές από ΑΤΛΑΣ</span><div class="value green" id="pAtlasRealMonths">0</div><small class="muted">Από 01/01/2002 και μετά, όπου υπάρχουν εγγραφές.</small></div>
 </div>
 <div class="tableWrap" style="margin-top:12px;max-height:260px;overflow:auto">
@@ -374,6 +440,16 @@ tr:nth-child(even) td{background:rgba(7,21,37,.035)}
 </div>
 <p class="muted" style="font-size:12px">*Ενδεικτικό ποσό μετά την κράτηση υγειονομικής περίθαλψης, πριν από τυχόν φόρο ή άλλες κρατήσεις. Η μάχιμη πενταετία δεν θεωρείται ισχύουσα· εξετάζεται μόνο σε ξεχωριστή υποθετική προσομοίωση.</p>
 <div class="notice" id="specialRetirementStatus">Προϋποθέσεις: 37 συντάξιμα έτη ή ηλικία 60.</div>
+<div class="section card" id="yefkkExitComparison" style="margin-top:14px;border:1px solid rgba(220,161,93,.55)">
+<h4>🧭 Πότε μπορώ να φύγω και ποια ημερομηνία συμφέρει;</h4>
+<p class="muted">Ειδική διαδρομή ΥΕΦΚΚ: πλήρης σύνταξη με τη συμπλήρωση του 60ού έτους ή 37 ετών συντάξιμης υπηρεσίας, ανεξαρτήτως ορίου ηλικίας. Οι ημερομηνίες είναι εκτιμήσεις βάσει των στοιχείων που έχεις καταχωρίσει.</p>
+<div class="grid2">
+<div class="card"><b>Διαδρομή 37 ετών</b><div class="value cyan" id="yefkk37Date">—</div><small class="muted" id="yefkk37Detail">Αναμονή στοιχείων</small><div class="value" id="yefkk37Net">—</div><small class="muted">Εκτιμώμενη καθαρή μηνιαία σύνταξη</small></div>
+<div class="card"><b>Διαδρομή ηλικίας 60</b><div class="value green" id="yefkk60Date">—</div><small class="muted" id="yefkk60Detail">Αναμονή ημερομηνίας γέννησης</small><div class="value" id="yefkk60Net">—</div><small class="muted">Εκτιμώμενη καθαρή μηνιαία σύνταξη</small></div>
+</div>
+<div class="notice" id="yefkkBestExit" style="margin-top:10px">Συμπλήρωσε ημερομηνία γέννησης και στοιχεία ασφάλισης στο Προφίλ για τη σύγκριση.</div>
+<small class="muted">Η σύγκριση ποσών είναι ενδεικτική, με τις ίδιες παραδοχές του υπολογιστή. Δεν αποτελεί πράξη θεμελίωσης ή επίσημη απόφαση του e-ΕΦΚΑ. Πλασματικοί χρόνοι προσμετρώνται μόνο εφόσον έχουν νόμιμα αναγνωριστεί/υπολογιστεί.</small>
+</div>
 <h4 style="margin-top:20px">🗓️ Σενάρια παραμονής στην υπηρεσία</h4>
 <details class="pensionHelp">
 <summary>ℹ️ Σημείωση για τα σενάρια παραμονής</summary>
@@ -419,9 +495,91 @@ tr:nth-child(even) td{background:rgba(7,21,37,.035)}
 </div>
 </div>
 <div class="section card">
+
+<div class="section card" id="additionalPensionBenefits">
+  <h3>5. Πρόσθετες συνταξιοδοτικές παροχές</h3>
+  <p class="muted">Ξεχωριστή εκτίμηση επικουρικής ΤΕΑΔΥ, μερίσματος ΜΤΠΥ και εφάπαξ ΤΠΔΥ. Συμπλήρωσε τους χρόνους και τις βάσεις που αντιστοιχούν στις πραγματικές κρατήσεις κάθε ταμείου. Δεν μεταφέρονται αυτόματα όλα τα συντάξιμα έτη σε κάθε ταμείο.</p>
+  <details class="pensionHelp">
+    <summary>ℹ️ Πώς γίνεται ο υπολογισμός</summary>
+    <p><b>ΤΕΑΔΥ:</b> για χρόνο έως 31/12/2014 εφαρμόζεται 0,45% ανά έτος επί των συντάξιμων αποδοχών. Από 1/1/2015 εφαρμόζεται σύστημα νοητής κεφαλαιοποίησης· για αξιόπιστη εκτίμηση χρειάζεται το συσσωρευμένο ποσό/αναλυτικό ασφαλιστικό ιστορικό και ο αντίστοιχος συντελεστής μετατροπής.</p>
+    <p><b>ΜΤΠΥ:</b> μέσος βασικός μισθός από το 2002 και μετά × έτη συμμετοχής × 0,215%, συν αντίστοιχο υπομέρισμα για λοιπές αποδοχές στις οποίες αποδόθηκαν κρατήσεις ΜΤΠΥ.</p>
+    <p><b>ΤΠΔΥ:</b> για χρόνο έως 31/12/2013 εφαρμόζεται ο κανόνας του 60% επί των αποδοχών αναφοράς και των ετών ασφάλισης, εφόσον υπάγεται ο ασφαλισμένος στη συγκεκριμένη βάση εισφοράς 4%. Από 1/1/2014 και μετά λαμβάνεται η συσσωρευμένη αξία εισφορών.</p>
+  </details>
+  <div class="grid two" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px">
+    <div class="card">
+      <h4>Επικουρική ΤΕΑΔΥ</h4>
+      <details class="pensionHelp">
+        <summary>📍 Πού βρίσκω τα στοιχεία της επικουρικής;</summary>
+        <p><b>Έτη έως 31/12/2014:</b> αναζήτησε τον χρόνο ασφάλισης επικουρικής στον ατομικό λογαριασμό/ασφαλιστικό ιστορικό e-ΕΦΚΑ ή ζήτησε βεβαίωση χρόνου από τον αρμόδιο φορέα. Μην χρησιμοποιήσεις αυτομάτως όλα τα έτη κύριας ασφάλισης.</p>
+        <p><b>Μέσες συντάξιμες αποδοχές:</b> χρησιμοποίησε αποδοχές μόνο για τις οποίες υπήρχαν εισφορές επικουρικής, σύμφωνα με τη βεβαίωση ή τα στοιχεία μισθοδοσίας.</p>
+        <p><b>Κεφάλαιο από 1/1/2015 και συντελεστής:</b> συμπλήρωσέ τα μόνο εφόσον αναγράφονται σε επίσημη ενημέρωση/εκκαθάριση του επικουρικού φορέα. Αν δεν τα έχεις, άφησε τα πεδία στο 0· δεν γίνεται αυθαίρετη εκτίμηση αυτού του τμήματος.</p>
+        <p><b>Χρήσιμα έγγραφα:</b> ασφαλιστικό ιστορικό επικουρικής, βεβαίωση χρόνου και επίσημη ανάλυση εισφορών/παροχής.</p>
+      </details>
+      <label>Έτη επικουρικής έως 31/12/2014</label>
+      <input id="bTeadyYearsOld" type="number" min="0" step="0.01" value="0">
+      <label>Μέσες συντάξιμες αποδοχές (€)</label>
+      <input id="bTeadyAvgOld" type="number" min="0" step="0.01" value="0">
+      <label>Συσσωρευμένο ποσό/κεφάλαιο από 1/1/2015 (€)</label>
+      <input id="bTeadyCapital" type="number" min="0" step="0.01" value="0">
+      <label>Συντελεστής μηνιαίας μετατροπής κεφαλαίου</label>
+      <input id="bTeadyFactor" type="number" min="0" step="0.000001" value="0">
+      <small class="muted">Συμπληρώνεται από επίσημη βεβαίωση/εκκαθάριση. Αν δεν υπάρχει, αφήνεται 0 και εμφανίζεται μόνο το τμήμα έως το 2014.</small>
+      <div class="value" id="bTeadyResult">0,00 € / μήνα</div>
+    </div>
+    <div class="card">
+      <h4>Μέρισμα ΜΤΠΥ</h4>
+      <details class="pensionHelp">
+        <summary>📍 Πού βρίσκω τα στοιχεία του ΜΤΠΥ;</summary>
+        <p><b>Έτη συμμετοχής:</b> από την καρτέλα μετόχου ή επίσημη βεβαίωση χρόνου συμμετοχής του ΜΤΠΥ. Δεν ταυτίζονται απαραίτητα με τα συνολικά έτη υπηρεσίας.</p>
+        <p><b>Μέσος βασικός μισθός:</b> από τις μισθοδοσίες/βεβαιώσεις αποδοχών της περιόδου που λαμβάνει υπόψη το Ταμείο. Δεν βάζουμε τον σημερινό βασικό μισθό ως μέσο όρο όλων των ετών.</p>
+        <p><b>Λοιπές αποδοχές:</b> καταχωρίζονται μόνο οι αποδοχές για τις οποίες πράγματι παρακρατήθηκε και αποδόθηκε εισφορά υπέρ ΜΤΠΥ. Έλεγξε τις αναλυτικές γραμμές κρατήσεων στις μισθοδοσίες.</p>
+        <p><b>Χρήσιμα έγγραφα:</b> καρτέλα μετόχου ΜΤΠΥ, βεβαίωση χρόνου και αναλυτικές μισθοδοσίες. Αν δεν γνωρίζεις κάποιο ποσό, μην το εκτιμήσεις στην τύχη· άφησέ το 0 μέχρι να επιβεβαιωθεί.</p>
+      </details>
+      <label>Έτη συμμετοχής στο ΜΤΠΥ</label>
+      <input id="bMtpyYears" type="number" min="0" step="0.01" value="0">
+      <label>Μέσος βασικός μισθός από το 2002 (€)</label>
+      <input id="bMtpyBasic" type="number" min="0" step="0.01" value="0">
+      <label>Μέσες λοιπές αποδοχές με κρατήσεις ΜΤΠΥ (€)</label>
+      <input id="bMtpyOther" type="number" min="0" step="0.01" value="0">
+      <small class="muted">Συντελεστής ετήσιας αναπλήρωσης: 0,215%. Οι αποδοχές πρέπει να είναι μόνο όσες υπάγονταν πράγματι σε κράτηση.</small>
+      <div class="value" id="bMtpyResult">0,00 € / μήνα</div>
+    </div>
+    <div class="card">
+      <h4>Εφάπαξ ΤΠΔΥ</h4>
+      <details class="pensionHelp">
+        <summary>📍 Πού βρίσκω τα στοιχεία του εφάπαξ;</summary>
+        <p><b>Έτη έως 31/12/2013:</b> από την επίσημη βεβαίωση χρόνου ασφάλισης στον κλάδο πρόνοιας/εφάπαξ. Μην αντιγράψεις αυτόματα τα έτη κύριας σύνταξης.</p>
+        <p><b>Μέσες αποδοχές αναφοράς:</b> χρειάζονται οι αποδοχές που προβλέπονται για τον δικό σου κλάδο και για τις οποίες υπήρχε η αντίστοιχη κράτηση. Έλεγξε τις μισθοδοσίες της περιόδου αναφοράς και την επίσημη βεβαίωση του φορέα.</p>
+        <p><b>Εισφορές από 1/1/2014:</b> από την ατομική μερίδα/αναλυτική βεβαίωση εισφορών του κλάδου εφάπαξ. Μην καταχωρίζεις το συνολικό ποσό κρατήσεων όλων των ταμείων.</p>
+        <p><b>Χρήσιμα έγγραφα:</b> βεβαίωση χρόνου πρόνοιας, ατομική μερίδα εισφορών και αναλυτικές μισθοδοσίες. Ο κανόνας υπολογισμού εξαρτάται από την ασφαλιστική υπαγωγή και τις εισφορές σου.</p>
+      </details>
+      <label>Έτη ασφάλισης έως 31/12/2013</label>
+      <input id="bTpdyYearsOld" type="number" min="0" step="0.01" value="0">
+      <label>Μέσες αποδοχές αναφοράς με κρατήσεις (€)</label>
+      <input id="bTpdyAvgOld" type="number" min="0" step="0.01" value="0">
+      <label>Συσσωρευμένες εισφορές από 1/1/2014 (€)</label>
+      <input id="bTpdyCapital" type="number" min="0" step="0.01" value="0">
+      <small class="muted">Το τμήμα έως το 2013 εμφανίζεται με τον κανόνα 60% μόνο εφόσον ισχύει η αντίστοιχη εισφορά/κατηγορία. Το μεταγενέστερο τμήμα εισάγεται από την ατομική μερίδα.</small>
+      <div class="value" id="bTpdyResult">0,00 € εφάπαξ</div>
+    </div>
+  </div>
+  <div class="notice" style="margin-top:12px">
+    <b>Κόστος εξαγοράς πλασματικών ετών:</b> παραμένει ξεχωριστό από τις μηνιαίες συνταξιοδοτικές παροχές και εμφανίζεται από τα στοιχεία αναγνώρισης στο Προφίλ. Δεν προστίθεται στο ποσό σύνταξης ή στο εφάπαξ.
+    <div class="value" id="bBuyoutCost">Θα υπολογιστεί από τα στοιχεία εξαγοράς του Προφίλ.</div>
+  </div>
+  <div class="card" style="margin-top:12px">
+    <h4>Σύνοψη πρόσθετων παροχών</h4>
+    <div>Επικουρική ΤΕΑΔΥ: <b id="bTotalTeady">0,00 €</b> / μήνα</div>
+    <div>Μέρισμα ΜΤΠΥ: <b id="bTotalMtpy">0,00 €</b> / μήνα</div>
+    <div>Σύνολο πρόσθετων μηνιαίων παροχών: <b id="bTotalMonthly">0,00 €</b></div>
+    <div>Εφάπαξ ΤΠΔΥ: <b id="bTotalTpdy">0,00 €</b></div>
+    <small class="muted">Ενδεικτική προσομοίωση, όχι επίσημη απονομή. Δεν περιλαμβάνει φορολογία/κρατήσεις των παροχών.</small>
+  </div>
+</div>
+
 <h3>4. Αναλυτική εκτίμηση σύνταξης</h3>
 <details class="pensionHelp"><summary>ℹ️ Μικτή και καθαρή σύνταξη</summary><p>Η μικτή σύνταξη είναι πριν από τις κρατήσεις. Η καθαρή προκύπτει μετά την υγειονομική κράτηση και τον φόρο. Ο φόρος είναι παρακράτηση εισοδήματος και όχι ασφαλιστική εισφορά. Το αποτέλεσμα είναι εκτίμηση, όχι επίσημη απόφαση.</p></details>
-<div class="notice" style="margin-top:10px"><b>Φορολογία σύνταξης:</b> ο φόρος εισοδήματος δεν είναι ασφαλιστική κράτηση όπως η υγειονομική περίθαλψη. Μπορεί να παρακρατείται από τη σύνταξη, αλλά το ακριβές ποσό της παρακράτησης δεν εκτιμάται από την εφαρμογή και συνυπολογίζεται στην ετήσια φορολογική εκκαθάριση.</div>
+<div class="notice" style="margin-top:10px"><b>Φορολογία σύνταξης 2026:</b> η εφαρμογή υπολογίζει ενδεικτική μηνιαία παρακράτηση με αναγωγή της μικτής σύνταξης σε 12 μήνες, την κλίμακα 2026 και τη μείωση φόρου του άρθρου 16. Ο αριθμός εξαρτώμενων τέκνων λαμβάνεται από το Προφίλ. Ο φόρος εμφανίζεται χωριστά από την υγειονομική κράτηση 6%.</div>
 <div id="pensionBreakdown"></div>
 </div>
 <div class="section card">
@@ -499,8 +657,8 @@ tr:nth-child(even) td{background:rgba(7,21,37,.035)}
 <button class="shiftBtn" data-shift="A" type="button">Α</button>
 <button class="shiftBtn" data-shift="R" type="button">Ρ</button>
 <button class="shiftBtn" data-shift="N" type="button">Ν</button>
-<button class="shiftBtn" data-shift="AD" type="button">Α/Δ</button>
-<button class="shiftBtn" data-shift="PP" type="button">Π</button>
+<button class="shiftBtn" data-shift="AD" type="button">ΑΔ</button>
+<button class="shiftBtn" data-shift="PP" type="button">ΠΡ</button>
 <button class="shiftBtn" data-shift="PN" type="button">Π/Ν</button>
 <button class="shiftBtn" data-shift="DEL" type="button">Σβήσ.</button>
 </div>
@@ -1143,6 +1301,9 @@ document.getElementById('saveProfile').onclick=()=>{
   if(hasProfile){
     try{ renderSalary(); }catch(e){ console.warn('V4.29 salary sync:',e); }
     try{ refreshHomeFromSources(); }catch(e){ console.warn('V4.29 home sync:',e); }
+    // V5.35: πρώτα συγχρονίζεται ο χρόνος υπηρεσίας από την ημερομηνία διορισμού
+    // και μετά εκτελείται ο υπολογισμός, ώστε να μη μένει 0 έτη 0 μήνες.
+    try{ if(typeof syncPensionProfile==='function') syncPensionProfile(); }catch(e){ console.warn('V5.35 pension profile sync:',e); }
     try{ if(typeof calculatePension==='function') calculatePension(); }catch(e){ console.warn('V4.29 pension sync:',e); }
     const yrs=Number(document.getElementById('years')?.value)||0;
     const rank=autoRankForYears(yrs);
@@ -1419,23 +1580,21 @@ function autoAverageFromSalaryTables(){
     const key=month.getFullYear()+'-'+String(month.getMonth()+1).padStart(2,'0');
     const atlasAmount=Number(atlasMap[key]?.gross)||0;
     let total=0,source='Μισθολογικοί πίνακες';
-    // Μεταβατικό διάστημα ειδικού μισθολογίου: οι συμφωνημένες συντάξιμες αποδοχές είναι 1.478 € για Σεπτέμβριο–Δεκέμβριο 2026.
-    if(key>='2026-09' && key<='2026-12'){
-      total=1478; source='Μεταβατικές αποδοχές 2026'; tableMonths++;
-    }
-    // Από 01/01/2027 λαμβάνεται μόνο ο βασικός μισθός του ειδικού μισθολογίου, όχι το σύνολο αποδοχών/επιδομάτων.
-    else if(key>='2027-01'){
+    // Πρώτα χρησιμοποιούνται οι πραγματικές αποδοχές ΑΤΛΑΣ, όπου υπάρχουν.
+    if(atlasAmount>0){total=atlasAmount;atlasMonths++;source='ΑΤΛΑΣ';}
+    // Έως και 31/12/2026 ισχύει το Ενιαίο Μισθολόγιο: αν δεν υπάρχει εγγραφή ΑΤΛΑΣ,
+    // οι αποδοχές αντλούνται από τον αντίστοιχο πίνακα Ενιαίου Μισθολογίου.
+    else if(key<'2027-01'){
       const serviceYears=yearsBetweenDates(appointment,month);
-      const baseRow=getSalaryRow(serviceYears);
-      total=Number(baseRow?.basic)||0; source='Βασικός μισθός ειδικού μισθολογίου'; tableMonths++; newMonths++;
+      const scale=salaryScaleForAverage(serviceYears,family,oldPayData);
+      total=Number(scale?.total)||0; source='Ενιαίο μισθολόγιο — μισθολογικοί πίνακες'; tableMonths++; oldMonths++;
     }
-    else if(atlasAmount>0){total=atlasAmount;atlasMonths++;source='ΑΤΛΑΣ';}
+    // Από 01/01/2027 χρησιμοποιείται το προτεινόμενο ειδικό μισθολόγιο,
+    // με βάση μόνο τον βασικό μισθό και όχι το σύνολο επιδομάτων.
     else{
       const serviceYears=yearsBetweenDates(appointment,month);
-      const paySource=month<pensionSalaryProposalDate?'old':'new';
-      const scale=salaryScaleForAverage(serviceYears,family,paySource==='old'?oldPayData:newPayData);
-      total=Number(scale.total)||0; tableMonths++;
-      if(paySource==='old') oldMonths++; else newMonths++;
+      const baseRow=getSalaryRow(serviceYears);
+      total=Number(baseRow?.basic)||0; source='Ειδικό μισθολόγιο — βασικός μισθός'; tableMonths++; newMonths++;
     }
     sum+=total;count++;
     rows.push({month:key,amount:total,source});
@@ -1460,9 +1619,17 @@ function familyAmounts(row, family, children){
 }
 function salaryTax2026(annualTaxable, children, age){
   const x=Math.max(0,Number(annualTaxable)||0), c=Math.max(0,Math.floor(Number(children)||0)), a=Math.max(0,Number(age)||0);
+  // Ν. 5355/2026 (ΦΕΚ Α' 188/13.11.2026):
+  // 3+ εξαρτώμενα τέκνα: μηδενικός συντελεστής στα δύο πρώτα κλιμάκια.
+  // Για 26–30 ετών εφαρμόζεται 9% στο δεύτερο κλιμάκιο, εκτός αν ισχύει
+  // η μηδενική κλίμακα λόγω 3+ εξαρτώμενων τέκνων.
   const rate=(bracket)=>{
-    if(bracket===0) return a<=25?0:0.09;
-    if(bracket===1){ if(a<=25) return 0; if(a<=30) return c>=4?0:0.09; return [0.20,0.18,0.16,0.09,0][Math.min(c,4)]; }
+    if(bracket===0) return (a<=25 || c>=3)?0:0.09;
+    if(bracket===1){
+      if(a<=25 || c>=3) return 0;
+      if(a<=30) return 0.09;
+      return [0.20,0.18,0.16][Math.min(c,2)];
+    }
     if(bracket===2){ return c>=5?Math.max(0,0.18-0.02*(c-4)):[0.26,0.24,0.22,0.20,0.18][Math.min(c,4)]; }
     if(bracket===3) return 0.34;
     if(bracket===4) return 0.39;
@@ -1482,17 +1649,19 @@ function salaryPayrollCalc(grossMain, children, age, insurance, fiveCount, night
   const special=Math.max(0,Number(specialMain)||0);
   const family=Math.max(0,Number(familyAllowance)||0);
   const allowanceBase=Math.max(0,g-basic);
-  // Βάση κρατήσεων χωριστά: βασικός μισθός και επιδόματα.
-  // Πριν το 1993: στα επιδόματα υπολογίζονται εδώ υγειονομική, ανεργία και ΜΤΠΥ 1%.
-  // Μετά το 1993: οι έξι γραμμές υπολογίζονται και στα επιδόματα.
+  // Βάσεις κρατήσεων: οι πριν από 1/1/1993 ασφαλισμένοι έχουν διαφορετική
+  // βάση κύριας σύνταξης (συντάξιμες αποδοχές) από τους μετά (τακτικές αποδοχές).
+  // ΜΤΠΥ: 4,5% στις συντάξιμες αποδοχές + 2% σε πρόσθετες/σταθερές ειδικές
+  // αποδοχές και προσωπική διαφορά + 1% σε μη συντάξιμες παροχές.
   const tpdy=basic*0.04+(insurance==='pre93'?0:allowanceBase*0.04);
-  const mtpy=basic*0.045+(insurance==='pre93'?(allowanceBase*0.01):allowanceBase*0.045);
+  const mtpy=basic*0.045+special*0.02+family*0.01;
   const teady=basic*0.03+(insurance==='pre93'?0:allowanceBase*0.03);
   const health=basic*0.0205+allowanceBase*0.0205;
   const efka=basic*0.0667+(insurance==='pre93'?0:allowanceBase*0.0667);
   const unemp=basic*0.02+allowanceBase*0.02;
   const mainContrib=tpdy+mtpy+teady+health+efka+unemp;
   const taxableMonthly=Math.max(0,g-mainContrib);
+  // Δημόσιο: 12 μισθολογικές καταβολές. Ο ετήσιος φόρος επιμερίζεται σε 12 μήνες.
   const annualTaxable=taxableMonthly*12;
   const taxChildren=Math.max(0,Number(taxDependents==null?c:taxDependents)||0);
   const tax=salaryTax2026(annualTaxable,taxChildren,age)/12;
@@ -1667,16 +1836,16 @@ function renderSalary(){
             </tr></thead>
             <tbody>
               <tr><td><span class="insurance-name">ΤΠΔΥ</span><span class="insurance-rate">4%</span></td><td>${f(row.basic*0.04)}</td><td>${insurance==='pre93'?'—':f(Math.max(0,a.total-row.basic)*0.04)}</td></tr>
-              <tr><td><span class="insurance-name">ΜΤΠΥ</span><span class="insurance-rate">${insurance==='pre93'?'4,5% + 1% στα επιδόματα':'4,5%'}</span></td><td>${f(row.basic*0.045)}</td><td>${insurance==='pre93'?f((a.special+a.childAllowance)*0.01):f(Math.max(0,a.total-row.basic)*0.045)}</td></tr>
+              <tr><td><span class="insurance-name">ΜΤΠΥ</span><span class="insurance-rate">4,5% βασικός + 2% ειδικά + 1% μη συντάξιμα</span></td><td>${f(row.basic*0.045)}</td><td>${f(a.special*0.02+a.childAllowance*0.01)}</td></tr>
               <tr><td><span class="insurance-name">ΤΕΑΔΥ</span><span class="insurance-rate">3%</span></td><td>${f(row.basic*0.03)}</td><td>${insurance==='pre93'?'—':f(Math.max(0,a.total-row.basic)*0.03)}</td></tr>
               <tr><td><span class="insurance-name">Υγειονομική</span><span class="insurance-rate">2,05%</span></td><td>${f(row.basic*0.0205)}</td><td>${f(Math.max(0,a.total-row.basic)*0.0205)}</td></tr>
               <tr><td><span class="insurance-name">ΕΦΚΑ σύνταξη</span><span class="insurance-rate">6,67%</span></td><td>${f(row.basic*0.0667)}</td><td>${insurance==='pre93'?'—':f(Math.max(0,a.total-row.basic)*0.0667)}</td></tr>
               <tr><td><span class="insurance-name">Ανεργία</span><span class="insurance-rate">2%</span></td><td>${f(row.basic*0.02)}</td><td>${f(Math.max(0,a.total-row.basic)*0.02)}</td></tr>
-              <tr class="insurance-total"><td>Σύνολο κρατήσεων</td><td>${f(row.basic*(0.04+0.045+0.03+0.0205+0.0667+0.02))}</td><td>${f(insurance==='pre93'?((a.special+a.childAllowance)*0.01+Math.max(0,a.total-row.basic)*(0.0205+0.02)):Math.max(0,a.total-row.basic)*(0.04+0.045+0.03+0.0205+0.0667+0.02))}</td></tr>
+              <tr class="insurance-total"><td>Σύνολο κρατήσεων</td><td>${f(row.basic*(0.04+0.045+0.03+0.0205+0.0667+0.02))}</td><td>${f(a.special*0.02+a.childAllowance*0.01+(insurance==='pre93'?0:Math.max(0,a.total-row.basic)*(0.04+0.03+0.0667))+Math.max(0,a.total-row.basic)*(0.0205+0.02))}</td></tr>
             </tbody>
           </table>
         </div>
-        <div class="notice" style="margin-top:10px">Τα ποσά παρουσιάζονται χωριστά για τον βασικό μισθό και τα επιδόματα, βάσει του επιλεγμένου παραδείγματος. Επιβεβαίωσε τις βάσεις και τα ποσοστά με το επίσημο εκκαθαριστικό μισθοδοσίας.</div>
+        <div class="notice" style="margin-top:10px"><b>Βάση υπολογισμού:</b> Η κύρια σύνταξη υπολογίζεται στις συντάξιμες αποδοχές για ασφαλισμένους έως 31/12/1992 και στις τακτικές αποδοχές για ασφαλισμένους από 1/1/1993. Για το ΜΤΠΥ εμφανίζονται χωριστά 4,5% στον βασικό, 2% στις ειδικές/πρόσθετες αποδοχές και προσωπική διαφορά, και 1% στις μη συντάξιμες παροχές. Για ΤΠΔΥ και τις λοιπές βάσεις απαιτείται αντιστοίχιση με την ατομική μισθοδοσία και το ασφαλιστικό καθεστώς.</div>
         <div style="margin-top:12px;padding:14px;border:1px solid rgba(255,150,40,.45);border-radius:12px;background:rgba(255,140,20,.08);display:flex;justify-content:space-between;gap:12px;align-items:center">
           <span>Κράτηση αναγνώρισης μάχιμης 5ετίας</span>
           <strong style="white-space:nowrap;color:#ffad52">− ${f(pay.fiveYearRecognition)}</strong>
@@ -1699,7 +1868,7 @@ function renderSalary(){
       </div>
       <div class="notice" style="margin-top:10px">Χωρίς υπερωρίες • χωρίς παραμεθόριο • χωρίς προσωπική διαφορά. Τα πρόσθετα υπολογίζονται ξεχωριστά και δεν ξαναμπαίνουν στον κύριο φόρο.</div>
     </div>`;}
-const shiftMap={P:'Σημ.',A:'Α',R:'Ρ',N:'Ν',AD:'Α/Δ',PP:'Π',PN:'Π/Ν'};
+const shiftMap={P:'Σημ.',A:'Α',R:'Ρ',N:'Ν',AD:'ΑΔ',PP:'ΠΡ',PN:'Π/Ν'};
 const shiftStoragePrefix='yefkk_calendar_';
 let activeShift='P';
 let calCursor=null;
@@ -2021,12 +2190,15 @@ function pensionColumn(years,wage,withExtras=true){
   const mtpy=120;
   const gross=contributory===null?null:national+contributory+supplementary+mtpy;
   const health=gross===null?null:gross*0.06;
-  // Στη σύνταξη της εφαρμογής δεν αφαιρείται εκτιμώμενος φόρος.
-  // Εμφανίζουμε μικτή σύνταξη και ασφαλιστικές κρατήσεις (περίθαλψη)
-  // και το καθαρό ποσό υπολογίζεται χωρίς φορολογική παρακράτηση.
+  const taxChildren=Math.max(0,Number(document.getElementById('profChildren')?.value || document.getElementById('children')?.value)||0);
+  const taxAge=Math.max(0,Number(document.getElementById('age')?.value)||0);
+  // Η μηνιαία σύνταξη αναγάγεται σε ετήσιο εισόδημα 12 μηνών.
+  // Εφαρμόζεται η κλίμακα 2026 και η μείωση φόρου άρθρου 16 μέσω salaryTax2026.
+  const annualTax=gross===null?null:salaryTax2026(gross*12,taxChildren,taxAge);
+  const monthlyTax=annualTax===null?null:annualTax/12;
   const deductions=gross===null?null:health;
-  const net=gross===null?null:gross-deductions;
-  return {years,rate,national,contributory,supplementary,mtpy,gross,health,deductions,net};
+  const net=gross===null?null:gross-health-monthlyTax;
+  return {years,rate,national,contributory,supplementary,mtpy,gross,health,deductions,tax:monthlyTax,annualTax,net};
 }
 function renderScenarioCard(label,years,eligible){
   const rate=eligible?pensionRate(years):null;
@@ -2035,6 +2207,30 @@ function renderScenarioCard(label,years,eligible){
     <div style="text-align:right"><b>${rate===null?'—':rate.toFixed(2)+'%'}</b><div class="muted">${rate===null?'': 'αναπλήρωση'}</div></div>
   </div>`;
 }
+
+function calculateAdditionalBenefits(){
+  const n=id=>Math.max(0,Number(document.getElementById(id)?.value)||0);
+  const money=v=>(Number(v)||0).toLocaleString('el-GR',{minimumFractionDigits:2,maximumFractionDigits:2})+' €';
+  const teadyOld=n('bTeadyYearsOld')*n('bTeadyAvgOld')*0.0045;
+  const teadyPost=n('bTeadyCapital')*n('bTeadyFactor');
+  const teady=teadyOld+teadyPost;
+  const mtpy=(n('bMtpyBasic')+n('bMtpyOther'))*n('bMtpyYears')*0.00215;
+  const tpdyOld=n('bTpdyAvgOld')*0.60*n('bTpdyYearsOld');
+  const tpdy=tpdyOld+n('bTpdyCapital');
+  const put=(id,value)=>{const el=document.getElementById(id);if(el)el.textContent=money(value)+(id==='bTpdyResult'?' εφάπαξ':' / μήνα');};
+  put('bTeadyResult',teady); put('bMtpyResult',mtpy); put('bTpdyResult',tpdy);
+  const el=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=money(v);};
+  el('bTotalTeady',teady);el('bTotalMtpy',mtpy);el('bTotalMonthly',teady+mtpy);el('bTotalTpdy',tpdy);
+  const profileCost=document.getElementById('profileBuyoutTotalView')?.textContent;
+  const cost=document.getElementById('bBuyoutCost');
+  if(cost) cost.textContent=profileCost && profileCost.trim() && profileCost!=='—' ? profileCost : 'Συμπλήρωσε/έλεγξε τα στοιχεία εξαγοράς στο Προφίλ.';
+}
+function bindAdditionalBenefits(){
+  const ids=['bTeadyYearsOld','bTeadyAvgOld','bTeadyCapital','bTeadyFactor','bMtpyYears','bMtpyBasic','bMtpyOther','bTpdyYearsOld','bTpdyAvgOld','bTpdyCapital','profPlasticMonths','profRecognitionDate','profBuyoutWage'];
+  ids.forEach(id=>{const e=document.getElementById(id);if(e&&!e.dataset.benefitsBound){e.addEventListener('input',calculateAdditionalBenefits);e.dataset.benefitsBound='1';}});
+  calculateAdditionalBenefits();
+}
+
 function calculatePension(){
   let yefkk=Number(document.getElementById('pYefkkExact')?.value)||0;
   // Εφεδρική ανάγνωση της ορατής διάρκειας από το Προφίλ, όταν το κρυφό αριθμητικό πεδίο δεν έχει συγχρονιστεί.
@@ -2046,7 +2242,10 @@ function calculatePension(){
   const otherDays=Number(document.getElementById('pOther').value)||0;
   const otherYears=otherDays/300;
   const atlasOtherDays=Number(window.atlasPreAppointmentDays)||0;
-  const atlasOtherYears=document.getElementById('pAtlasIncludeDays')?.checked ? atlasOtherDays/300 : 0;
+  // Δικλείδα διπλομέτρησης: αν έχουν δηλωθεί ημέρες σε άλλα ταμεία στο Προφίλ,
+  // δεν προσθέτουμε ξανά τις προ του διορισμού ημέρες ΑΤΛΑΣ στον συνολικό χρόνο.
+  const profileOtherDays=Number(document.getElementById('profOtherDays')?.value)||0;
+  const atlasOtherYears=(profileOtherDays<=0 && document.getElementById('pAtlasIncludeDays')?.checked) ? atlasOtherDays/300 : 0;
   const foreignYears=Number(document.getElementById('pForeignYears')?.value)||0;
   const plastic=Number(document.getElementById('pPlastic').value)||0;
   const recognitionFive=document.getElementById('pRecognitionFive')?.value || document.getElementById('recognitionFive')?.value || localStorage.getItem('yefkk_recognitionFive') || 'no';
@@ -2094,7 +2293,7 @@ function calculatePension(){
       entries.push(`<tr><th scope="row"><b>${yrs} έτη</b><small style="display:block;color:#64705a">${rate===null?'—':rate.toFixed(2)+'%'}</small></th>`+
         wageFactors.map((factor,i)=>{
           const gross=nationalAmount+(rate===null?0:(wage*factor)*rate/100);
-          const net=gross*.94;
+          const taxChildren=Math.max(0,Number(document.getElementById('profChildren')?.value || document.getElementById('children')?.value)||0); const taxAge=Math.max(0,Number(document.getElementById('age')?.value)||0); const tax=salaryTax2026(gross*12,taxChildren,taxAge)/12; const net=gross*.94-tax;
           const tier=net<500?'low':net<700?'mid':net<950?'good':net<1300?'high':'top';
           return `<td><div class="pensionMatrixCell ${tier}"><strong>${fmtEuro(net)}</strong><small>${fmtEuro(gross)} μικτά</small></div></td>`;
         }).join('')+'</tr>');
@@ -2119,10 +2318,57 @@ function calculatePension(){
       }).join('');
     }
     const status=document.getElementById('specialRetirementStatus');
+    // V5.35: Ορίζουμε ρητά την επιλεξιμότητα πριν από την ενημέρωση κατάστασης.
+    // Προηγουμένως γινόταν αναφορά σε μη δηλωμένη μεταβλητή canRetire,
+    // προκαλώντας ReferenceError και διακόπτοντας το calculatePension πριν
+    // ενημερωθεί το κάτω πεδίο totalPensionYears.
+    const canRetire = age >= 60 || baseYears >= 37;
     if(status) status.textContent=canRetire?`Με τα σημερινά στοιχεία: ${fmtYearsMonths(baseYears)} και ηλικία ${age}. Εμφανίζεται τουλάχιστον μία από τις δύο διαδρομές (37 έτη ή 60 ετών), με την επιφύλαξη επίσημης επιβεβαίωσης.`:`Σήμερα: ${fmtYearsMonths(baseYears)} και ηλικία ${age}. Υπολείπονται ${fmtYearsMonths(Math.max(0,37-baseYears))} για τα 37 έτη ή ${Math.max(0,60-age)} έτη για την ηλικία των 60.`;
+
+    // V5.43 — ακριβής ημερομηνιακή σύγκριση των δύο ειδικών διαδρομών ΥΕΦΚΚ.
+    const dobValue=document.getElementById('profDob')?.value || localStorage.getItem('yefkk_profDob') || '';
+    const appDateValue=document.getElementById('pensionApplicationDate')?.value || localStorage.getItem('yefkk_pensionApplicationDate') || '';
+    const referenceDate=appDateValue ? new Date(appDateValue+'T00:00:00') : new Date();
+    referenceDate.setHours(0,0,0,0);
+    const fmtDate=d=>d && !Number.isNaN(d.getTime()) ? d.toLocaleDateString('el-GR') : '—';
+    const addYearsDate=(date,years)=>{const d=new Date(date); const whole=Math.floor(years); const fraction=years-whole; d.setFullYear(d.getFullYear()+whole); if(fraction>0) d.setTime(d.getTime()+fraction*365.2425*86400000); return d;};
+    const age60Date=dobValue ? new Date(dobValue+'T00:00:00') : null;
+    if(age60Date && !Number.isNaN(age60Date.getTime())) age60Date.setFullYear(age60Date.getFullYear()+60);
+    const yearsTo37=Math.max(0,37-actualBaseYears);
+    const date37=yearsTo37===0 ? new Date(referenceDate) : addYearsDate(referenceDate,yearsTo37);
+    const date60=age60Date && !Number.isNaN(age60Date.getTime()) ? age60Date : null;
+    const yearsAt37=37;
+    const yearsAt60=date60 ? Math.min(40,Math.max(0,actualBaseYears+yearsBetweenDates(referenceDate,date60))) : null;
+    const col37=yearsTo37===0 || actualBaseYears<37 ? pensionColumn(yearsAt37,wage) : pensionColumn(yearsAt37,wage);
+    const col60=date60 ? pensionColumn(yearsAt60,wage) : null;
+    const el37Date=document.getElementById('yefkk37Date');
+    const el37Detail=document.getElementById('yefkk37Detail');
+    const el37Net=document.getElementById('yefkk37Net');
+    const el60Date=document.getElementById('yefkk60Date');
+    const el60Detail=document.getElementById('yefkk60Detail');
+    const el60Net=document.getElementById('yefkk60Net');
+    if(el37Date) el37Date.textContent=fmtDate(date37);
+    if(el37Detail) el37Detail.textContent=yearsTo37===0 ? `Έχει ήδη συμπληρωθεί η 37ετία (${fmtYearsMonths(actualBaseYears)} σήμερα).` : `Εκτιμώμενη συμπλήρωση 37 ετών από ${fmtDate(referenceDate)}.`;
+    if(el37Net) el37Net.textContent=col37?.net!=null ? fmtEuro(col37.net) : 'Δεν υπολογίζεται';
+    if(el60Date) el60Date.textContent=date60 ? fmtDate(date60) : 'Χρειάζεται ημερομηνία γέννησης';
+    if(el60Detail) el60Detail.textContent=date60 ? `Εκτιμώμενος χρόνος τότε: ${fmtYearsMonths(yearsAt60)}.` : 'Συμπλήρωσε την ημερομηνία γέννησης στο Προφίλ.';
+    if(el60Net) el60Net.textContent=col60?.net!=null ? fmtEuro(col60.net) : 'Δεν υπολογίζεται';
+    const best=document.getElementById('yefkkBestExit');
+    if(best){
+      if(!date60){
+        best.textContent=`Με τα σημερινά δεδομένα, η διαδρομή των 37 ετών εκτιμάται για ${fmtDate(date37)}. Για να συγκριθεί με την ηλικία των 60, συμπλήρωσε ημερομηνία γέννησης στο Προφίλ.`;
+      }else{
+        const firstDate=date37<=date60?date37:date60;
+        const firstRoute=date37<=date60?'37 συντάξιμα έτη':'60ό έτος ηλικίας';
+        const bothAmounts=col37?.net!=null && col60?.net!=null;
+        const delta=bothAmounts ? col60.net-col37.net : null;
+        const amountText=delta===null?'Δεν υπάρχει ακόμη επαρκής υπολογισμός ποσού και για τις δύο ημερομηνίες.':`Στην ημερομηνία των 60 η εκτιμώμενη καθαρή σύνταξη είναι ${fmtEuro(col60.net)}, δηλαδή ${delta>=0?'υψηλότερη':'χαμηλότερη'} κατά ${fmtEuro(Math.abs(delta))} τον μήνα σε σχέση με τη διαδρομή των 37 ετών.`;
+        best.innerHTML=`<b>Πρώτη εκτιμώμενη δυνατότητα εξόδου: ${fmtDate(firstDate)} (${firstRoute}).</b><br>${amountText}<br><span class="muted">Η οικονομικά συμφερότερη επιλογή κρίνεται από τη διαφορά σύνταξης, αλλά και από τους μήνες/χρόνια που θα παραμείνεις επιπλέον στην υπηρεσία.</span>`;
+      }
+    }
   }
 
-  // V5.25 — Ενιαία πηγή για όλες τις ενδείξεις συνολικού συντάξιμου χρόνου.
+  // V5.35 — Ενιαία πηγή για όλες τις ενδείξεις συνολικού συντάξιμου χρόνου.
   // Αποτρέπει την εμφάνιση διαφορετικών τιμών στο επάνω σύνολο και στη σημείωση πιο κάτω.
   const totalYearsLabel=fmtYearsMonths(baseYears);
   ['totalPensionYearsMain','totalPensionYears'].forEach(id=>{
@@ -2183,8 +2429,9 @@ function calculatePension(){
     ['ΜΤΠΥ (εφόσον θεμελιωθεί)',val(old,'mtpy'),val(oldAge60,'mtpy'),val(newer,'mtpy'),val(age60,'mtpy')],
     ['ΣΥΝΟΛΟ ΜΙΚΤΗΣ ΣΥΝΤΑΞΗΣ',val(old,'gross'),val(oldAge60,'gross'),val(newer,'gross'),val(age60,'gross')],
     ['Υγειονομική περίθαλψη (6%)',val(old,'health'),val(oldAge60,'health'),val(newer,'health'),val(age60,'health')],
+    ['Φόρος εισοδήματος 2026 (εκτίμηση)',val(old,'tax'),val(oldAge60,'tax'),val(newer,'tax'),val(age60,'tax')],
     ['ΣΥΝΟΛΟ ΑΣΦΑΛΙΣΤΙΚΩΝ ΚΡΑΤΗΣΕΩΝ',val(old,'deductions'),val(oldAge60,'deductions'),val(newer,'deductions'),val(age60,'deductions')],
-    ['ΕΚΤΙΜΩΜΕΝΗ ΚΑΘΑΡΗ ΣΥΝΤΑΞΗ',val(old,'net'),val(oldAge60,'net'),val(newer,'net'),val(age60,'net')]
+    ['ΕΚΤΙΜΩΜΕΝΗ ΚΑΘΑΡΗ ΣΥΝΤΑΞΗ ΜΕΤΑ ΦΟΡΟΥ',val(old,'net'),val(oldAge60,'net'),val(newer,'net'),val(age60,'net')]
   ];
   document.querySelector('#pensionTable tbody').innerHTML=rows.map(r=>`<tr>${r.map((x,i)=>`<td${i===0?' class="muted"':''}>${x}</td>`).join('')}</tr>`).join('');
 
@@ -2202,9 +2449,9 @@ function calculatePension(){
       <div class="card"><span class="muted">Επικουρική (εκτίμηση)</span><div class="value">${fmtEuro(detail.supplementary)}</div></div>
       <div class="card"><span class="muted">ΜΤΠΥ (εκτίμηση)</span><div class="value">${fmtEuro(detail.mtpy)}</div></div>
       <div class="card"><span class="muted">Σύνολο μικτής σύνταξης</span><div class="value green">${fmtEuro(detail.gross)}</div></div>
-      <div class="card"><span class="muted">Καθαρή μετά τις ασφαλιστικές κρατήσεις</span><div class="value purple">${fmtEuro(detail.net)}</div><small class="muted">Υπολογίζεται μετά την κράτηση περίθαλψης 6%, χωρίς αφαίρεση φόρου εισοδήματος. Η εφαρμογή δεν εκτιμά το ποσό της μηνιαίας φορολογικής παρακράτησης.</small></div>
+      <div class="card"><span class="muted">Μηνιαίος φόρος εισοδήματος 2026</span><div class="value">${fmtEuro(detail.tax)}</div><small class="muted">Ετήσιος φόρος: ${fmtEuro(detail.annualTax)} • 12 μηνιαίες καταβολές • τέκνα Προφίλ</small></div><div class="card"><span class="muted">Εκτιμώμενη καθαρή σύνταξη μετά φόρου</span><div class="value purple">${fmtEuro(detail.net)}</div><small class="muted">Μικτή σύνταξη − υγειονομική κράτηση 6% − εκτιμώμενος φόρος εισοδήματος.</small></div>
     </div>
-    <div class="notice">Τα ποσά εμφανίζονται μόνο όταν πληρούται η αντίστοιχη προϋπόθεση του σεναρίου. Η καθαρή εκτίμηση της εφαρμογής αφορά τις ασφαλιστικές κρατήσεις και δεν αφαιρεί φόρο εισοδήματος.</div>`;
+    <div class="notice">Τα ποσά εμφανίζονται μόνο όταν πληρούται η αντίστοιχη προϋπόθεση του σεναρίου. Η φορολογική εκτίμηση είναι ενδεικτική και μπορεί να διαφέρει αν υπάρχουν άλλα εισοδήματα, περισσότερες από μία συντάξεις ή ειδικές φορολογικές εκπτώσεις.</div>`;
 }
 function syncPensionProfile(){
   const appointment=(document.getElementById('profAppointment')?.value || localStorage.getItem('yefkk_profAppointment') || '');
@@ -2326,11 +2573,13 @@ function lawJump(id){ const e=document.getElementById(id); if(e){ e.scrollIntoVi
 <p class="muted">Εγκατάσταση στην αρχική οθόνη σαν κανονική εφαρμογή.</p>
 <button class="primary" hidden="" id="installAppBtn" type="button">📲 Εγκατάσταση</button><button class="secondary" id="printAppBtn" style="width:100%;margin-top:10px" type="button">🖨️ Εκτύπωση / Αποθήκευση PDF</button>
 <div class="muted" id="installHelp" style="margin-top:10px;font-size:12px">
-    Η εγκατάσταση εμφανίζεται όταν η εφαρμογή ανοίγει από ασφαλή σύνδεση (HTTPS).
+    Για Android: άνοιξε την εφαρμογή από Chrome και επίλεξε «Εγκατάσταση».
+    Για iPhone: άνοιξε τη σελίδα από Safari → Κοινή χρήση → «Προσθήκη στην οθόνη Αφετηρίας».
+    Απαιτείται δημοσίευση της εφαρμογής σε ασφαλή σύνδεση HTTPS.
   </div>
 </div>
 <script>
-/* V4.21 — Install as app + Print / Save as PDF */
+/* V5.36 — PWA install + Print / Save as PDF */
 (function(){
   let deferredInstallPrompt = null;
   const installBtn = document.getElementById('installAppBtn');
@@ -2418,7 +2667,7 @@ function lawJump(id){ const e=document.getElementById(id); if(e){ e.scrollIntoVi
     window.print();
   });
 
-  // Register the offline service worker only from a supported web origin.
+  // V5.36: Register offline support only from HTTPS or localhost.
   if('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')){
     window.addEventListener('load', function(){
       navigator.serviceWorker.register('./sw.js').catch(function(err){
@@ -2548,8 +2797,16 @@ document.addEventListener('click', function(e){
    // Οι ημέρες προ διορισμού αθροίζονται ανά εγγραφή (και τύπος 99),
    // επειδή ορισμένες εγγραφές καλύπτουν πολλούς μήνες και δεν πρέπει να
    // μετατρέπονται σε έναν μήνα ούτε να περικόπτονται με όριο 25 ημερών.
-   const appointment=localStorage.getItem('yefkk_profAppointment');let preDays=0;
-   if(appointment){const ap=new Date(appointment+'T00:00:00');for(const r of timeRows){const [dd,mm,yy]=r.to.split('/').map(Number);const end=new Date(yy,mm-1,dd,23,59,59);if(end<ap)preDays+=Number(r.days)||0;}}
+   const appointment=localStorage.getItem('yefkk_profAppointment') || $('profAppointment')?.value || '';let preDays=0;
+   if(appointment){
+    const ap=new Date(appointment+'T00:00:00');
+    for(const r of timeRows){
+     const [dd,mm,yy]=r.to.split('/').map(Number);
+     if(!dd||!mm||!yy) continue;
+     const end=new Date(yy,mm-1,dd,23,59,59);
+     if(end<ap) preDays+=Number(r.days)||0;
+    }
+   }
    const cleaned={};for(const [k,v] of Object.entries(monthly)){cleaned[k]={gross:v.hasEuro?Number(v.gross.toFixed(2)):0,days:v.days};}
    window.atlasPensionMonthly=cleaned;window.atlasPreAppointmentDays=preDays;
    const summary={monthly:cleaned,preDays,records:timeRows.length,earningsRecords:rows.length,pages:pdf.numPages,allMonths:Object.keys(cleaned).length};
@@ -2559,7 +2816,14 @@ document.addEventListener('click', function(e){
  });
  function showAtlasSummary(data){
   const months=Object.keys(data.monthly||{}).sort();const real=months.filter(k=>k>='2002-01'&&Number(data.monthly[k].gross)>0);
-  $('pAtlasPreDays').textContent=String(data.preDays||0);$('pAtlasRealMonths').textContent=String(real.length);
+  $('pAtlasPreDays').textContent=String(data.preDays||0);
+  const profileOtherDays=Number($('profOtherDays')?.value)||0;
+  const atlasToggle=$('pAtlasIncludeDays');
+  if(atlasToggle){
+   atlasToggle.checked=(Number(data.preDays)||0)>0 && profileOtherDays<=0;
+   localStorage.setItem('yefkk_atlasIncludeDays',atlasToggle.checked?'1':'0');
+  }
+  $('pAtlasRealMonths').textContent=String(real.length);
   $('pAtlasStatus').textContent=`Αναγνωρίστηκαν ${data.records||0} εγγραφές κύριας ασφάλισης σε ${data.pages||'—'} σελίδες. Τα δεδομένα ΑΤΛΑΣ αποθηκεύτηκαν στη συσκευή για τον υπολογισμό.`;
   const view=months.slice().reverse();$('pAtlasPreview').innerHTML=view.map(k=>`<tr><td>${k}</td><td>${data.monthly[k].days||0}</td><td>${data.monthly[k].gross?fmtEuro(data.monthly[k].gross):'—'}</td><td>${Number(data.monthly[k].gross)>0?'ΑΤΛΑΣ':'Χρόνος ΑΤΛΑΣ'}</td></tr>`).join('')||'<tr><td colspan="4">Δεν υπάρχουν μηνιαίες εγγραφές.</td></tr>';
  }
@@ -2589,6 +2853,56 @@ document.addEventListener('click', function(e){
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',forceAtlasDark,{once:true});
 })();
 </script>
+
+<script id="v531-atlas-checkbox-interaction-fix">
+(function(){
+  function updateAtlasDuplicateGuard(autoEnable){
+    const profileDays=document.getElementById('profOtherDays');
+    const atlasToggle=document.getElementById('pAtlasIncludeDays');
+    if(!profileDays || !atlasToggle) return;
+    const hasProfileOtherDays=(Number(profileDays.value)||0)>0;
+    if(hasProfileOtherDays){
+      atlasToggle.checked=false;
+      atlasToggle.disabled=true;
+      atlasToggle.title='Απενεργοποιήθηκε για να μην υπολογιστεί διπλά ο χρόνος άλλων ταμείων.';
+      localStorage.setItem('yefkk_atlasIncludeDays','0');
+    }else{
+      atlasToggle.disabled=false;
+      atlasToggle.title='';
+      // Αυτόματη ενεργοποίηση μόνο όταν αλλάζει το Προφίλ ή κατά την αρχική φόρτωση.
+      // Δεν ξανατσεκάρουμε το checkbox σε κάθε change, ώστε ο χρήστης να μπορεί να το αλλάζει.
+      if(autoEnable){
+        let savedAtlas=null;
+        try{savedAtlas=JSON.parse(localStorage.getItem('yefkk_atlasPensionData')||'null')}catch(e){}
+        if(savedAtlas && Number(savedAtlas.preDays)>0){
+          atlasToggle.checked=true;
+          localStorage.setItem('yefkk_atlasIncludeDays','1');
+        }
+      }
+    }
+    try{ if(typeof calculatePension==='function') calculatePension(); }catch(e){}
+  }
+
+  document.addEventListener('DOMContentLoaded',function(){
+    const profileDays=document.getElementById('profOtherDays');
+    const atlasToggle=document.getElementById('pAtlasIncludeDays');
+    profileDays?.addEventListener('input',()=>updateAtlasDuplicateGuard(true));
+    profileDays?.addEventListener('change',()=>updateAtlasDuplicateGuard(true));
+    atlasToggle?.addEventListener('change',function(){
+      if((Number(profileDays?.value)||0)>0){
+        atlasToggle.checked=false;
+        localStorage.setItem('yefkk_atlasIncludeDays','0');
+      }else{
+        localStorage.setItem('yefkk_atlasIncludeDays',atlasToggle.checked?'1':'0');
+      }
+      updateAtlasDuplicateGuard(false);
+    });
+    updateAtlasDuplicateGuard(true);
+  },{once:true});
+})();
+</script>
+
+<script>document.addEventListener('DOMContentLoaded',bindAdditionalBenefits);</script>
 </body>
 </html>
 <script>
