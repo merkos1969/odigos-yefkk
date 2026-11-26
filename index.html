@@ -4,15 +4,23 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="#17364b" name="theme-color"/>
-<title>Υπολογιστής Μίδας Υπαλλήλων Εξωτερικής Φρούρησης — V5.35</title>
+<meta content="#071525" name="theme-color"/>
+<meta name="description" content="Υπολογιστής Μίδας Υπαλλήλων Εξωτερικής Φρούρησης — μισθοδοσία και συνταξιοδοτικές εκτιμήσεις."/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="ΥΕΦΚΚ Μίδας"/>
+<link rel="apple-touch-icon" sizes="180x180" href="./icons/icon-180.png"/>
+<link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png"/>
+<link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512.png"/>
+<title>Υπολογιστής Μίδας Υπαλλήλων Εξωτερικής Φρούρησης — V5.36</title>
 
 
 
 
 
 
-<link href="manifest.json" rel="manifest"/>
+<link href="./manifest.json" rel="manifest"/>
 
 
 
@@ -2440,11 +2448,13 @@ function lawJump(id){ const e=document.getElementById(id); if(e){ e.scrollIntoVi
 <p class="muted">Εγκατάσταση στην αρχική οθόνη σαν κανονική εφαρμογή.</p>
 <button class="primary" hidden="" id="installAppBtn" type="button">📲 Εγκατάσταση</button><button class="secondary" id="printAppBtn" style="width:100%;margin-top:10px" type="button">🖨️ Εκτύπωση / Αποθήκευση PDF</button>
 <div class="muted" id="installHelp" style="margin-top:10px;font-size:12px">
-    Η εγκατάσταση εμφανίζεται όταν η εφαρμογή ανοίγει από ασφαλή σύνδεση (HTTPS).
+    Για Android: άνοιξε την εφαρμογή από Chrome και επίλεξε «Εγκατάσταση».
+    Για iPhone: άνοιξε τη σελίδα από Safari → Κοινή χρήση → «Προσθήκη στην οθόνη Αφετηρίας».
+    Απαιτείται δημοσίευση της εφαρμογής σε ασφαλή σύνδεση HTTPS.
   </div>
 </div>
 <script>
-/* V4.21 — Install as app + Print / Save as PDF */
+/* V5.36 — PWA install + Print / Save as PDF */
 (function(){
   let deferredInstallPrompt = null;
   const installBtn = document.getElementById('installAppBtn');
@@ -2532,7 +2542,7 @@ function lawJump(id){ const e=document.getElementById(id); if(e){ e.scrollIntoVi
     window.print();
   });
 
-  // Register the offline service worker only from a supported web origin.
+  // V5.36: Register offline support only from HTTPS or localhost.
   if('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')){
     window.addEventListener('load', function(){
       navigator.serviceWorker.register('./sw.js').catch(function(err){
