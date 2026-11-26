@@ -1,5 +1,5 @@
-/* ΥΕΦΚΚ Μίδας — V5.36 offline shell */
-const CACHE_NAME = "yefkk-midas-v5-36";
+/* ΥΕΦΚΚ Μίδας — V5.38 offline shell */
+const CACHE_NAME = "yefkk-midas-v5-38";
 const CORE_ASSETS = [
   "./",
   "./index.html",

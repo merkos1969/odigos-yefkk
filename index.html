@@ -13,7 +13,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./icon-180.png"/>
 <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png"/>
 <link rel="icon" type="image/png" sizes="512x512" href="./icon-512.png"/>
-<title>Υπολογιστής Μίδας Υπαλλήλων Εξωτερικής Φρούρησης — V5.36</title>
+<title>Υπολογιστής Μίδας Υπαλλήλων Εξωτερικής Φρούρησης — V5.38</title>
 
 
 
@@ -190,14 +190,31 @@ tr:nth-child(even) td{background:rgba(7,21,37,.035)}
  table{font-size:12px}th,td{padding:8px 7px;white-space:nowrap}
  .page>h1{font-size:29px}.page>h2{font-size:24px}
 }
+#printStatement{display:none!important}
 @media print{
+ #printStatement{display:block!important}
  @page{size:A4 landscape;margin:10mm}
  body{background:#fff!important;color:#071525!important}.side,.top,.sideOverlay,.menuToggle{display:none!important}
  .app,.main{display:block!important;margin:0!important;padding:0!important;width:100%!important;background:#fff!important}
  .page{display:none!important}.page.printing,.printArea{display:block!important}
  .card,.section,.tableWrap{box-shadow:none!important;break-inside:avoid}
 }
-</style></head>
+</style>
+<style id="v538-insurance-table-buttons-fix">
+/* V5.38: insurance deduction table stays inside the mobile card and can scroll horizontally */
+.insurance-table-wrap{width:100%;max-width:100%;min-width:0;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior-inline:contain;border:1.5px solid var(--gold);border-radius:14px;background:var(--white);}
+.insurance-breakdown-table{width:100%;min-width:590px;border-collapse:collapse;table-layout:auto;font-size:14px;}
+.insurance-breakdown-table th,.insurance-breakdown-table td{white-space:nowrap;padding:10px 11px;}
+.insurance-breakdown-table th:first-child,.insurance-breakdown-table td:first-child{white-space:normal;min-width:145px;}
+/* The selected insurance regime is visibly highlighted; overrides the generic button theme. */
+button[data-insurance-choice][aria-pressed="true"]{background:linear-gradient(135deg,#e7bd55,#f3d98c)!important;color:#071525!important;border:2px solid #b88b2c!important;box-shadow:0 0 0 3px rgba(231,189,85,.24),0 5px 14px rgba(7,21,37,.16)!important;transform:translateY(-1px);}
+button[data-insurance-choice][aria-pressed="false"]{background:#ffffff!important;color:#071525!important;border:2px solid #d9b95d!important;box-shadow:none!important;}
+button[data-insurance-choice]:active{filter:brightness(.94);transform:scale(.985);}
+button[data-insurance-choice]:focus-visible{outline:3px solid rgba(231,189,85,.55)!important;outline-offset:3px;}
+@media(max-width:520px){.insurance-breakdown-table{font-size:13px}.insurance-breakdown-table th,.insurance-breakdown-table td{padding:9px 10px}}
+</style>
+
+</head>
 <body>
 <div aria-hidden="true" id="printStatement">
 <div class="psPage" id="psSalaryPage"></div>
